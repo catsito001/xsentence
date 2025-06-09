@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inglés práctico por frases</title>
+  <!-- Font Awesome para íconos -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    /* ================= Reset básico ================= */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 16px;
+    }
+    body {
+      background-color: #2f2f2f;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    /* ================= Contenedor principal ================= */
+    .container {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ================= Estilos globales de botón ================= */
+    button {
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.1s ease, box-shadow 0.2s ease;
+    }
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    }
+
+    /* ========== Barra de niveles ========== */
+    .level-bar {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .level-bar button {
+      flex: 1 1 auto;
+      font-size: 0.95rem;
+      padding: 0.6rem 1rem;
+      background: linear-gradient(135deg, #17a2b8 0%, #117a8b 100%);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    .level-bar button.active {
+      background: linear-gradient(135deg, #138496 0%, #0f6674 100%);
+    }
+
+    /* ================ Lista de temas ================ */
+    .topics-container {
+      display: grid;
+      gap: 0.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    .topics-container button {
+      font-size: 0.95rem;
+      padding: 0.7rem 1rem;
+      background: linear-gradient(135deg, #fd7e14 0%, #e8590c 100%);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    .topics-container button:hover {
+      background: linear-gradient(135deg, #e8590c 0%, #c8470a 100%);
+    }
+
+    /* ================ Vista de frase ================ */
+    .sentence-view {
+      display: none; /* oculta por defecto */
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      position: relative;
+      padding-top: 4rem; /* espacio para top-controls */
+    }
+    .sentence-view.active {
+      display: flex;
+    }
+
+    /* ================= Controles superiores ================= */
+    .top-controls {
+      display: flex;
+      gap: 0.5rem;
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+      z-index: 10;
+    }
+    .top-controls button {
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+      background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    .top-controls button:hover {
+      background: linear-gradient(135deg, #5a6268 0%, #4e555b 100%);
+    }
+
+    /* ================= Texto Anterior Probable ================= */
+    .previous-container {
+      width: 100%;
+      background-color: #3b3b3b;
+      border: 2px solid #4a4a4a;
+      border-radius: 6px;
+      text-align: center;
+      padding: 0.5rem;
+    }
+    .previous-text {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+    .previous-translation {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    /* ================ Contenedor de imágenes ================ */
+    .sentence-image {
+      width: 100%;
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 0.1rem;
+    }
+    .sentence-image .img-item {
+      flex: 1 1 calc(33.333% - 0.5rem);
+      max-width: calc(33.333% - 0.5rem);
+      background-color: #4a4a4a;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+    }
+    .sentence-image .img-item .inner {
+      position: relative;
+      width: 100%;
+      padding-top: 75%; /* 4:3 ratio */
+    }
+    .sentence-image .img-item .spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.5rem;
+      color: #888;
+      animation: spin 1s linear infinite;
+      z-index: 1;
+    }
+    @keyframes spin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    .sentence-image .no-images {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #aaa;
+      font-size: 0.9rem;
+      padding: 1rem;
+      text-align: center;
+    }
+    .sentence-image .img-item img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    /* ================ Frase y palabras ================= */
+    .sentence-phrase {
+      width: 100%;
+      background-color: #3b3b3b;
+      border: 2px solid #4a4a4a;
+      border-radius: 6px;
+      padding: 0.5rem;
+    }
+    .sentence-phrase h2 {
+      text-align: center;
+      margin-bottom: 0.6rem;
+      font-size: 1.4rem;
+      letter-spacing: 0.4px;
+    }
+    .words-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      justify-content: center;
+    }
+    .word-box {
+      background-color: #2e2e2e;
+      border: 2px solid #4a4a4a;
+      border-radius: 6px;
+      padding: 0.4rem;
+      text-align: center;
+      word-wrap: break-word;
+      flex: 0 1 auto;
+    }
+    .word-box .english {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      line-height: 1.1;
+      word-wrap: break-word;
+    }
+    .word-box .pronunciation {
+      font-size: 1.2rem;
+      color: #a0a0a0;
+      margin-bottom: 0.1rem;
+    }
+    .word-box .espanol {
+      font-size: 0.9rem;
+      color: #a0a0a0;
+      margin-bottom: 0.1rem;
+    }
+    .word-box .part-of-speech {
+      font-size: 0.8rem;
+      color: #ccc;
+    }
+
+    /* ================ Botones de navegación ================= */
+    .actions-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .actions-row button {
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    .actions-row button:hover {
+      background: linear-gradient(135deg, #0056b3 0%, #00408d 100%);
+    }
+
+    /* ================ Botones de actividades ================= */
+    .activity-buttons {
+      width: 100%;
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 0.4rem;
+    }
+    .activity-buttons button {
+      flex: 1 1 30%;
+      min-width: 100px;
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: linear-gradient(135deg, #866eb4 0%, #633e86 100%);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    .activity-buttons button:hover {
+      background: linear-gradient(135deg, #551a8b 0%, #3f0d6f 100%);
+    }
+
+    /* ================= Modal de Gramática ================= */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 1rem;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-content {
+      background-color: #3b3b3b;
+      padding: 1rem;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 500px;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    .modal-content h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .modal-close {
+      position: absolute;
+      top: 0.4rem;
+      right: 0.4rem;
+      background: none;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    /* ================= Pie de página ================= */
+    footer.footer {
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #888;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #444;
+    }
+
+    /* ================= Media Queries ================= */
+    @media (max-width: 480px) {
+      .sentence-image .img-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+      .activity-buttons button {
+        flex: 1 1 calc(40% - 0.5rem);
+      }
+    }
+    @media (min-width: 480px) {
+      .sentence-phrase h2 {
+        font-size: 1.4rem;
+      }
+      .word-box {
+        min-width: 100px;
+      }
+      .actions-row button {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
+    @media (min-width: 640px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .level-bar button {
+        font-size: 1.05rem;
+        padding: 0.6rem 1.2rem;
+      }
+      .topics-container {
+        gap: 0.75rem;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      }
+      .sentence-phrase h2 {
+        font-size: 1.6rem;
+      }
+      .actions-row button {
+        font-size: 1.1rem;
+        padding: 0.7rem 1.4rem;
+      }
+      footer.footer {
+        font-size: 0.8rem;
+        margin-top: 2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="main-title">Inglés práctico por frases</h1>
+
+    <div class="level-bar" id="level-bar">
+      <button data-level="fundamental" class="active">Fundamental</button>
+      <button data-level="basic">Básico</button>
+      <button data-level="intermediate">Intermedio</button>
+      <button data-level="advanced">Avanzado</button>
+    </div>
+
+    <div class="topics-container" id="topics-container"></div>
+
+    <div class="sentence-view" id="sentence-view">
+      <!-- Controles superiores: "Volver a Temas" y "Ver Gramática" -->
+      <div class="top-controls">
+        <button class="btn-back-topics" id="btn-back-topics">
+          ← Volver a Temas
+        </button>
+        <button id="btn-view-grammar">
+          <i class="fa-solid fa-book"></i> Ver Gramática
+        </button>
+      </div>
+
+      <!-- Texto anterior probable y su traducción -->
+      <div class="previous-container">
+        <div id="previous-text" class="previous-text"></div>
+        <div id="previous-translation" class="previous-translation"></div>
+      </div>
+
+      <!-- Contenedor de 3 imágenes (responsive) -->
+      <div class="sentence-image" id="sentence-image">
+        <!-- Aquí JavaScript inyectará .img-item -->
+      </div>
+
+      <!-- Frase y palabras -->
+      <div class="sentence-phrase">
+        <h2 id="sentence-title">Título de la frase</h2>
+        <div class="words-grid" id="words-grid"></div>
+      </div>
+
+      <!-- Botones de navegación -->
+      <div class="actions-row">
+        <button id="btn-prev">
+          <i class="fa-solid fa-arrow-left"></i> Previous
+        </button>
+        <button id="btn-play">
+          <i class="fa-solid fa-play"></i> Play
+        </button>
+        <button id="btn-next">
+          Next <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+      <!-- Botones de actividades -->
+      <div class="activity-buttons">
+        <button id="actividad-1">Actividad 1</button>
+        <button id="actividad-2">Actividad 2</button>
+        <button id="actividad-3">Actividad 3</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Gramática -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="footer">Diseñado profesionalmente – © 2025</footer>
+
+  <script>
+    (function () {
+      const WORKER_BASE = "https://sentences.saturninocok.workers.dev";
+      const PEXELS_API_KEY = "aV5EuNmfMhHpLQYMjCOQp6YWmU6RAF5M6at5jDTRpe0pLwxk1SZzPhSC";
+
+      let currentLevel = "fundamental";
+      let allData = [];
+      let temasUnicos = [];
+      let sentencesOfCurrentTopic = [];
+      let currentSentenceIndex = 0;
+
+      const mainTitle = document.getElementById("main-title");
+      const levelBar = document.getElementById("level-bar");
+      const levelButtons = document.querySelectorAll(".level-bar button");
+      const topicsContainer = document.getElementById("topics-container");
+      const sentenceView = document.getElementById("sentence-view");
+      const sentenceImage = document.getElementById("sentence-image");
+      const previousText = document.getElementById("previous-text");
+      const previousTranslation = document.getElementById("previous-translation");
+      const sentenceTitle = document.getElementById("sentence-title");
+      const wordsGrid = document.getElementById("words-grid");
+      const btnViewGrammar = document.getElementById("btn-view-grammar");
+      const btnPrev = document.getElementById("btn-prev");
+      const btnNext = document.getElementById("btn-next");
+      const btnPlay = document.getElementById("btn-play");
+      const btnBackTopics = document.getElementById("btn-back-topics");
+      const actividad1 = document.getElementById("actividad-1");
+      const actividad2 = document.getElementById("actividad-2");
+      const actividad3 = document.getElementById("actividad-3");
+      const modalOverlay = document.getElementById("modal-overlay");
+      const modalBody = document.getElementById("modal-body");
+      const modalClose = document.getElementById("modal-close");
+
+      document.addEventListener("DOMContentLoaded", () => {
+        fetchDataForLevel("fundamental");
+      });
+
+      function switchLevel(level) {
+        currentLevel = level;
+        levelButtons.forEach((btn) => {
+          if (btn.dataset.level === level) btn.classList.add("active");
+          else btn.classList.remove("active");
+        });
+        hideSentenceView();
+        fetchDataForLevel(level);
+      }
+
+      async function fetchDataForLevel(level) {
+        try {
+          const resp = await fetch(`${WORKER_BASE}/${level}`, {
+            method: "GET",
+            mode: "cors",
+          });
+          if (!resp.ok) throw new Error("No se obtuvo data");
+          const text = await resp.text();
+          allData = JSON.parse(text);
+          const temasSet = new Set(allData.map((item) => item.tema));
+          temasUnicos = Array.from(temasSet);
+          renderTopicsList();
+        } catch (err) {
+          console.error("Error cargando data:", err);
+          topicsContainer.innerHTML =
+            '<p style="color:#faa">No se pudo cargar los temas.</p>';
+        }
+      }
+
+      function renderTopicsList() {
+        topicsContainer.innerHTML = "";
+        if (temasUnicos.length === 0) {
+          topicsContainer.innerHTML =
+            '<p style="color:#ccc">No hay temas disponibles.</p>';
+          return;
+        }
+        temasUnicos.forEach((tema) => {
+          const btn = document.createElement("button");
+          btn.textContent = tema;
+          btn.addEventListener("click", () => selectTopic(tema));
+          topicsContainer.appendChild(btn);
+        });
+      }
+
+      function selectTopic(tema) {
+        mainTitle.style.display = "none";
+        levelBar.style.display = "none";
+        topicsContainer.style.display = "none";
+        sentencesOfCurrentTopic = allData.filter(
+          (item) => item.tema === tema
+        );
+        currentSentenceIndex = 0;
+        sentenceView.classList.add("active");
+        renderCurrentSentence();
+      }
+
+      async function renderCurrentSentence() {
+        const data = sentencesOfCurrentTopic[currentSentenceIndex];
+        if (!data) return;
+        previousText.textContent = data.anterior_probable || "";
+        previousTranslation.textContent =
+          data.traduccion_anterior_probable || "";
+        sentenceTitle.textContent = data.oracion.espanol;
+        wordsGrid.innerHTML = "";
+        data.oracion.palabras.forEach((wordObj) => {
+          const box = document.createElement("div");
+          box.className = "word-box";
+          box.innerHTML = `
+            <div class="english">${wordObj.ingles}</div>
+            <div class="pronunciation">${wordObj.pronunciacion}</div>
+            <div class="espanol">${wordObj.espanol}</div>
+            <div class="part-of-speech">${wordObj.tipo}</div>
+          `;
+          wordsGrid.appendChild(box);
+        });
+        const tags = data.imagenes || [];
+        await fetchAndDisplayImages(tags);
+      }
+
+      async function fetchAndDisplayImages(tags) {
+        sentenceImage.innerHTML = "";
+        if (!tags.length) {
+          const noImg = document.createElement("div");
+          noImg.className = "no-images";
+          noImg.textContent = "No se proporcionaron etiquetas de imagen.";
+          sentenceImage.appendChild(noImg);
+          return;
+        }
+        const maxCount = Math.min(tags.length, 3);
+        for (let i = 0; i < maxCount; i++) {
+          const tag = tags[i];
+          const div = document.createElement("div");
+          div.className = "img-item";
+          const inner = document.createElement("div");
+          inner.className = "inner";
+          const spinner = document.createElement("i");
+          spinner.className = "fa-solid fa-spinner spinner";
+          inner.appendChild(spinner);
+          div.appendChild(inner);
+          sentenceImage.appendChild(div);
+
+          const tempImg = new Image();
+          tempImg.alt = tag;
+          tempImg.onload = () => {
+            const img = document.createElement("img");
+            img.src = tempImg.src;
+            img.alt = tempImg.alt;
+            inner.appendChild(img);
+            spinner.remove();
+            img.style.display = "block";
+          };
+          tempImg.onerror = () => {
+            spinner.remove();
+            inner.innerHTML = `<div class="no-images">Sin imagen para "${tag}"</div>`;
+          };
+
+          try {
+            const resp = await fetch(
+              `https://api.pexels.com/v1/search?query=${encodeURIComponent(tag)}&per_page=1`,
+              {
+                headers: {
+                  Authorization: PEXELS_API_KEY,
+                },
+              }
+            );
+            if (!resp.ok) throw new Error("No se obtuvieron imágenes");
+            const json = await resp.json();
+            const photo = json.photos[0];
+            if (photo && photo.src) {
+              tempImg.src = photo.src.medium;
+            } else {
+              spinner.remove();
+              inner.innerHTML = `<div class="no-images">Sin imagen para "${tag}"</div>`;
+            }
+          } catch (err) {
+            console.error(`Error cargando imagen para "${tag}":`, err);
+            spinner.remove();
+            inner.innerHTML = `<div class="no-images">Error al cargar imagen de "${tag}"</div>`;
+          }
+        }
+
+        for (let j = maxCount; j < 3; j++) {
+          const emptyDiv = document.createElement("div");
+          emptyDiv.className = "img-item";
+          const innerEmpty = document.createElement("div");
+          innerEmpty.className = "inner";
+          innerEmpty.innerHTML = `<div class="no-images">Sin etiqueta</div>`;
+          emptyDiv.appendChild(innerEmpty);
+          sentenceImage.appendChild(emptyDiv);
+        }
+      }
+
+      function hideSentenceView() {
+        sentenceView.classList.remove("active");
+        mainTitle.style.display = "block";
+        levelBar.style.display = "flex";
+        topicsContainer.style.display = "grid";
+      }
+
+      function goToPreviousSentence() {
+        if (currentSentenceIndex > 0) {
+          currentSentenceIndex--;
+          renderCurrentSentence();
+        }
+      }
+
+      function goToNextSentence() {
+        if (currentSentenceIndex < sentencesOfCurrentTopic.length - 1) {
+          currentSentenceIndex++;
+          renderCurrentSentence();
+        }
+      }
+
+      function playAudioPlaceholder() {
+        const data = sentencesOfCurrentTopic[currentSentenceIndex];
+        if (!data) return;
+        const phraseIngles = data.oracion.palabras
+          .map((w) => w.ingles)
+          .join(" ");
+        console.log("▶️ Play TTS de:", phraseIngles);
+      }
+
+      function openGrammarModal() {
+        const data = sentencesOfCurrentTopic[currentSentenceIndex];
+        if (!data) return;
+        modalBody.innerHTML = data.grammar;
+        modalOverlay.classList.add("active");
+      }
+
+      function closeGrammarModal() {
+        modalOverlay.classList.remove("active");
+      }
+
+      levelButtons.forEach((btn) => {
+        btn.addEventListener("click", () =>
+          switchLevel(btn.dataset.level)
+        );
+      });
+      btnPrev.addEventListener("click", goToPreviousSentence);
+      btnNext.addEventListener("click", goToNextSentence);
+      btnPlay.addEventListener("click", playAudioPlaceholder);
+      btnViewGrammar.addEventListener("click", openGrammarModal);
+      btnBackTopics.addEventListener("click", hideSentenceView);
+
+      actividad1.addEventListener("click", () => {
+        console.log("Actividad 1: completar palabras faltantes");
+      });
+      actividad2.addEventListener("click", () => {
+        console.log("Actividad 2: completar letras faltantes");
+      });
+      actividad3.addEventListener("click", () => {
+        console.log("Actividad 3: ordenar palabras");
+      });
+
+      modalClose.addEventListener("click", closeGrammarModal);
+      modalOverlay.addEventListener("click", (ev) => {
+        if (ev.target === modalOverlay) closeGrammarModal();
+      });
+    })();
+  </script>
+</body>
+</html>

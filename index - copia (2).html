@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inglés práctico por frases</title>
+
+  <!-- Font Awesome para íconos -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* ================= Reset básico ================= */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: #2f2f2f;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    /* ================ Contenedor principal ================ */
+    .container {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ========== Barra de niveles ========== */
+    .level-bar {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .level-bar button {
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background-color: #4a4a4a;
+      color: #ddd;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      flex: 1 1 auto;
+      text-align: center;
+    }
+    .level-bar button.active {
+      background-color: #1e90ff;
+      color: #fff;
+    }
+    .level-bar button:hover:not(.active) {
+      background-color: #3b3b3b;
+    }
+
+    /* ================ Lista de temas ================ */
+    .topics-container {
+      display: grid;
+      gap: 0.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    .topics-container button {
+      background-color: #3b3b3b;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      color: #f0f0f0;
+      transition: background-color 0.2s ease;
+      text-align: center;
+      word-break: break-word;
+    }
+    .topics-container button:hover {
+      background-color: #575757;
+    }
+
+    /* ================ Vista de frase ================ */
+    .sentence-view {
+      display: none; /* oculta por defecto */
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+    .sentence-view.active {
+      display: flex;
+    }
+
+    /* Placeholder de imagen */
+    .sentence-image {
+      width: 100%;
+      height: 180px;
+      background-color: #4a4a4a;
+      border-radius: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 0.8rem;
+    }
+
+    /* Contenedor de la frase y las palabras */
+    .sentence-phrase {
+      width: 100%;
+      background-color: #3b3b3b;
+      border: 2px solid #4a4a4a;
+      border-radius: 6px;
+      padding: 5px;
+    }
+    .sentence-phrase h2 {
+      text-align: center;
+      margin-bottom: 0.6rem;
+      font-size: 1.2rem;
+      letter-spacing: 0.4px;
+    }
+
+    /* Flex en lugar de grid para que las palabras bajen de línea si no caben */
+    .words-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+      justify-content: center;
+    }
+    .word-box { 
+      background-color: #2e2e2e;
+      border: 2px solid #4a4a4a;
+      border-radius: 6px;
+      padding: 0.3rem 0.3rem;
+      text-align: center;
+      word-wrap: break-word;
+      /* Mínimo ancho para no quedar demasiado estrecho */
+     
+      /* Ajuste vertical: si una palabra grande ocupa 2 líneas, el flex container crecerá */
+      flex: 0 1 auto;
+    }
+    .word-box .english {
+      font-size: 2rem;   /* tamaño grande */
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      line-height: 1.1;
+      word-wrap: break-word;
+    }
+    .word-box .pronunciation {
+      font-size: 1.2rem;
+      color: #a0a0a0;
+      margin-bottom: 0.1rem;
+    }
+      .word-box .espanol {
+      font-size: 0.8rem;
+      color: #a0a0a0;
+      margin-bottom: 0.1rem;
+    }
+    .word-box .part-of-speech {
+      font-size: 0.75rem;
+      color: #ccc;
+    }
+
+    /* Botones de acción */
+    .actions-row {
+      display: flex;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .actions-row button {
+      background-color: #1e90ff;
+      color: #fff;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background-color 0.2s ease;
+      flex: 1 1 auto;
+      justify-content: center;
+    }
+    .actions-row button:hover {
+      background-color: #187bcd;
+    }
+
+    /* Botón Volver a Temas */
+    .btn-back-topics {
+      margin-top: 0.6rem;
+      background-color: #ff5c5c;
+      color: #fff;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      flex: 1 1 100%;
+      text-align: center;
+      transition: background-color 0.2s ease;
+    }
+    .btn-back-topics:hover {
+      background-color: #e04848;
+    }
+
+    /* Modal de Gramática */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 1rem;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-content {
+      background-color: #3b3b3b;
+      padding: 1rem;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 500px;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    .modal-content h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .modal-close {
+      position: absolute;
+      top: 0.4rem;
+      right: 0.4rem;
+      background: none;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    /* Pie de página */
+    footer.footer {
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #888;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #444;
+    }
+
+    /* ================ Media Queries ================ */
+    @media (min-width: 480px) {
+      .sentence-image {
+        height: 200px;
+      }
+      .sentence-phrase h2 {
+        font-size: 1.3rem;
+      }
+      .word-box {
+        min-width: 100px;
+      }
+      .actions-row button {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+      }
+      .btn-back-topics {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+
+    @media (min-width: 640px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      .level-bar button {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+      }
+      .topics-container {
+        gap: 0.75rem;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      }
+      .sentence-image {
+        height: 220px;
+      }
+      .sentence-phrase h2 {
+        font-size: 1.4rem;
+      }
+      .actions-row button {
+        font-size: 1.1rem;
+        padding: 0.6rem 1.2rem;
+      }
+      .btn-back-topics {
+        font-size: 1.1rem;
+        padding: 0.6rem 1.2rem;
+      }
+      footer.footer {
+        font-size: 0.8rem;
+        margin-top: 2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- 1) Título principal -->
+    <h1 id="main-title">Inglés práctico por frases</h1>
+
+    <!-- 2) Barra de niveles -->
+    <div class="level-bar" id="level-bar">
+      <button data-level="fundamental" class="active">Fundamental</button>
+      <button data-level="basic">Básico</button>
+      <button data-level="intermediate">Intermedio</button>
+      <button data-level="advanced">Avanzado</button>
+    </div>
+
+    <!-- 3) Lista de temas (botones) -->
+    <div class="topics-container" id="topics-container"></div>
+
+    <!-- 4) Vista de frase individual (oculta por defecto) -->
+    <div class="sentence-view" id="sentence-view">
+      <div class="sentence-image" id="sentence-image">Imagen</div>
+
+      <div class="sentence-phrase">
+        <h2 id="sentence-title">Título de la frase</h2>
+        <div class="words-grid" id="words-grid"></div>
+      </div>
+
+      <div class="actions-row">
+        <button id="btn-view-grammar">
+          <i class="fa-solid fa-book"></i> Ver gramática
+        </button>
+      </div>
+
+      <div class="actions-row">
+        <button id="btn-prev">
+          <i class="fa-solid fa-arrow-left"></i> Previous
+        </button>
+        <button id="btn-play">
+          <i class="fa-solid fa-play"></i> Play
+        </button>
+        <button id="btn-next">
+          Next <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+      <button class="btn-back-topics" id="btn-back-topics">
+        ← Volver a Temas
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal de Gramática -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    Diseñado profesionalmente – © 2025
+  </footer>
+
+  <script>
+    (function () {
+      // =========================
+      // VARIABLES GLOBALES
+      // =========================
+      const WORKER_BASE = "https://sentences.saturninocok.workers.dev";
+      let currentLevel = "fundamental";
+      let allData = [];
+      let temasUnicos = [];
+      let sentencesOfCurrentTopic = [];
+      let currentSentenceIndex = 0;
+
+      // Referencias a elementos DOM
+      const mainTitle = document.getElementById("main-title");
+      const levelBar = document.getElementById("level-bar");
+      const levelButtons = document.querySelectorAll(".level-bar button");
+      const topicsContainer = document.getElementById("topics-container");
+      const sentenceView = document.getElementById("sentence-view");
+      const sentenceImage = document.getElementById("sentence-image");
+      const sentenceTitle = document.getElementById("sentence-title");
+      const wordsGrid = document.getElementById("words-grid");
+      const btnViewGrammar = document.getElementById("btn-view-grammar");
+      const btnPrev = document.getElementById("btn-prev");
+      const btnNext = document.getElementById("btn-next");
+      const btnPlay = document.getElementById("btn-play");
+      const btnBackTopics = document.getElementById("btn-back-topics");
+      const modalOverlay = document.getElementById("modal-overlay");
+      const modalBody = document.getElementById("modal-body");
+      const modalClose = document.getElementById("modal-close");
+
+      // =========================
+      // INICIALIZACIÓN
+      // =========================
+      document.addEventListener("DOMContentLoaded", () => {
+        fetchDataForLevel("fundamental");
+      });
+
+      // =========================
+      // 1) Cambiar nivel
+      // =========================
+      function switchLevel(level) {
+        currentLevel = level;
+        levelButtons.forEach((btn) => {
+          if (btn.dataset.level === level) btn.classList.add("active");
+          else btn.classList.remove("active");
+        });
+        hideSentenceView();
+        fetchDataForLevel(level);
+      }
+
+      // =========================
+      // 2) Obtener data desde el Worker
+      // =========================
+      async function fetchDataForLevel(level) {
+        try {
+          const resp = await fetch(`${WORKER_BASE}/${level}`, {
+            method: "GET",
+            mode: "cors",
+          });
+          if (!resp.ok) throw new Error("No se obtuvo data");
+          const text = await resp.text();
+          allData = JSON.parse(text);
+
+          // Extraer temas únicos
+          const temasSet = new Set(allData.map((item) => item.tema));
+          temasUnicos = Array.from(temasSet);
+
+          renderTopicsList();
+        } catch (err) {
+          console.error("Error cargando data:", err);
+          topicsContainer.innerHTML =
+            '<p style="color:#faa">No se pudo cargar los temas.</p>';
+        }
+      }
+
+      // =========================
+      // 3) Renderizar lista de temas
+      // =========================
+      function renderTopicsList() {
+        topicsContainer.innerHTML = "";
+        if (temasUnicos.length === 0) {
+          topicsContainer.innerHTML =
+            '<p style="color:#ccc">No hay temas disponibles.</p>';
+          return;
+        }
+        temasUnicos.forEach((tema) => {
+          const btn = document.createElement("button");
+          btn.textContent = tema;
+          btn.addEventListener("click", () => selectTopic(tema));
+          topicsContainer.appendChild(btn);
+        });
+      }
+
+      // =========================
+      // 4) Cuando se elige un tema
+      // =========================
+      function selectTopic(tema) {
+        // Ocultar título, barra de niveles y lista de temas
+        mainTitle.style.display = "none";
+        levelBar.style.display = "none";
+        topicsContainer.style.display = "none";
+
+        // Filtrar oraciones de ese tema
+        sentencesOfCurrentTopic = allData.filter(
+          (item) => item.tema === tema
+        );
+        currentSentenceIndex = 0;
+
+        // Mostrar vista de frase
+        sentenceView.classList.add("active");
+        renderCurrentSentence();
+      }
+
+      // =========================
+      // 5) Renderizar la frase actual
+      // =========================
+      function renderCurrentSentence() {
+        const data = sentencesOfCurrentTopic[currentSentenceIndex];
+        if (!data) return;
+
+        // Placeholder de imagen
+        sentenceImage.textContent = "Imagen";
+
+        // Título de la frase en español
+        sentenceTitle.textContent = data.oracion.espanol;
+
+        // Grilla de palabras
+        wordsGrid.innerHTML = "";
+        data.oracion.palabras.forEach((wordObj) => {
+          const box = document.createElement("div");
+          box.className = "word-box";
+          box.innerHTML = `
+            <div class="english">${wordObj.ingles}</div>
+            <div class="pronunciation">${wordObj.pronunciacion}</div>
+            <div class="espanol">${wordObj.espanol}</div>
+            <div class="part-of-speech">${wordObj.tipo}</div>
+          `;
+          wordsGrid.appendChild(box);
+        });
+      }
+
+      // =========================
+      // 6) Ocultar vista de frase y volver a temas
+      // =========================
+      function hideSentenceView() {
+        // Ocultar contenedor de frase
+        sentenceView.classList.remove("active");
+
+        // Mostrar nuevamente el título, barra de niveles y lista de temas
+        mainTitle.style.display = "block";
+        levelBar.style.display = "flex";
+        topicsContainer.style.display = "grid";
+      }
+
+      // =========================
+      // 7) Navegar a frase anterior
+      // =========================
+      function goToPreviousSentence() {
+        if (currentSentenceIndex > 0) {
+          currentSentenceIndex--;
+          renderCurrentSentence();
+        }
+      }
+
+      // =========================
+      // 8) Navegar a frase siguiente
+      // =========================
+      function goToNextSentence() {
+        if (currentSentenceIndex < sentencesOfCurrentTopic.length - 1) {
+          currentSentenceIndex++;
+          renderCurrentSentence();
+        }
+      }
+
+      // =========================
+      // 9) Reproducir audio (placeholder)
+      // =========================
+      function playAudioPlaceholder() {
+        const data = sentencesOfCurrentTopic[currentSentenceIndex];
+        if (!data) return;
+        const phraseIngles = data.oracion.palabras
+          .map((w) => w.ingles)
+          .join(" ");
+        console.log("▶️ Play TTS de:", phraseIngles);
+      }
+
+      // =========================
+      // 10) Mostrar modal de gramática
+      // =========================
+      function openGrammarModal() {
+        const data = sentencesOfCurrentTopic[currentSentenceIndex];
+        if (!data) return;
+        modalBody.innerHTML = data.grammar;
+        modalOverlay.classList.add("active");
+      }
+
+      // =========================
+      // 11) Cerrar modal de gramática
+      // =========================
+      function closeGrammarModal() {
+        modalOverlay.classList.remove("active");
+      }
+
+      // =========================
+      // EVENTOS PRINCIPALES
+      // =========================
+      levelButtons.forEach((btn) => {
+        btn.addEventListener("click", () =>
+          switchLevel(btn.dataset.level)
+        );
+      });
+
+      btnPrev.addEventListener("click", goToPreviousSentence);
+      btnNext.addEventListener("click", goToNextSentence);
+      btnPlay.addEventListener("click", playAudioPlaceholder);
+      btnViewGrammar.addEventListener("click", openGrammarModal);
+      btnBackTopics.addEventListener("click", hideSentenceView);
+
+      modalClose.addEventListener("click", closeGrammarModal);
+      modalOverlay.addEventListener("click", (ev) => {
+        if (ev.target === modalOverlay) closeGrammarModal();
+      });
+    })();
+  </script>
+</body>
+</html>

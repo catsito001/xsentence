@@ -1,0 +1,2853 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inglés práctico por frases</title>
+  <!-- Font Awesome para íconos -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  
+  <style>
+    /* ================= Reset básico ================= */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 16px;
+    }
+    body {
+      background-color: #2f2f2f;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.3rem;
+      position: relative;
+    }
+
+    /* ================= Contenedor principal ================= */
+    .container {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.5rem;
+
+    }
+
+    /* ================= Estilos globales de botón ================= */
+    button {
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.1s ease, box-shadow 0.2s ease;
+    }
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    }
+
+    /* ========== Barra de niveles ========== */
+    .level-bar {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .level-bar button {
+      flex: 1 1 auto;
+      font-size: 0.95rem;
+      padding: 0.6rem 1rem;
+      background: linear-gradient(135deg, #17a2b8 0%, #117a8b 100%);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    .level-bar button.active {
+      background: linear-gradient(135deg, #138496 0%, #0f6674 100%);
+    }
+
+    /* ================ Lista de temas ================ */
+    .topics-container {
+      display: grid;
+      gap: 0.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    .topics-container button {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.3rem;
+      background: linear-gradient(135deg, #191ed9 0%, #283353 100%);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    .topics-container button:hover {
+      background: linear-gradient(135deg, #e8590c 0%, #c8470a 100%);
+    }
+
+
+
+
+      /* Mostrar traducción debajo del texto principal en cada botón (topics) */
+    .topics-container button .topic-translation {
+      display: block;          /* obligamos a que esté en la siguiente línea */
+      font-size: 0.75rem;      /* más pequeño que el texto principal */
+      color: #eaef0c;          /* gris claro para diferenciarlo */
+      margin-top: 0.2rem;      /* pequeño espacio respecto al texto inglés */
+      line-height: 1.2;        /* evitar que quede muy apretado */
+      text-transform: none;    /* no forzar mayúsculas */
+    }
+    
+
+    /* ================ Vista de frase ================= */
+    .sentence-view {
+      display: none; /* oculta por defecto */
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+      position: relative;
+     
+    }
+    .sentence-view.active {
+      display: flex;
+    }
+
+    /* ================= Controles superiores ================= */
+  
+
+    /* ================= Texto Anterior Probable ================= */
+    .previous-container {
+      width: 100%;
+      background-color: #3b3b3b;
+      border: 2px solid #4a4a4a;
+      border-radius: 6px;
+      text-align: center;
+      
+    }
+    .previous-text {
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+    .previous-translation {
+      font-size: 0.8rem;
+      color: #ccc;
+    }
+
+    /* ================ Contenedor de imágenes ================= */
+    .sentence-image {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 0.1rem;
+}
+
+/* --------------------------------------------
+   Reemplaza solo este bloque (img-item + inner)
+   -------------------------------------------- */
+.sentence-image .img-item {
+  flex: 1 1 calc(33.333% - 0.5rem);
+  max-width: calc(33.333% - 0.5rem);
+
+  /* Asegura proporción 4:3 desde el primer instante */
+  aspect-ratio: 4 / 3;
+
+  background-color: #4a4a4a;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+.sentence-image .img-item .inner {
+  /* Ahora ocupa todo el área 4:3 sin padding-top */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* ------------------------------------------
+   Fin del bloque reemplazado (img-item + inner)
+   ------------------------------------------ */
+
+.sentence-image .img-item .spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  color: #888;
+  animation: spin 1s linear infinite;
+  z-index: 1;
+}
+@keyframes spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+.sentence-image .no-images {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #aaa;
+  font-size: 0.9rem;
+  padding: 1rem;
+  text-align: center;
+}
+.sentence-image .img-item img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+    /* ================ Frase y palabras ================= */
+    .sentence-phrase {
+      width: 100%;
+      background-color: #3b3b3b;
+      border: 2px solid #4a4a4a;
+      border-radius: 6px;
+      padding: 0.5rem;
+    }
+    .sentence-phrase h2 {
+      text-align: center;
+      margin-top:0.4em;
+      font-size: 1rem;
+      letter-spacing: 0.4px;
+    }
+    .words-grid {
+      display: flex;
+      flex-wrap: wrap;
+      
+      justify-content: center;
+       touch-action: none;
+    }
+    .word-box {
+      background-color: #2e2e2e;
+      border: 2px solid #4a4a4a;
+      border-radius: 6px;
+      padding: 0.2rem;
+      text-align: center;
+      word-wrap: break-word;
+      flex: 0 1 auto;
+     
+      position: relative;
+       user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+    }
+    .word-box.blank {
+      background-color: #495057;
+      border-color: #6c757d;
+      color: #adb5bd;
+    }
+    .word-box.correct {
+      background-color: #278d3f;
+      border-color: #165525;
+    }
+    .word-box.incorrect {
+      background-color: #dc3545;
+      border-color: #bd2130;
+    }
+    .word-box .english {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      line-height: 1.1;
+      word-wrap: break-word;
+    }
+    .word-box .pronunciation {
+      font-size: 1rem;
+      color: #a0a0a0;
+      margin-bottom: 0.1rem;
+    }
+    .word-box .espanol {
+      font-size: 0.9rem;
+      color: #a0a0a0;
+      margin-bottom: 0.1rem;
+    }
+    .word-box .part-of-speech {
+      font-size: 0.8rem;
+      color: #ccc;
+    }
+
+
+
+/* ==========================
+   Resaltado de palabra al sonar
+   ========================== */
+.word-box .english.highlight {
+  color: #ffc107;               /* texto en amarillo */
+  text-shadow: 0 0 8px #ffc107; /* ligero glow */
+}
+
+
+/* Botón “Volver a temas” — Estilo teal */
+#btn-back-topics {
+  background: linear-gradient(135deg, #2a9d8f, #21867a);
+  color: #ffffff;
+  padding: 0.2rem 0.2rem;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#btn-back-topics:hover {
+  background: linear-gradient(135deg, #3bb39c, #279783);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* Botón “Ver Gramática” — Estilo coral */
+#btn-view-grammar {
+  background: linear-gradient(135deg, #e76f51, #d15f43);
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.2rem;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#btn-view-grammar:hover {
+  background: linear-gradient(135deg, #f2856a, #e26a4f);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+
+
+
+/* ————————————————————————————————————————————————————
+   Botón “Frases (n)” — Mismo estilo que “Ver Gramática”
+   ———————————————————————————————————————————————————— */
+#btn-view-phrases {
+  background: linear-gradient(135deg, #e76f51, #d15f43);
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 0.8rem;
+ padding: 0.2rem 0.2rem;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#btn-view-phrases:hover {
+  background: linear-gradient(135deg, #f2856a, #e26a4f);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+
+
+/* ==============================
+   ESTILO PARA RESALTAR WORD-BOX
+   ============================== */
+.word-box.draggable-highlight {
+  /* Contorno fino y color ligeramente amarillento */
+  outline: 2px solid rgba(255, 193, 7, 0.7);
+
+
+  /* Cursor “grab” para indicar que se puede arrastrar */
+  cursor: grab;
+}
+
+.word-box.draggable-highlight:active {
+  /* Cuando estén “agarrados” por el usuario, cambiamos a cursor “grabbing” */
+  cursor: grabbing;
+}
+
+
+
+
+
+    /* Span para mostrar blanks o letras */
+    .blank-text {
+      display: inline-block;
+      min-width: 40px;
+      border-bottom: 2px dotted #adb5bd;
+      font-size: 2.6rem;
+      font-weight: 600;
+    }
+
+    /* ================ Instruction (debajo de sentence-phrase) ================= */
+    .instruction {
+      width: 100%;
+      background-color: #343a40;
+      border: 2px solid #495057;
+      border-radius: 6px;
+      padding: 0.5rem;
+     
+      text-align: center;
+      font-size: 0.95rem;
+    }
+    .instruction h1 {
+      font-size: 0.8rem;
+      color: #ffc107;
+    }
+
+    /* ================ Botones de navegación ================= */
+    .actions-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .actions-row button {
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    .actions-row button:hover {
+      background: linear-gradient(135deg, #0056b3 0%, #00408d 100%);
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /* ================ Botones de actividades ================= */
+    .activity-buttons {
+      width: 100%;
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 0.4rem;
+    }
+    .activity-buttons button {
+      flex: 1 1 30%;
+      min-width: 100px;
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: linear-gradient(135deg, #6f42c1 0%, #551a8b 100%);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+    .activity-buttons button.completed {
+      background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+    }
+    .activity-buttons button:hover {
+      background: linear-gradient(135deg, #551a8b 0%, #3f0d6f 100%);
+    }
+
+    /* ================ Contenedor de alternativas ================= */
+    .alternatives {
+  width: 100%;
+  background-color: #343a40;
+  border: 2px solid #495057;
+  border-radius: 6px;
+  padding: 0.5rem;
+ 
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.alternative-group {
+  display: flex;
+  gap: 0.3rem;           /* o el espacio que ya uses entre botones */
+  flex-wrap: wrap;       /* ← esta línea es clave */
+  justify-content: center; /* opcional, para centrar filas múltiples */
+}
+
+.alternative-group button {
+  width: 100%;
+  background: linear-gradient(135deg, #997406 0%, #ac8511 100%);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+.alternative-group button:hover {
+  background: linear-gradient(135deg, #e0a800 0%, #c69500 100%);
+}
+
+.alternative-group.activity1 button {
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+}
+
+
+
+.alternative-group:not(.activity1) button {
+  width: auto;                    /* quitar el width:100% que venía heredando */
+  flex: 1 1 calc(20% - 0.3rem);   /* cada botón ocupa un 20% menos el gap */
+}
+
+
+
+
+#instruction-container,
+#alternatives {
+  display: none;
+}
+
+    /* ================ Drag & Drop estilos ================= */
+    .draggable {
+      cursor: grab;
+    }
+    .drag-over {
+      border: 2px dashed #ffc107 !important;
+    }
+
+    /* ================ Pop-up felicitaciones ================= */
+ #popup-message {
+  display: none;
+  position: fixed;              /* sigue en fixed, pero lo subimos más arriba */
+  top: 15%;                     /* antes era 50%; con 15% se ve más arriba */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(30, 30, 30, 0.95);
+  color: #ffffff;
+  padding: 1.5rem 2rem;
+  border: 2px solid #ffd700;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  text-align: center;
+  min-width: 260px;
+  overflow: visible;            /* para que confeti no se recorte */
+}
+
+/* Ícono de trofeo dentro del popup (si lo tienes) */
+#popup-message .popup-icon {
+  font-size: 2.5rem;
+  color: #ff6f61;
+  margin-bottom: 0.5rem;
+  animation: pop-icon 0.5s ease-out; /* misma animación */
+}
+
+/* Texto dentro del popup */
+#popup-message h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #ffffff;
+}
+
+/* Estrellas de confeti */
+.confetti-star {
+  position: absolute;
+  width: 12px;           /* antes 8px */
+  height: 12px;          /* antes 8px */
+  background-color: #ffd700;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%,
+    68% 57%, 79% 91%, 50% 70%,
+    21% 91%, 32% 57%, 2% 35%, 39% 35%
+  );
+  opacity: 0;
+  animation: fall-expanded 1.2s ease-out forwards;
+}
+
+/* Animación del ícono */
+@keyframes pop-icon {
+  0%   { transform: scale(0.5); opacity: 0; }
+  60%  { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Animación para que las estrellas caigan */
+@keyframes fall-expanded {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100px) rotate(360deg); /* antes 80px */
+  }
+}
+
+/* ----------------------------------------------------------
+   Ajustes para vista móvil (pantallas ≤ 480px)
+   ---------------------------------------------------------- */
+@media (max-width: 480px) {
+  #popup-message {
+    top: 10%;                   /* un poco más arriba en móvil */
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 200px;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+  }
+  #popup-message .popup-icon {
+    font-size: 2rem;
+  }
+  #popup-message h2 {
+    font-size: 1.2rem;
+  }
+
+
+   .top-controls {
+    display: flex;
+    flex-direction: row;            /* mantenerlos en fila */
+    justify-content: space-between; /* repartir espacio entre botones */
+    align-items: center;
+    width: 100%;
+    padding: 0 0.5rem;
+    overflow: hidden;               /* asegurar que no salga nada fuera */
+  }
+
+  .top-controls button {
+    flex: 1 1 0;                    /* cada botón puede encogerse */
+    margin: 0 0.25rem;              /* margen horizontal reducido */
+    padding: 0.2rem 0.2rem;         /* padding más compacto */
+    font-size: 0.85rem;             /* texto un poco más pequeño */
+    white-space: normal;            /* permitir que el texto se quiebre */
+    word-break: break-word;         /* cortar palabras largas */
+    text-align: center;             /* centrar el texto en varias líneas */
+    box-sizing: border-box;         /* que padding no sume extra al ancho */
+    min-width: 0;                   /* para que realmente pueda encogerse */
+  }
+
+
+}
+
+    /* ================= Modal de Gramática ================= */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 1rem;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+   .modal-content {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #ececec;
+  background-color: #2b2b2b; /* fondo oscuro para contraste */
+  line-height: 1.2;
+}
+
+/* Párrafos (<p>) */
+.modal-content p {
+  margin: 0.8rem 0;
+  font-size: 1rem;
+  color: #f0f0f0;
+}
+
+/* Título principal (h3) */
+.modal-content h3 {
+  font-size: 1.6rem;               /* más grande */
+  margin-bottom: 0.75rem;
+  color: #ff6f61;                  /* coral suave */
+  border-bottom: 2px solid #ff6f61;
+  padding-bottom: 0.4rem;
+}
+
+/* Subtítulos (h4) */
+.modal-content h4 {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #4a90e2;                  /* azul vibrante */
+  border-left: 4px solid #4a90e2;
+  padding-left: 0.5rem;
+}
+
+/* Listas (<ul>, <ol>) */
+.modal-content ul,
+.modal-content ol {
+  margin: 0.75rem 0 0.75rem 1.5rem;
+  padding: 0;
+  list-style-type: disc;
+  list-style-position: inside;
+  color: #f0f0f0;
+}
+
+/* Viñetas con color personalizado */
+.modal-content ul li::marker {
+  color: #ffb400;                  /* dorado suave */
+}
+
+/* Elementos de lista (<li>) */
+.modal-content li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Texto en negrita (<strong>) */
+.modal-content strong {
+  color: #ffd700;                  /* dorado */
+  font-weight: 700;
+}
+
+/* Texto en cursiva (<em>) */
+.modal-content em {
+  font-style: italic;
+  color: #ffa500;                  /* naranja */
+}
+
+/* Enlaces (<a>) */
+.modal-content a {
+  color: #73cef4;                  /* celeste suave */
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.modal-content a:hover {
+  border-color: #73cef4;
+}
+
+/* Bloques de cita (<blockquote>), por si acaso */
+.modal-content blockquote {
+  margin: 1rem 1.5rem;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid #ff6f61;
+  background-color: rgba(255, 111, 97, 0.1); /* coral muy suave */
+  font-style: italic;
+  color: #f0f0f0;
+}
+
+
+
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: rgba(255, 255, 255, 0.1); /* fondo semitransparente */
+  color: #ff6f61;                             /* color del icono (coral suave) */
+  border: none;
+  border-radius: 50%;                         /* círculo perfecto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;                          /* ícono algo más grande */
+  transition: background-color 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* al pasar mouse, fondo más claro */
+  color: #ffffff;                             /* ícono blanco al hacer hover */
+}
+
+.modal-close:focus {
+  outline: 2px solid #ff6f61;                 /* para accesibilidad cuando esté en foco */
+  outline-offset: 2px;
+}
+
+
+
+
+/* Ajustes responsivos */
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 1rem;
+  }
+  .modal-content h3 {
+    font-size: 1.3rem;
+  }
+  .modal-content h4 {
+    font-size: 1.1rem;
+  }
+  .modal-content p,
+  .modal-content li {
+    font-size: 1rem;
+  }
+}
+    
+
+
+
+
+
+
+
+#wordModalOverlay {
+  /* reaprovecha el mismo estilo de .modal-overlay */
+}
+#wordModalContent {
+  max-width: 300px;
+  padding: 1rem;
+}
+#wordModalSpinner {
+  font-size: 2rem;
+  display: block;
+  margin: 1rem auto;
+}
+#wordModalTranslation {
+  text-align: center;
+  margin-top: 0.8rem;
+  color: #eaef0c;
+}
+
+
+
+    /* ================= Pie de página ================= */
+    footer.footer {
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #888;
+    padding: 0.2rem;
+    margin: 0.2rem;
+      border-top: 1px solid #444;
+    }
+
+    /* ================= Media Queries ================= */
+    @media (max-width: 480px) {
+     
+        .sentence-image .img-item {
+    /* Ancho al 100% (porque “33,33%” en móvil da un cuadro muy estrecho/necesita stack),
+       pero vamos a forzar un alto menor para que no se vea tan alto. */
+    flex: 1 1 100%;
+    max-width: 100%;
+
+    /* ANTES: aspect-ratio: 4/3;
+       LO REEMPLAZAMOS con un alto fijo o máximo: */
+    height: 90px;      /* <-- ajusta este valor a lo que quieras ver en móvil */
+    aspect-ratio: auto; /* desactiva el 4:3 en móvil */
+
+    /* Conservamos el fondo gris para que reserve el espacio mientras carga */
+    background-color: #4a4a4a;
+  }
+  .sentence-image .img-item .inner {
+    /* Si cada .img-item tiene height: 90px, hacemos que .inner llene ese 100% */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 0; /* ya no necesitamos padding en móvil */
+  }
+
+
+
+
+      .activity-buttons button {
+        flex: 1 1 calc(40% - 0.5rem);
+      }
+      .alternative-group button {
+        flex: 1 1 45%;
+      }
+    }
+    @media (min-width: 480px) {
+      .sentence-phrase h2 {
+        font-size: 1rem;
+      }
+      .word-box {
+        min-width: 100px;
+      }
+      .actions-row button {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
+    @media (min-width: 640px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+      .level-bar button {
+        font-size: 1.05rem;
+        padding: 0.6rem 1.2rem;
+      }
+      .topics-container {
+        gap: 0.75rem;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      }
+      .sentence-phrase h2 {
+        font-size: 1rem;
+      }
+      .actions-row button {
+        font-size: 1.1rem;
+        padding: 0.7rem 1.4rem;
+      }
+      footer.footer {
+        font-size: 0.8rem;
+        margin-top: 2.5rem;
+      }
+
+    }
+
+
+
+    .dragging {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.9;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+
+  /* Evitar selección de texto dentro del ghost */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.placeholder {
+  box-sizing: border-box;
+  border: 3px dashed gold !important;           /* borde más grueso */
+  background-color: rgba(255, 235, 59, 0.2) !important; /* fondo amarillo más visible */
+  z-index: 9999 !important;                     /* por encima de todo */
+  min-width: 50px;      /* por si media queries encogen demasiado */
+  min-height: 30px;     /* ajusta según el tamaño mínimo de tus word-box */
+  transition: background-color 0.15s ease;
+}
+
+.placeholder:hover {
+  background-color: rgba(255, 235, 59, 0.35) !important;
+}
+
+
+
+
+
+/* ─── Fila única para voz + velocidad ───────────────────────── */
+.audio-controls-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;    /* evita que salten a la siguiente línea */
+ 
+}
+
+/* Ajustes móviles (pantallas ≤ 480px) */
+@media (max-width: 480px) {
+  .audio-controls-row {
+    padding: 0 0.5rem;
+  }
+  .audio-controls-row > div {
+    flex: 0 0 auto;     /* impide que cada select ocupe todo el ancho */
+  }
+  .audio-controls-row select {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+
+
+
+/* ─── Estilo oscuro para selects y opciones ──────────────────── */
+.audio-controls-row select {
+  /* fondo oscuro consistente con tu UI */
+  background-color: #343a40 !important;
+  /* texto blanco bien legible */
+  color: #fff !important;
+  /* borde sutil para destacar */
+  border: 1px solid #555 !important;
+  /* mismo border-radius que tus botones */
+  border-radius: 8px !important;
+}
+
+/* Forzar que las opciones del dropdown también sean oscuras */
+.audio-controls-row select option {
+  background-color: #343a40 !important;
+  color: #fff !important;
+}
+
+/* Hover en la opción cuando despliegas el menú */
+.audio-controls-row select option:hover {
+  background-color: #495057 !important;
+  color: #fff !important;
+}
+
+/* Opcional: cuando el select esté enfocado, resaltar borde */
+.audio-controls-row select:focus {
+  outline: 2px solid #ffc107 !important;
+  outline-offset: 2px;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="main-title">Inglés práctico por frases</h1>
+
+    <div class="level-bar" id="level-bar">
+      <button data-level="fundamental" class="active">Fundamental</button>
+      <button data-level="basic">Básico</button>
+      <button data-level="intermediate">Intermedio</button>
+      <button data-level="advanced">Avanzado</button>
+    </div>
+
+
+    <!-- ——— Generación IA ——— -->
+<div id="ia-generator" style="margin: 1em 0; display: flex; gap: .5em; align-items: center;">
+  <input
+    type="text"
+    id="ia-topic-input"
+    placeholder="Tema para generar ejercicios"
+    style="flex:1; padding: .5em; font-size: 1em;"
+  />
+  <button id="ia-generate-btn" style="padding: .5em 1em; font-size: 1em; cursor: pointer;">
+    Generar con IA
+  </button>
+</div>
+
+    <div class="topics-container" id="topics-container"></div>
+
+    <div class="sentence-view" id="sentence-view">
+      <!-- Controles superiores: "Volver a Temas" y "Ver Gramática" -->
+      <div class="top-controls">
+        <button class="btn-back-topics" id="btn-back-topics">
+          ← Volver a Temas
+        </button>
+        <button id="btn-view-grammar">
+          <i class="fa-solid fa-book"></i> Ver Gramática
+        </button>
+
+         <button id="btn-view-phrases">
+    <i class="fa-solid fa-list"></i> Frases (<span id="phraseCount">0</span>)
+  </button>
+      </div>
+
+      <!-- Texto anterior probable y su traducción -->
+      <div class="previous-container">
+        <div id="previous-text" class="previous-text"></div>
+        <div id="previous-translation" class="previous-translation"></div>
+      </div>
+
+      <!-- Contenedor de 3 imágenes (responsive) -->
+      <div class="sentence-image" id="sentence-image">
+        <!-- Aquí JavaScript inyectará .img-item -->
+      </div>
+
+      <!-- Frase y palabras -->
+      <div class="sentence-phrase">
+       
+        <div class="words-grid" id="words-grid"></div>
+         <h2 id="sentence-title">Título de la frase</h2>
+      </div>
+
+      <!-- Div de instrucciones (debajo de sentence-phrase) -->
+      <div id="instruction-container"></div>
+
+      <!-- Contenedor de alternativas dinámicas -->
+      <div class="alternatives" id="alternatives"></div>
+
+      <!-- Botones de navegación -->
+      <div class="actions-row">
+        <button id="btn-prev">
+          <i class="fa-solid fa-arrow-left"></i> Previous
+        </button>
+        <button id="btn-play">
+          <i class="fa-solid fa-play"></i> Play
+        </button>
+        <button id="btn-next">
+          Next <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+
+     <!-- Contenedor de controles de audio (voz y velocidad) -->
+  <div class="audio-controls-row">
+    <!-- Selector de voz -->
+    <div class="voice-select">
+      <label for="voice-choice">Voz:</label>
+      <select id="voice-choice">
+        <option value="m" selected>Hombre</option>
+        <option value="w">Mujer</option>
+      </select>
+    </div>
+    <!-- Selector de velocidad -->
+    <div class="speed-select">
+      <label for="speed-choice">Velocidad:</label>
+      <select id="speed-choice">
+        <option value="0.55">Más lento</option>
+        <option value="1" selected>Normal</option>
+        <option value="0.80">Lento</option>
+      </select>
+    </div>
+  </div>
+
+
+      <!-- Botones de actividades -->
+      <div class="activity-buttons">
+        <button id="actividad-1">
+          <i class="fa-solid fa-pencil"></i> Actividad 1
+        </button>
+        <button id="actividad-2">
+          <i class="fa-solid fa-edit"></i> Actividad 2
+        </button>
+        <button id="actividad-3">
+          <i class="fa-solid fa-arrows-up-down-left-right"></i> Actividad 3
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pop-up felicitaciones -->
+  <div id="popup-message">
+    <i class="fa-solid fa-trophy popup-icon"></i>
+    <h2 id="popup-text">¡Felicidades!</h2>
+  </div>
+
+  <!-- Modal de Gramática -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+     Modal de “Frases” para listar todas las oraciones del tema
+────────────────────────────────────────────────────────────── -->
+<div id="phrasesModal" class="modal-overlay" style="display:none;">
+  <div class="modal-content">
+    <button class="modal-close" id="close-phrases">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <h2>Frases del Tema</h2>
+    <div id="phrasesList" 
+         style="
+           display: flex; 
+           flex-direction: column; 
+           gap: 0.5rem;
+           margin-top: 1rem;
+         ">
+      <!-- Aquí se inyectarán los botones de cada frase -->
+    </div>
+  </div>
+</div>
+<!-- ────────────────────────────────────────────────────────────── -->
+
+
+
+
+
+
+
+
+<!-- ───── Modal de palabra ───── -->
+<div id="wordModalOverlay" class="modal-overlay">
+  <div class="modal-content" id="wordModalContent">
+    <button class="modal-close" id="wordModalClose">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <h3 id="wordModalTitle"></h3>       <!-- Aquí irá la palabra en inglés -->
+    <div id="wordModalBody">
+      <i class="fa-solid fa-spinner spinner" id="wordModalSpinner"></i>
+      <img id="wordModalImage" style="display:none; width:100%; border-radius:6px;" alt="Imagen palabra" />
+      <p id="wordModalTranslation"></p>  <!-- Traducción en español -->
+    </div>
+    <div class="actions-row" style="margin-top:1rem;">
+      <button id="wordModalOK" style="flex:1;">OK</button>
+      <button id="wordModalPlay" style="flex:1;">
+        <i class="fa-solid fa-play"></i> Play
+      </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <footer class="footer">FUZINGLES – © 2025</footer>
+
+ <script>
+  (function () {
+
+
+
+    // ─── Diccionario de traducciones para temas (inglés → español) ─────────
+    const topicTranslations = {
+      "Fundamental":                     "Fundamental",
+      "Básico":                          "Básico",
+      "Intermedio":                      "Intermedio",
+      "Avanzado":                        "Avanzado",
+      "Greetings & Farewells":           "Saludos y despedidas",
+      "Introducing Yourself":            "Presentarse",
+      "Asking for Information":          "Pedir información",
+      "Giving Information & Directions": "Dar información y direcciones",
+      "Expressing Likes & Preferences":  "Expresar gustos y preferencias",
+      "Asking for & Giving Permission":  "Pedir y dar permiso",
+      "Making & Declining Invitations":  "Hacer y rechazar invitaciones",
+      "Offering Help":                   "Ofrecer ayuda",
+      "Asking for & Giving Opinions":    "Pedir y dar opiniones",
+      "Reassuring & Comforting":         "Tranquilizar y reconfortar",
+      "Expressing Agreement & Disagreement": "Expresar acuerdo y desacuerdo",
+      "Apologizing & Responding":        "Disculparse y responder",
+      "Everyday Daily Routines":         "Rutinas diarias",
+      "Shopping & Prices":               "Compras y precios",
+      "Restaurant & Food":               "Restaurante y comida"
+    };
+    // Hacemos que topicTranslations esté disponible globalmente
+    window.topicTranslations = topicTranslations;
+    // ─────────────────────────────────────────────────────────────────────────
+
+
+
+
+
+    const WORKER_BASE = "https://sentences.saturninocok.workers.dev";
+    const PEXELS_API_KEY = "aV5EuNmfMhHpLQYMjCOQp6YWmU6RAF5M6at5jDTRpe0pLwxk1SZzPhSC";
+
+
+    const audioDrop      = new Audio("sounds/drop.mp3");
+const audioCongrat   = new Audio("sounds/congrat.flac");
+const audioSelect    = new Audio("sounds/select.wav");
+const audioWrong     = new Audio("sounds/wrong.wav");
+
+
+
+    let currentLevel = "fundamental";
+    let currentVoice = "m"; // 'm' = Hombre (default), 'w' = Mujer
+    let currentSpeed = 1; // 1 = normal (default)
+
+    let allData = [];
+    let temasUnicos = [];
+    let sentencesOfCurrentTopic = [];
+    let currentSentenceIndex = 0;
+
+    // Guardar estado original de palabras para poder restaurar
+    let originalWords = [];            // Array de strings
+    let wordObjects = [];              // Array de objetos palabra (para referencia)
+    let similarWordsByWord = [];       // Array de arrays con alternativas
+
+
+
+
+     // ────────────────────────────────────────────────────────────────────────────
+    // VARIABLES PARA AUDIO Y MARCAS (highlight palabra a palabra)
+    // ────────────────────────────────────────────────────────────────────────────
+    let audioSpeech = new Audio();     // para reproducir speech.mp3
+    let flatMarks   = [];              // array con todos los “marks” (start/end) por palabra
+
+let wordTimer;
+const PRE_PADDING = 0.05;  // segundos extra antes de la palabra
+const POST_PADDING = 0.05; // segundos extra después de la palabra
+
+
+function playCurrentWord() {
+  const clean = wordModalTitle.textContent
+    .trim()
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s]/gu, "");
+
+  const mark = flatMarks.find(m =>
+    m.word.trim().toLowerCase() === clean
+  );
+  if (!mark) return console.warn("Timing no encontrado para:", clean);
+
+  const start     = Math.max(0, mark.start - PRE_PADDING);
+  const end       = Math.min(audioSpeech.duration, mark.end + POST_PADDING);
+  const duration  = (end - start) * 1000;
+
+  if (wordTimer) clearTimeout(wordTimer);
+  audioSpeech.currentTime   = start;
+  audioSpeech.playbackRate  = currentSpeed;
+  audioSpeech.play();
+
+  wordTimer = setTimeout(() => audioSpeech.pause(), duration);
+  wordModalPlay.addEventListener("click", playCurrentWord);
+}
+
+
+
+
+    // Para Activity 1
+    let missingIndices = [];           // índices de palabras ocultas
+    let currentMissingPointer = 0;     // puntero a la palabra faltante actual
+
+    // Para Activity 2
+    let letterBlanksInfo = []; // { index, maskedWord, missingIndices, originalWord }
+
+    // Para Activity 3
+    let draggedElement = null;   // referencia al elemento arrastrado
+    let selectedBox = null;      // fallback click-swap en móvil
+
+    // Elementos DOM
+    const mainTitle = document.getElementById("main-title");
+    const levelBar = document.getElementById("level-bar");
+    const levelButtons = document.querySelectorAll(".level-bar button");
+    const topicsContainer = document.getElementById("topics-container");
+    const sentenceView = document.getElementById("sentence-view");
+    const sentenceImage = document.getElementById("sentence-image");
+    const previousText = document.getElementById("previous-text");
+    const previousTranslation = document.getElementById("previous-translation");
+    const sentenceTitle = document.getElementById("sentence-title");
+    const wordsGrid = document.getElementById("words-grid");
+    const btnViewGrammar = document.getElementById("btn-view-grammar");
+
+    
+    // ——— Referencias al input y botón IA ———
+const iaTopicInput  = document.getElementById('ia-topic-input');
+const iaGenerateBtn = document.getElementById('ia-generate-btn');
+
+
+// ────────────────────────────────────────────────────────────────────
+// Referencias a los nuevos elementos para el popup “Frases”
+// ────────────────────────────────────────────────────────────────────
+const btnViewPhrases = document.getElementById("btn-view-phrases");
+const spanPhraseCount = document.getElementById("phraseCount");
+const modalPhrases    = document.getElementById("phrasesModal");
+const btnClosePhrases = document.getElementById("close-phrases");
+const containerList   = document.getElementById("phrasesList");
+// ──
+
+// ————— Función para mantener actualizado el contador —————
+function updatePhraseCount() {
+  spanPhraseCount.textContent = sentencesOfCurrentTopic.length;
+}
+
+
+
+    const btnPrev = document.getElementById("btn-prev");
+    const btnNext = document.getElementById("btn-next");
+    const btnPlay = document.getElementById("btn-play");
+    const btnBackTopics = document.getElementById("btn-back-topics");
+    const actividad1 = document.getElementById("actividad-1");
+    const actividad2 = document.getElementById("actividad-2");
+    const actividad3 = document.getElementById("actividad-3");
+    const modalOverlay = document.getElementById("modal-overlay");
+    const modalBody = document.getElementById("modal-body");
+    const modalClose = document.getElementById("modal-close");
+    const instructionContainer = document.getElementById("instruction-container");
+    const alternativesContainer = document.getElementById("alternatives");
+    const popupMessage = document.getElementById("popup-message");
+    const popupText = document.getElementById("popup-text");
+
+    // Detectar si es dispositivo táctil (para fallback de ordenar)
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+
+    const voiceChoice = document.getElementById("voice-choice");
+voiceChoice.addEventListener("change", () => {
+  currentVoice = voiceChoice.value;      // actualiza 'm' o 'w'
+  // Recarga audio + marcas para el nivel actual
+  fetchDataForLevel(currentLevel);
+});
+
+
+// Captura y manejo de velocidad
+const speedChoice = document.getElementById("speed-choice");
+speedChoice.addEventListener("change", e => (currentSpeed = parseFloat(e.target.value)));
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetchDataForLevel("fundamental");
+
+  // ────────────────────────────────────────────────────────────────────────────
+  // 2) REPRODUCIR "drop.mp3" EN CUALQUIER CLICK DE BOTÓN
+  // ────────────────────────────────────────────────────────────────────────────
+  // Nota: esto se aplica a TODOS los <button> que ya existen o se creen luego.
+  document.querySelectorAll("button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      audioDrop.currentTime = 0; // Reinicia el audio si ya estaba reproduciéndose
+      audioDrop.play();
+    });
+  });
+});
+
+    // -----------------------
+    // 1) Cambiar nivel
+    // -----------------------
+    function switchLevel(level) {
+      cleanupActivities();
+      currentLevel = level;
+      levelButtons.forEach((btn) => {
+        if (btn.dataset.level === level) btn.classList.add("active");
+        else btn.classList.remove("active");
+      });
+      hideSentenceView();
+      fetchDataForLevel(level);
+    }
+
+    // -----------------------
+    // 2) Obtener data desde Worker
+    // -----------------------
+  // -----------------------
+// 2) Obtener data desde Worker y preparar audio
+// -----------------------
+async function fetchDataForLevel(level) {
+  try {
+    // 1) Pedir datos al worker
+    const resp = await fetch(`${WORKER_BASE}/${level}`, {
+      method: "GET",
+      mode: "cors",
+    });
+    if (!resp.ok) throw new Error("No se obtuvo data");
+    const text = await resp.text();
+    allData = JSON.parse(text);
+
+    // 2) Extraer temas únicos y renderizar la lista
+    const temasSet = new Set(allData.map((item) => item.tema));
+    temasUnicos = Array.from(temasSet);
+    renderTopicsList();
+
+    // ─── Configurar audioSpeech según nivel y voz ────────────────────────────
+    audioSpeech.src = currentVoice === "m"
+      ? `speech/${level}/speech.mp3`
+      : `speech/${level}/w/speech.mp3`;
+    audioSpeech.load();
+    // ▶ Aplicar velocidad seleccionada
+    audioSpeech.playbackRate = currentSpeed;
+
+    // ─── Cargar marks.json de la voz correspondiente ────────────────────────
+    try {
+      const marksResp = await fetch(
+        currentVoice === "m"
+          ? `speech/${level}/marks.json`
+          : `speech/${level}/w/marks.json`
+      );
+      if (!marksResp.ok) throw new Error("marks.json no encontrado");
+      flatMarks = await marksResp.json();
+    } catch (err) {
+      console.error("No se pudo cargar marks.json de nivel", level, err);
+      flatMarks = [];
+    }
+
+    // 3) Una vez todo listo, renderizar la primera frase y disparar reproducción
+    renderCurrentSentence();    // muestra texto, imágenes, etc.
+    // playWithHighlight() dentro de renderCurrentSentence se encargará de llamar a audioSpeech.play()
+  } catch (err) {
+    console.error("Error cargando data:", err);
+    topicsContainer.innerHTML =
+      '<p style="color:#faa">No se pudo cargar los temas.</p>';
+  }
+}
+
+
+    // -----------------------
+    // 3) Renderizar lista de temas
+    // -----------------------
+     function renderTopicsList() {
+      // 1) Limpiar contenedor de temas
+      topicsContainer.innerHTML = "";
+      if (temasUnicos.length === 0) {
+        topicsContainer.innerHTML =
+          '<p style="color:#ccc">No hay temas disponibles.</p>';
+        return;
+      }
+
+      // 2) Recorrer cada tema único
+      temasUnicos.forEach((tema) => {
+        const btn = document.createElement("button");
+        // 2a) Poner el texto en inglés original
+        btn.textContent = tema;
+
+        // 2b) Si existe traducción, crear y añadir el <span>
+        if (
+          window.topicTranslations &&
+          topicTranslations.hasOwnProperty(tema)
+        ) {
+          const translationSpan = document.createElement("span");
+          translationSpan.classList.add("topic-translation");
+          translationSpan.textContent = topicTranslations[tema];
+          // Reescribimos el innerHTML para asegurarnos de resetear cualquier nodo interno
+          btn.innerHTML = tema;
+          btn.appendChild(translationSpan);
+        }
+
+        // 3) Listener al hacer clic (prender audio y cambiar vista)
+        btn.addEventListener("click", () => {
+          audioDrop.currentTime = 0;
+          audioDrop.play();
+          selectTopic(tema);
+        });
+
+        // 4) Añadir botón al contenedor
+        topicsContainer.appendChild(btn);
+      });
+    }
+
+
+    // -----------------------
+    // 4) Seleccionar tema
+    // -----------------------
+    function selectTopic(tema) {
+      cleanupActivities();
+      mainTitle.style.display = "none";
+      levelBar.style.display = "none";
+      topicsContainer.style.display = "none";
+      sentencesOfCurrentTopic = allData.filter(
+        (item) => item.tema === tema
+      );
+      currentSentenceIndex = 0;
+      sentenceView.classList.add("active");
+      renderCurrentSentence();
+      spanPhraseCount.textContent = sentencesOfCurrentTopic.length;
+    }
+
+    // -----------------------
+    // 5) Renderizar frase actual
+    // -----------------------
+    async function renderCurrentSentence() {
+      cleanupActivities();
+      // Al cambiar frase, reiniciar botones de actividad
+      [actividad1, actividad2, actividad3].forEach(btn => {
+        btn.classList.remove("completed");
+        const icon = btn.querySelector(".fa-check");
+        if (icon) icon.remove();
+      });
+
+      const data = sentencesOfCurrentTopic[currentSentenceIndex];
+      if (!data) return;
+
+      // Guardar palabras originales y sus listas de similares
+      originalWords = data.oracion.palabras.map((w) => w.ingles);
+      wordObjects = data.oracion.palabras.slice(); // copia de objetos
+      similarWordsByWord = Array.isArray(data.palabras_similares_por_palabra)
+        ? data.palabras_similares_por_palabra.slice()
+        : []; // array de arrays de 4 strings
+
+      // Texto anterior probable y traducción
+      previousText.textContent = data.anterior_probable || "";
+      previousTranslation.textContent =
+        data.traduccion_anterior_probable || "";
+
+      // Título de la frase en español
+      sentenceTitle.textContent = data.oracion.espanol;
+
+      // Renderizar palabras
+      wordsGrid.innerHTML = "";
+      data.oracion.palabras.forEach((wordObj, idx) => {
+        const box = document.createElement("div");
+        box.className = "word-box";
+        box.dataset.index = idx;
+        box.innerHTML = `
+          <div class="english">${wordObj.ingles}</div>
+          <div class="pronunciation">${wordObj.pronunciacion}</div>
+          <div class="espanol">${wordObj.espanol}</div>
+          <div class="part-of-speech">${wordObj.tipo}</div>
+        `;
+        wordsGrid.appendChild(box);
+      });
+
+
+playWithHighlight();
+
+      // Renderizar imágenes
+      const tags = Array.isArray(data.imagenes) ? data.imagenes : [];
+      await fetchAndDisplayImages(tags);
+
+      attachWordBoxListeners();
+
+    }
+
+    // -----------------------
+    // 6) Obtener y mostrar imágenes (solo 3, sin duplicados)
+    // -----------------------
+    async function fetchAndDisplayImages(tags) {
+      sentenceImage.innerHTML = "";
+      if (!Array.isArray(tags)) tags = [];
+      const fillTags = tags.slice(0, 3);
+      while (fillTags.length < 3) fillTags.push(null);
+
+      for (let i = 0; i < 3; i++) {
+        const tag = fillTags[i];
+        const div = document.createElement("div");
+        div.className = "img-item";
+        const inner = document.createElement("div");
+        inner.className = "inner";
+        const spinner = document.createElement("i");
+        spinner.className = "fa-solid fa-spinner spinner";
+        inner.appendChild(spinner);
+        div.appendChild(inner);
+        sentenceImage.appendChild(div);
+
+        if (!tag) {
+          spinner.remove();
+          inner.innerHTML = `<div class="no-images">Sin etiqueta</div>`;
+          continue;
+        }
+
+
+           const cleanTag = tag.replace(/_/g, " "); 
+
+        const tempImg = new Image();
+        tempImg.alt = tag;
+        tempImg.onload = () => {
+          const img = document.createElement("img");
+          img.src = tempImg.src;
+          img.alt = tempImg.alt;
+          inner.appendChild(img);
+          spinner.remove();
+          img.style.display = "block";
+        };
+        tempImg.onerror = () => {
+          spinner.remove();
+          inner.innerHTML = `<div class="no-images">Sin imagen para "${cleanTag}"</div>`;
+        };
+
+        try {
+          const resp = await fetch(
+            `https://api.pexels.com/v1/search?query=${encodeURIComponent(cleanTag)}&per_page=1`,
+            {
+              headers: {
+                Authorization: PEXELS_API_KEY,
+              },
+            }
+          );
+          if (!resp.ok) throw new Error("No se obtuvieron imágenes");
+          const json = await resp.json();
+          const photo = Array.isArray(json.photos) && json.photos.length
+            ? json.photos[0]
+            : null;
+          if (photo && photo.src) {
+            tempImg.src = photo.src.medium;
+          } else {
+            spinner.remove();
+            inner.innerHTML = `<div class="no-images">Sin imagen para "${tag}"</div>`;
+          }
+        } catch (err) {
+          console.error(`Error cargando imagen para "${tag}":`, err);
+          spinner.remove();
+          inner.innerHTML = `<div class="no-images">Error al cargar imagen de "${tag}"</div>`;
+        }
+      }
+    }
+
+    // -----------------------
+    // 7) Ocultar vista de frase y volver a temas
+    // -----------------------
+    function hideSentenceView() {
+      cleanupActivities();
+      sentenceView.classList.remove("active");
+      mainTitle.style.display = "block";
+      levelBar.style.display = "flex";
+      topicsContainer.style.display = "grid";
+    }
+
+    // -----------------------
+    // 8) Navegar a frase anterior
+    // -----------------------
+    function goToPreviousSentence() {
+      if (currentSentenceIndex > 0) {
+        currentSentenceIndex--;
+        renderCurrentSentence();
+      }
+    }
+
+    // -----------------------
+    // 9) Navegar a frase siguiente
+    // -----------------------
+    function goToNextSentence() {
+      if (currentSentenceIndex < sentencesOfCurrentTopic.length - 1) {
+        currentSentenceIndex++;
+        renderCurrentSentence();
+      }
+    }
+
+    
+
+
+
+
+
+     // -------------------------------
+    // 10’) Play con resaltado palabra
+    // -------------------------------
+
+  // ----------------------------------------------------------
+  // Puntero global para no volver a usar marcas de frases anteriores
+  // ----------------------------------------------------------
+  let lastFoundIdx = 0;
+
+  // Variable para almacenar el ID del interval que comprueba el audio
+  let highlightIntervalId = null;
+
+  async function playWithHighlight() {
+    // 0) Obtenemos la oración actual
+    const data = sentencesOfCurrentTopic[currentSentenceIndex];
+    if (!data) return;
+
+    // ────────────────────────────────────────────────────────────────────
+    // 1) Construir arreglo de tokens normalizados (separando contracciones)
+    //    y mapear cada token al índice de word-box.
+    // ────────────────────────────────────────────────────────────────────
+
+    function normalizePart(str) {
+      // Quita comas, puntos, signos de exclamación/interrogación y paréntesis,
+      // pasa a minúscula, pero deja intacto el apóstrofe para dividir contracciones.
+      return str
+        .replace(/[.,!?;:¡¿“”()]/g, "")
+        .trim()
+        .toLowerCase();
+    }
+
+    const phraseWords = []; // ej.: ["can","i","help","you","carry","that"]
+    const mapToBox   = [];  // ej.: [ 0,    0,     1,    2,     3,     4   ]
+
+    data.oracion.palabras.forEach((wObj, boxIdx) => {
+      // Cada wObj.ingles puede ser "Can", "I", "help", "you", "carry", "that".
+      wObj.ingles
+        .trim()
+        .split(/['’‘`]/) // “It’s” → ["It","s"], “let’s” → ["let","s"]
+        .forEach((rawPart) => {
+          const clean = normalizePart(rawPart);
+          if (clean !== "") {
+            phraseWords.push(clean);
+            mapToBox.push(boxIdx);
+          }
+        });
+    });
+
+    // ────────────────────────────────────────────────────────────────────
+    // 2) Construir arreglo flatWords a partir de flatMarks,
+    //    normalizando exactamente igual (quitamos toda puntuación/apóstrofes).
+    // ────────────────────────────────────────────────────────────────────
+
+    // flatMarks debe estar definido en un scope superior y tener esta forma:
+    // [
+    //   { word: "Can",  start: 137.913, end: 138.076 },
+    //   { word: "I",    start: 138.146, end: 138.180 },
+    //   { word: "help", start: 138.273, end: 138.436 },
+    //   { word: "you",  start: 138.494, end: 138.575 },
+    //   { word: "carry",start: 138.645, end: 138.947 },
+    //   { word: "that", start: 139.005, end: 139.272 },
+    //   … 
+    // ]
+
+    const flatWords = flatMarks.map((m) =>
+      m.word
+        .replace(/[.,!?;:¡¿“”()'’‘`]/g, "") // quita comas, puntos, paréntesis y apóstrofes
+        .trim()
+        .toLowerCase()
+    );
+
+    // ────────────────────────────────────────────────────────────────────
+    // 3) Depuración: mostramos en consola los tokens que vamos a comparar
+    // ────────────────────────────────────────────────────────────────────
+    
+
+    // ────────────────────────────────────────────────────────────────────
+    // 4) Buscar la primera posición startIdx en flatWords donde
+    //    flatWords[i..i+phraseWords.length-1] === phraseWords completo,
+    //    comenzando la búsqueda desde lastFoundIdx
+    // ────────────────────────────────────────────────────────────────────
+    let startIdx = -1;
+    for (let i = lastFoundIdx; i <= flatWords.length - phraseWords.length; i++) {
+      let match = true;
+      for (let j = 0; j < phraseWords.length; j++) {
+        if (flatWords[i + j] !== phraseWords[j]) {
+          match = false;
+          break;
+        }
+      }
+      if (match) {
+        startIdx = i;
+        break;
+      }
+    }
+
+    // ────────────────────────────────────────────────────────────────────
+    // 5) Plan B: si no encontramos coincidencia a partir de lastFoundIdx,
+    //    intentamos buscar desde i = 0 (en caso de cambio de frase en desorden).
+    // ────────────────────────────────────────────────────────────────────
+    if (startIdx < 0) {
+      for (let i = 0; i <= flatWords.length - phraseWords.length; i++) {
+        let match = true;
+        for (let j = 0; j < phraseWords.length; j++) {
+          if (flatWords[i + j] !== phraseWords[j]) {
+            match = false;
+            break;
+          }
+        }
+        if (match) {
+          startIdx = i;
+          break;
+        }
+      }
+    }
+
+    // ────────────────────────────────────────────────────────────────────
+    // 6) Si aún no hallamos startIdx, avisamos y detenemos la ejecución
+    // ────────────────────────────────────────────────────────────────────
+    if (startIdx < 0) {
+      console.warn("No se encontró match entre phraseWords y flatWords.");
+      console.warn("phraseWords:", phraseWords);
+      console.warn("flatWords  :", flatWords);
+      return alert(
+        "No se encontró el timing para esta frase en marks.json.\n" +
+        "Revisa la consola (F12) para ver los tokens exactos que no coinciden."
+      );
+    }
+
+    // ────────────────────────────────────────────────────────────────────
+    // 7) Actualizar lastFoundIdx para la próxima vez
+    // ────────────────────────────────────────────────────────────────────
+    lastFoundIdx = startIdx + phraseWords.length;
+
+    // ────────────────────────────────────────────────────────────────────
+    // 8) Extraer únicamente las marcas (start/end) para esta frase
+    // ────────────────────────────────────────────────────────────────────
+    const marksArr = flatMarks.slice(
+      startIdx,
+      startIdx + phraseWords.length
+    );
+    // Ej. marksArr = [
+    //   { word:"can",  start:137.913, end:138.076 },
+    //   { word:"i",    start:138.146, end:138.180 },
+    //   { word:"help", start:138.273, end:138.436 },
+    //   { word:"you",  start:138.494, end:138.575 },
+    //   { word:"carry",start:138.645, end:138.947 },
+    //   { word:"that", start:139.005, end:139.272 }
+    // ];
+
+    // ────────────────────────────────────────────────────────────────────
+    // 9) Reproducir el audio desde el primer start
+    // ────────────────────────────────────────────────────────────────────
+    audioSpeech.currentTime = marksArr[0].start;
+    audioSpeech.playbackRate = currentSpeed;
+    audioSpeech.play();
+
+    // ────────────────────────────────────────────────────────────────────
+    // 10) Limpiar cualquier highlight previo
+    // ────────────────────────────────────────────────────────────────────
+    document
+      .querySelectorAll(".word-box .english")
+      .forEach((el) => el.classList.remove("highlight"));
+
+    // ────────────────────────────────────────────────────────────────────
+    // 11) Definir la función que, cada 50 ms, comprobará currentTime
+    //     y aplicará/removerá highlights según los starts de marksArr.
+    // ────────────────────────────────────────────────────────────────────
+    function checkHighlight() {
+      const t = audioSpeech.currentTime;
+
+      for (let fragIdx = 0; fragIdx < marksArr.length; fragIdx++) {
+        const start = marksArr[fragIdx].start;
+        // Si existe una siguiente marca, ese es el tope. 
+        // Si es la última, añadimos +0.1 s de colchón
+        const nextStart =
+          fragIdx + 1 < marksArr.length
+            ? marksArr[fragIdx + 1].start
+            : marksArr[fragIdx].end + 0.1;
+
+        const boxIdx = mapToBox[fragIdx];
+        const selector = `.word-box[data-index="${boxIdx}"] .english`;
+        const wDiv = document.querySelector(selector);
+        if (!wDiv) continue;
+
+        if (t >= start && t < nextStart) {
+          wDiv.classList.add("highlight");
+        } else {
+          wDiv.classList.remove("highlight");
+        }
+      }
+
+      // Si ya superamos el último start + 0.1 s, detenemos el audio
+      // y limpiamos el interval. De esta forma, no queda ejecutándose
+      // en segundo plano eternamente.
+      const lastFrag = marksArr[marksArr.length - 1];
+      if (t >= lastFrag.end + 0.1) {
+        audioSpeech.pause();
+        clearInterval(highlightIntervalId);
+      }
+    }
+
+    // ────────────────────────────────────────────────────────────────────
+    // 12) Antes de establecer un nuevo interval, borramos el anterior (si existe)
+    // ────────────────────────────────────────────────────────────────────
+    if (highlightIntervalId !== null) {
+      clearInterval(highlightIntervalId);
+    }
+
+    // ────────────────────────────────────────────────────────────────────
+    // 13) Cada 50 ms llamamos a checkHighlight()
+    //     Eso asegura que incluso ventanas muy breves (≈0.03 s)
+    //     sí queden cubiertas porque se comprueba hasta 20 veces por segundo.
+    // ────────────────────────────────────────────────────────────────────
+    highlightIntervalId = setInterval(checkHighlight, 50);
+  }
+
+
+    // -----------------------
+    // 11) Mostrar modal de gramática
+    // -----------------------
+    function openGrammarModal() {
+      const data = sentencesOfCurrentTopic[currentSentenceIndex];
+      if (!data) return;
+      modalBody.innerHTML = data.grammar;
+      modalOverlay.classList.add("active");
+    }
+    function closeGrammarModal() {
+      modalOverlay.classList.remove("active");
+    }
+
+    // -----------------------
+    // 12) Activity 1: completar palabras faltantes usando “palabras_similares_por_palabra”
+    // -----------------------
+    function startActivity1() {
+      // 1) Limpiar pantalla
+      cleanupActivities();
+
+      // 2) Mostrar contenedor de alternativas/instrucción
+      alternativesContainer.style.display = "flex";
+      // 3) Insertar el bloque de instrucción dentro de alternativesContainer
+      alternativesContainer.innerHTML = `
+        <div class="instruction">
+          <h1>Actividad 1: completa las palabras faltantes</h1>
+        </div>
+      `;
+
+      // 4) Preparar datos para enmascarar palabras
+      missingIndices = [];
+      currentMissingPointer = 0;
+      similarWordsByWord = Array.isArray(
+        sentencesOfCurrentTopic[currentSentenceIndex].palabras_similares_por_palabra
+      )
+        ? sentencesOfCurrentTopic[currentSentenceIndex].palabras_similares_por_palabra.slice()
+        : [];
+
+      if (similarWordsByWord.length !== originalWords.length) {
+        console.warn(
+          "La data 'palabras_similares_por_palabra' no coincide con el número de palabras. Se usará fallback."
+        );
+      }
+
+      // 5) Decidir aleatoriamente cuántas palabras ocultar (60% aprox, mínimo 2, máximo n-1)
+      const numWords = originalWords.length;
+      const countBlanks = Math.min(
+        numWords - 1,
+        Math.max(2, Math.floor(numWords * 0.6))
+      );
+      while (missingIndices.length < countBlanks) {
+        const rand = Math.floor(Math.random() * numWords);
+        if (!missingIndices.includes(rand)) missingIndices.push(rand);
+      }
+      missingIndices.sort((a, b) => a - b);
+
+      // 6) Renderizar blanks en las posiciones seleccionadas
+      const boxes = Array.from(wordsGrid.children);
+      missingIndices.forEach((idx) => {
+        const box = boxes[idx];
+        box.classList.add("blank");
+        box.innerHTML = `<span class="blank-text" data-index="${idx}">____</span>`;
+      });
+
+      // 7) Generar la primera tanda de alternativas
+      showNextAlternatives();
+    }
+
+  function showNextAlternatives() {
+  // 1) Eliminar grupos previos de alternativas
+  const prevGroups = alternativesContainer.querySelectorAll(".alternative-group");
+  prevGroups.forEach((g) => g.remove());
+
+  // 2) Si ya completamos todo, terminar
+  if (currentMissingPointer >= missingIndices.length) {
+    audioCongrat.currentTime = 0;
+    audioCongrat.play();
+    showPopup("¡Felicidades, completaste la Actividad 1!");
+    markActivityCompleted(actividad1);
+    return;
+  }
+
+  // 3) Obtener índice de la palabra faltante actual
+  const wordIdx = missingIndices[currentMissingPointer];
+  let options = [];
+
+  // 4) Preparar el array 'options' (palabras similares o fallback)
+  if (
+    Array.isArray(similarWordsByWord) &&
+    similarWordsByWord[wordIdx] &&
+    Array.isArray(similarWordsByWord[wordIdx]) &&
+    similarWordsByWord[wordIdx].length
+  ) {
+    options = similarWordsByWord[wordIdx].slice();
+  } else {
+    const correct = originalWords[wordIdx];
+    const generic = ["apple", "dog", "run", "book", "house", "tree", "car", "sun"];
+    options = [correct];
+    while (options.length < 4) {
+      const cand = generic[Math.floor(Math.random() * generic.length)];
+      if (!options.includes(cand)) options.push(cand);
+    }
+  }
+
+  // 5) Mezclar (shuffle) aleatoriamente
+  for (let i = options.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [options[i], options[j]] = [options[j], options[i]];
+  }
+
+  // 6) Crear <div class="alternative-group activity1"> con botones
+  const groupDiv = document.createElement("div");
+  groupDiv.className = "alternative-group activity1";
+
+  options.forEach((opt) => {
+    const btn = document.createElement("button");
+    btn.textContent = opt;
+    btn.dataset.targetIndex = wordIdx;
+    btn.addEventListener("click", () => {
+      audioDrop.currentTime = 0;
+      audioDrop.play();
+      handleActivity1Click(wordIdx, opt);
+    });
+    groupDiv.appendChild(btn);
+  });
+
+  // 7) Añadir el grupo debajo de la instrucción
+  alternativesContainer.appendChild(groupDiv);
+}
+
+
+   function handleActivity1Click(idx, chosen) {
+  const correctWord = originalWords[idx];
+  const box = wordsGrid.children[idx];
+
+  // 1) Normalizar quitando signos de puntuación y unificando a minúsculas:
+  const normalize = (str) =>
+    str
+      .replace(/[.,!?;:¡¿«»“”'"()]/g, "")
+      .toLowerCase()
+      .trim();
+
+  // 2) Comparación sobre la versión “limpia” de ambas cadenas:
+  if (normalize(correctWord) === normalize(chosen)) {
+    // Marca como correcta
+    box.classList.remove("blank");
+    box.classList.add("correct");
+    box.innerHTML = `<div class="english">${correctWord}</div>`;
+
+    currentMissingPointer++;
+    if (currentMissingPointer < missingIndices.length) {
+      // Siguiente conjunto de opciones
+      showNextAlternatives();
+    } else {
+      // Terminó la actividad
+      const prevGroups = alternativesContainer.querySelectorAll(".alternative-group");
+      prevGroups.forEach((g) => g.remove());
+
+      audioCongrat.currentTime = 0;
+      audioCongrat.play();
+
+      showPopup("¡Felicidades, completaste la Actividad 1!");
+      markActivityCompleted(actividad1);
+    }
+  } else {
+    // Incorrecto: parpadeo rojo
+    audioWrong.currentTime = 0;
+    audioWrong.play();
+
+    box.classList.add("incorrect");
+    setTimeout(() => box.classList.remove("incorrect"), 800);
+  }
+}
+
+
+    // -----------------------
+    // 13) Activity 2: completar letras faltantes (todas las palabras)
+    // -----------------------
+    function startActivity2() {
+      // 1) Limpiar pantalla
+      cleanupActivities();
+
+      // 2) Mostrar contenedor de alternativas/instrucción
+      alternativesContainer.style.display = "flex";
+      // 3) Insertar el bloque de instrucción dentro de alternativesContainer
+      alternativesContainer.innerHTML = `
+        <div class="instruction">
+          <h1>Actividad 2: completa las letras faltantes</h1>
+        </div>
+      `;
+
+      // 4) Preparar datos para enmascarar letras
+      letterBlanksInfo = [];
+      const boxes = Array.from(wordsGrid.children);
+
+      originalWords.forEach((word, idx) => {
+        const len = word.length;
+        // Calcular cuántas letras ocultar (40% de la longitud, mínimo 1, máximo len-1)
+        const numMissing = Math.min(Math.max(1, Math.floor(len * 0.4)), len - 1);
+        const posSet = new Set();
+        while (posSet.size < numMissing) {
+          const p = Math.floor(Math.random() * len);
+          posSet.add(p);
+        }
+        const missingIdxs = Array.from(posSet).sort();
+
+        // Construir la versión enmascarada
+        let masked = "";
+        for (let i = 0; i < len; i++) {
+          masked += missingIdxs.includes(i) ? "_" : word[i];
+        }
+
+        letterBlanksInfo.push({
+          index: idx,
+          originalWord: word,
+          maskedWord: masked,
+          missingIndices: missingIdxs,
+        });
+
+        // Mostrar la palabra enmascarada
+        const box = boxes[idx];
+        box.classList.add("blank");
+        box.innerHTML = `<span class="blank-text" data-index="${idx}">${masked}</span>`;
+      });
+
+      // 5) Crear un único <div class="alternative-group"> para TODAS las letras faltantes
+      const groupDiv = document.createElement("div");
+      groupDiv.className = "alternative-group";
+
+      letterBlanksInfo.forEach((info) => {
+        info.missingIndices.forEach((pos) => {
+          const correctLetter = info.originalWord[pos].toUpperCase();
+          const options = [correctLetter];
+          const lettersPool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+          // Generar 2 distractores aleatorios
+          while (options.length < 3) {
+            const cand = lettersPool[Math.floor(Math.random() * lettersPool.length)];
+            if (!options.includes(cand)) options.push(cand);
+          }
+
+          // Ordenar alfabéticamente
+          options.sort((a, b) => a.localeCompare(b));
+
+          options.forEach((opt) => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.dataset.targetWord = info.index;
+            btn.dataset.targetPos  = pos;
+
+
+          btn.addEventListener("click", () => {
+       // ① reproducir select.wav al hacer clic en la letra
+       audioDrop.currentTime = 0;
+       audioDrop.play();
+       // ② luego continuar con la lógica existente
+       handleActivity2Click(info.index, pos, opt, btn);
+     });
+
+
+            groupDiv.appendChild(btn);
+          });
+        });
+      });
+
+      // 6) Añadir el grupo debajo de la instrucción
+      alternativesContainer.appendChild(groupDiv);
+    }
+
+    function handleActivity2Click(idx, pos, chosen, btn) {
+      const info = letterBlanksInfo.find((b) => b.index === idx);
+      const box = wordsGrid.children[idx];
+      const blankSpan = box.querySelector(".blank-text");
+      let currentMask = blankSpan.textContent.split("");
+
+      if (info.originalWord[pos].toUpperCase() === chosen.toUpperCase()) {
+        // Correcto: reemplazar "_" en esa posición
+        currentMask[pos] = info.originalWord[pos];
+        blankSpan.textContent = currentMask.join("");
+
+        // Deshabilitar el botón usado
+        btn.disabled = true;
+        btn.style.opacity = "0.6";
+
+        // Si ya no hay "_" en el span, marcamos la palabra completa
+        if (!currentMask.includes("_")) {
+          box.classList.remove("blank");
+          box.classList.add("correct");
+          // Deshabilitar todos los botones de esa palabra
+          const groupBtns = Array.from(
+            alternativesContainer.querySelectorAll(`button[data-target-word="${idx}"]`)
+          );
+          groupBtns.forEach((b) => (b.disabled = true));
+        }
+
+        // Verificar si completamos todas las palabras
+        checkActivity2Completion();
+      } else {
+
+        audioWrong.currentTime = 0;
+         audioWrong.play();
+        // Incorrecto: parpadeo rojo
+        box.classList.add("incorrect");
+        setTimeout(() => box.classList.remove("incorrect"), 800);
+      }
+    }
+
+    function checkActivity2Completion() {
+      // Buscar si aún existe al menos un "_" en cualquier .blank-text
+      const allBlankSpans = Array.from(document.querySelectorAll(".blank-text"));
+      const stillHasUnderscore = allBlankSpans.some((span) =>
+        span.textContent.includes("_")
+      );
+
+      if (!stillHasUnderscore) {
+
+         audioCongrat.currentTime = 0;
+  audioCongrat.play();
+
+
+        showPopup("¡Felicidades, completaste la Actividad 2!");
+        markActivityCompleted(actividad2);
+      }
+    }
+
+    // -----------------------
+    // 14) Activity 3: ordenar la frase (Drag & Drop & Fallback táctil)
+    // -----------------------
+    function startActivity3() {
+      // 1) Limpiar pantalla
+      cleanupActivities();
+
+      // 2) Mostrar contenedor de alternativas/instrucción
+      alternativesContainer.style.display = "flex";
+      alternativesContainer.innerHTML = `
+        <div class="instruction">
+          <h1>Actividad 3: arrastra cada palabra a su posición correcta</h1>
+        </div>
+      `;
+
+      // 3) Mezclar word-boxes
+      const boxes = Array.from(wordsGrid.children);
+      const shuffled = boxes.slice().sort(() => Math.random() - 0.5);
+      wordsGrid.innerHTML = "";
+      shuffled.forEach((box) => {
+        box.classList.remove("blank", "correct", "incorrect");
+        wordsGrid.appendChild(box);
+      });
+
+      // 4) Resaltar cada word-box para indicar que son arrastrables
+      shuffled.forEach((box) => {
+        box.classList.add("draggable-highlight");
+      });
+
+      // 5) Iniciar lógica Drag & Drop revisada
+      initAdvancedDragAndDrop_Revised();
+    }
+
+    function initAdvancedDragAndDrop_Revised() {
+      let draggingEl     = null; // elemento original a arrastrar
+      let ghostEl        = null; // clon que sigue al cursor
+      let placeholderEl  = null; // marcador amarillo
+      let offsetX = 0, offsetY = 0;
+      let isTouch = false;
+
+      // 1) Calcular índice de inserción según la tarjeta más cercana
+      function getInsertIndex(clientX, clientY) {
+        const children = Array.from(wordsGrid.children).filter(
+          (el) => el !== ghostEl && el !== placeholderEl
+        );
+        if (children.length === 0) return 0;
+
+        const centers = children.map((el, idx) => {
+          const r = el.getBoundingClientRect();
+          return {
+            idx,
+            cx: r.left + r.width / 2,
+            cy: r.top + r.height / 2,
+          };
+        });
+
+        let closest = centers[0];
+        let minDist = Math.hypot(clientX - centers[0].cx, clientY - centers[0].cy);
+        for (let i = 1; i < centers.length; i++) {
+          const d = Math.hypot(clientX - centers[i].cx, clientY - centers[i].cy);
+          if (d < minDist) {
+            minDist = d;
+            closest = centers[i];
+          }
+        }
+
+        const targetRect = children[closest.idx].getBoundingClientRect();
+        const midX = targetRect.left + targetRect.width / 2;
+        const midY = targetRect.top + targetRect.height / 2;
+
+        if (clientY < midY || clientX < midX) {
+          return closest.idx;
+        } else {
+          return Math.min(closest.idx + 1, children.length);
+        }
+      }
+
+      // 2) Crear o reposicionar el placeholder amarillo
+      function updatePlaceholder(insertIndex) {
+        if (!placeholderEl) {
+          placeholderEl = document.createElement("div");
+          placeholderEl.className = "placeholder";
+          placeholderEl.style.width  = `${draggingEl.offsetWidth}px`;
+          placeholderEl.style.height = `${draggingEl.offsetHeight}px`;
+        }
+        const siblings = Array.from(wordsGrid.children).filter(
+          (el) => el !== ghostEl && el !== placeholderEl
+        );
+
+        if (insertIndex >= siblings.length) {
+          wordsGrid.appendChild(placeholderEl);
+        } else {
+          wordsGrid.insertBefore(placeholderEl, siblings[insertIndex]);
+        }
+      }
+
+      function removeGhostAndPlaceholder() {
+        if (ghostEl) {
+          document.body.removeChild(ghostEl);
+          ghostEl = null;
+        }
+        if (placeholderEl) {
+          placeholderEl.remove();
+          placeholderEl = null;
+        }
+      }
+
+      function onDragStart(e) {
+        e.preventDefault();
+ audioSelect.currentTime = 0;
+  audioSelect.play();
+        draggingEl = e.currentTarget;
+        isTouch = e.type === "touchstart";
+
+        const point = isTouch ? e.touches[0] : e;
+        const clientX = point.clientX;
+        const clientY = point.clientY;
+        const rect = draggingEl.getBoundingClientRect();
+
+        offsetX = clientX - rect.left;
+        offsetY = clientY - rect.top;
+
+        // Crear el ghost con position:absolute
+        ghostEl = draggingEl.cloneNode(true);
+        ghostEl.classList.add("dragging");
+        ghostEl.style.position = "absolute";
+        ghostEl.style.width    = `${rect.width}px`;
+        ghostEl.style.height   = `${rect.height}px`;
+        ghostEl.style.pointerEvents = "none";
+
+        const initialLeft = rect.left + window.scrollX;
+        const initialTop  = rect.top + window.scrollY;
+        ghostEl.style.left = `${initialLeft}px`;
+        ghostEl.style.top  = `${initialTop}px`;
+
+        document.body.appendChild(ghostEl);
+        draggingEl.style.visibility = "hidden";
+
+        if (isTouch) {
+          window.addEventListener("touchmove", onDragMove_Revised, { passive: false });
+          window.addEventListener("touchend", onDragEnd_Revised);
+          window.addEventListener("touchcancel", onDragEnd_Revised);
+        } else {
+          window.addEventListener("mousemove", onDragMove_Revised);
+          window.addEventListener("mouseup", onDragEnd_Revised);
+        }
+      }
+
+      function onDragMove_Revised(e) {
+        e.preventDefault();
+
+        const point = isTouch ? e.touches[0] : e;
+        const clientX = point.clientX;
+        const clientY = point.clientY;
+
+        const newLeft = clientX + window.scrollX - offsetX;
+        const newTop  = clientY + window.scrollY - offsetY;
+        ghostEl.style.left = `${newLeft}px`;
+        ghostEl.style.top  = `${newTop}px`;
+
+        const insertIndex = getInsertIndex(clientX, clientY);
+        updatePlaceholder(insertIndex);
+      }
+
+      function onDragEnd_Revised(e) {
+        const point = isTouch
+          ? (e.changedTouches[0] || (e.touches && e.touches[0]))
+          : e;
+        const clientX = point.clientX;
+        const clientY = point.clientY;
+
+        const finalIndex = getInsertIndex(clientX, clientY);
+        const siblings = Array.from(wordsGrid.children).filter(
+          (el) => el !== ghostEl && el !== placeholderEl
+        );
+
+        if (finalIndex >= siblings.length) {
+          wordsGrid.appendChild(draggingEl);
+        } else {
+          wordsGrid.insertBefore(draggingEl, siblings[finalIndex]);
+        }
+
+         audioDrop.currentTime = 0;
+  audioDrop.play();
+
+        draggingEl.style.visibility = "visible";
+        removeGhostAndPlaceholder();
+
+        if (isTouch) {
+          window.removeEventListener("touchmove", onDragMove_Revised);
+          window.removeEventListener("touchend", onDragEnd_Revised);
+          window.removeEventListener("touchcancel", onDragEnd_Revised);
+        } else {
+          window.removeEventListener("mousemove", onDragMove_Revised);
+          window.removeEventListener("mouseup", onDragEnd_Revised);
+        }
+
+        checkActivity3Completion();
+      }
+
+      // 6) Adjuntar listeners a cada .word-box para drag & drop
+      const boxes = Array.from(wordsGrid.children);
+      boxes.forEach((box) => {
+        box.addEventListener("mousedown", onDragStart);
+        box.addEventListener("touchstart", onDragStart, { passive: false });
+      });
+    }
+
+    function checkActivity3Completion() {
+      const boxes = Array.from(wordsGrid.children);
+      const correcto = boxes.every((box, i) => {
+        return box.querySelector(".english").textContent === originalWords[i];
+      });
+      if (correcto) {
+
+        audioCongrat.currentTime = 0;
+  audioCongrat.play();
+
+        showPopup("¡Felicidades, completaste la Actividad 3!");
+        markActivityCompleted(actividad3);
+      }
+    }
+
+    // -----------------------
+    // 15) Cleanup / Reset Activities
+    // -----------------------
+    function cleanupActivities() {
+      // Quitar instrucciones del contenedor tradicional y ocultarlo
+      instructionContainer.innerHTML = "";
+      instructionContainer.style.display = "none";
+      // Quitar todo dentro de alternativesContainer (instrucción + botones) y ocultarlo
+      alternativesContainer.innerHTML = "";
+      alternativesContainer.style.display = "none";
+      // Restaurar palabra original en word-boxes
+      if (originalWords.length) {
+        wordsGrid.innerHTML = "";
+        wordObjects.forEach((wordObj, idx) => {
+          const box = document.createElement("div");
+          box.className = "word-box";
+          box.dataset.index = idx;
+          box.innerHTML = `
+            <div class="english">${wordObj.ingles}</div>
+            <div class="pronunciation">${wordObj.pronunciacion}</div>
+            <div class="espanol">${wordObj.espanol}</div>
+            <div class="part-of-speech">${wordObj.tipo}</div>
+          `;
+          wordsGrid.appendChild(box);
+        });
+      }
+      // Reiniciar estado de selección táctil
+      selectedBox = null;
+      // No re-renderizar imágenes aquí
+    }
+
+    // -----------------------
+    // 16) Señalización de botón completado
+    // -----------------------
+    function markActivityCompleted(btn) {
+      if (!btn.classList.contains("completed")) {
+        btn.classList.add("completed");
+        const checkIcon = document.createElement("i");
+        checkIcon.className = "fa-solid fa-check";
+        btn.prepend(checkIcon);
+      }
+    }
+
+    // -----------------------
+    // 17) Pop-up felicitaciones
+    // -----------------------
+function showPopup(message) {
+  // 1) Mostrar el popup y actualizar texto
+  popupText.textContent = message;
+  popupMessage.style.display = "block";
+
+  // 2) Generar confeti expandido
+  const numStars = 25; // ahora caen 25 estrellitas
+  const containerRect = popupMessage.getBoundingClientRect();
+  const popupWidth = containerRect.width;
+
+  // Calculamos un spread del 120% del ancho del popup
+  const spread = popupWidth * 1.2;
+  // Offset para centrar ese spread: el 10% del ancho a cada lado
+  const offset = (spread - popupWidth) / 2;
+
+  for (let i = 0; i < numStars; i++) {
+    const star = document.createElement("div");
+    star.className = "confetti-star";
+
+    // Posición horizontal aleatoria, pudiendo nacer hasta 10% fuera de cada lado
+    const startX = Math.random() * spread - offset;
+    star.style.left = startX + "px";
+
+    // Comienza justo encima del popup
+    star.style.top = "-12px"; // ajustamos a la altura de la nueva estrella (12px)  
+
+    // Retraso aleatorio para escalonar la caída
+    const delay = Math.random() * 0.5; // un poco más de variabilidad
+    star.style.animationDelay = delay + "s";
+
+    popupMessage.appendChild(star);
+
+    // Si la animación dura 1.2s + delay, borramos la estrella
+    setTimeout(() => {
+      if (star && star.parentNode) star.parentNode.removeChild(star);
+    }, 1200 + delay * 1000);
+  }
+
+  // 3) Ocultar popup tras 2 seg y limpiar posibles estrellas que queden
+  setTimeout(() => {
+    popupMessage.style.display = "none";
+    const leftovers = popupMessage.querySelectorAll(".confetti-star");
+    leftovers.forEach((el) => el.remove());
+  }, 2000);
+}
+
+
+    // -----------------------
+    // Eventos Principales
+    // -----------------------
+    levelButtons.forEach((btn) => {
+      btn.addEventListener("click", () =>
+        switchLevel(btn.dataset.level)
+      );
+    });
+
+
+
+    // ────────────────────────────────────────────────────────────────────
+// Construye la lista de frases (botones) dentro de #phrasesList
+// ────────────────────────────────────────────────────────────────────
+function populatePhrasesList() {
+  containerList.innerHTML = "";
+  sentencesOfCurrentTopic.forEach((sentenceData, index) => {
+    const fullSentence = sentenceData.oracion.palabras
+      .map(wObj => wObj.ingles.trim())
+      .join(" ");
+    const btn = document.createElement("button");
+btn.textContent = fullSentence;
+btn.style.width = "100%";
+btn.style.padding = "0.6rem";
+btn.style.fontSize = "0.9rem";
+btn.style.border = "none"; 
+btn.style.borderRadius = "8px";
+btn.style.background = "linear-gradient(135deg, #6c757d 0%, #5a6268 100%)";
+btn.style.color = "#ffffff";
+btn.style.cursor = "pointer";
+btn.style.marginBottom = "0.3rem";
+    btn.addEventListener("click", () => {
+  // 1) Cerrar modal
+  modalPhrases.style.display = "none";
+  // 2) Actualizar índice global
+  currentSentenceIndex = index;
+
+// 3) Renderizar toda la frase (palabras, imágenes, traducciones y highlight)
+renderCurrentSentence();
+});
+    containerList.appendChild(btn);
+  });
+}
+// ────────────────────────────────────────────────────────────────────
+
+
+    btnPrev.addEventListener("click", goToPreviousSentence);
+    btnNext.addEventListener("click", goToNextSentence);
+    btnPlay.addEventListener("click", playWithHighlight);
+    btnViewGrammar.addEventListener("click", openGrammarModal);
+    btnBackTopics.addEventListener("click", hideSentenceView);
+
+    actividad1.addEventListener("click", startActivity1);
+    actividad2.addEventListener("click", startActivity2);
+    actividad3.addEventListener("click", startActivity3);
+
+    modalClose.addEventListener("click", closeGrammarModal);
+    modalOverlay.addEventListener("click", (ev) => {
+      if (ev.target === modalOverlay) closeGrammarModal();
+    });
+
+
+
+    // ────────────────────────────────────────────────────────────────────
+// Listener para abrir el popup de “Frases”
+// ────────────────────────────────────────────────────────────────────
+btnViewPhrases.addEventListener("click", () => {
+  spanPhraseCount.textContent = sentencesOfCurrentTopic.length;
+  populatePhrasesList();
+  modalPhrases.style.display = "flex";
+});
+
+// Cerrar el modal de frases al hacer click en la “X”
+btnClosePhrases.addEventListener("click", () => {
+  modalPhrases.style.display = "none";
+});
+
+// Cerrar el modal si el usuario hace click fuera del contenido
+window.addEventListener("click", (ev) => {
+  if (ev.target === modalPhrases) {
+    modalPhrases.style.display = "none";
+  }
+});
+// ────────────────────────────────────────────────────────────────────
+
+
+
+
+
+// ——— Inicialización del modal de palabra ———
+const wordModalOverlay    = document.getElementById("wordModalOverlay");
+const wordModalClose      = document.getElementById("wordModalClose");
+const wordModalTitle      = document.getElementById("wordModalTitle");
+const wordModalImage      = document.getElementById("wordModalImage");
+const wordModalSpinner    = document.getElementById("wordModalSpinner");
+const wordModalTranslation= document.getElementById("wordModalTranslation");
+const wordModalOK         = document.getElementById("wordModalOK");
+const wordModalPlay       = document.getElementById("wordModalPlay");
+
+// Cierra modal
+wordModalClose.addEventListener("click", () => wordModalOverlay.classList.remove("active"));
+wordModalOK   .addEventListener("click", () => wordModalOverlay.classList.remove("active"));
+
+// Reproduce solo la palabra desde speech.mp3 con marcas de tiempo
+
+
+
+
+
+
+
+// Lanza el modal con todos los datos
+function openWordModal(wordObj) {
+  wordModalTitle.textContent       = wordObj.ingles;
+  wordModalTranslation.textContent = wordObj.espanol;
+  // prepara spinner y oculta imagen
+  wordModalImage.style.display = "none";
+  wordModalSpinner.style.display = "block";
+  wordModalOverlay.classList.add("active");
+
+
+  // al mostrarse el modal, reproducir la palabra
+playCurrentWord();
+
+  // ——— Limpiar signos de puntuación ———
+  // eliminamos todo menos letras, números y espacios
+  const cleanWord = wordObj.ingles
+    .replace(/[^\p{L}\p{N}\s]/gu, '')  // Unicode: letras y dígitos
+    .trim();
+
+
+  
+  // fetch Pexels (usa tu PEXELS_API_KEY)
+  fetch(`https://api.pexels.com/v1/search?query=${encodeURIComponent(cleanWord)}&per_page=1`, {
+    headers: { Authorization: PEXELS_API_KEY }
+  })
+    .then(r => r.json())
+    .then(json => {
+      const photo = json.photos && json.photos[0];
+      if (photo && photo.src) {
+        wordModalImage.src = photo.src.medium;
+        wordModalImage.alt = wordObj.ingles;
+        wordModalImage.onload = () => {
+          wordModalSpinner.style.display = "none";
+          wordModalImage.style.display = "block";
+        };
+      } else {
+        throw new Error("no-photo");
+      }
+    })
+    .catch(() => {
+      wordModalSpinner.style.display = "none";
+      wordModalBody.innerHTML += `<div class="no-images">No image found</div>`;
+    });
+}
+
+// Asigna el listener a cada .word-box tras renderizar frase
+function attachWordBoxListeners() {
+  document.querySelectorAll(".word-box").forEach(box => {
+    box.addEventListener("click", () => {
+      const idx = parseInt(box.dataset.index, 10);
+      const wordObj = wordObjects[idx];  // tu array global de objetos
+      openWordModal(wordObj);
+    });
+  });
+}
+
+// Llamar dentro de renderCurrentSentence(), **al final**:
+attachWordBoxListeners();
+
+
+
+iaGenerateBtn.addEventListener("click", async () => {
+  const tema = iaTopicInput.value.trim();
+  if (!tema) return alert("Por favor, ingresa un tema.");
+
+  iaGenerateBtn.disabled    = true;
+  iaGenerateBtn.textContent = "Generando…";
+
+  try {
+    // Prompt plano
+    const messages = [
+      { role: "system", content: "Devuélveme solo un array JSON con objetos que tengan las claves 'ingles' y 'espanol'." },
+      {
+        role: "user",
+        content: `Genera 5 ejercicios para el tema: "${tema}" en este formato:
+[
+  { "ingles": "Good morning, how are you?", "espanol": "Buenos días, ¿cómo estás?" },
+  { "ingles": "She plays soccer.",         "espanol": "Ella juega fútbol." },
+  { "ingles": "We drink water.",           "espanol": "Bebemos agua." },
+  { "ingles": "They run fast.",            "espanol": "Ellos corren rápido." },
+  { "ingles": "I love programming.",       "espanol": "Me encanta programar." }
+]`
+      }
+    ];
+
+    // Llamada a la API
+    const res = await fetch("https://chatgpt-42.p.rapidapi.com/gpt4o", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-rapidapi-host": "chatgpt-42.p.rapidapi.com",
+        "x-rapidapi-key": "99f4ee8486msh85051e07ae09538p118b08jsnac286d0beaf9"
+      },
+      body: JSON.stringify({ messages, web_access: false })
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    const { result } = await res.json();
+
+    // Parsear JSON plano
+    const jsonText = result.slice(result.indexOf("["), result.lastIndexOf("]") + 1);
+    const arrPlain = JSON.parse(jsonText);
+
+    // ***** AQUÍ TRANSFORMAS a la estructura que pide tu app *****
+    const arrFull = arrPlain.map((item, idx) => {
+      // Tokenizar y crear palabras con placeholders
+      const tokens = item.ingles.split(" ");
+      const palabras = tokens.map(tok => {
+        const m = tok.match(/^(.+?)([.,?!])?$/);
+        const w = m[1], punc = m[2] || "";
+        return {
+          ingles: w + punc,
+          espanol: "",                     // Podrías usar traducción palabra a palabra
+          pronunciacion: w.toLowerCase(),  // Placeholder
+          tipo: "Word"                     // Placeholder
+        };
+      });
+
+      // Campos anteriores basados en arrPlain
+      const prev = idx > 0 ? arrPlain[idx - 1] : null;
+
+      return {
+        id: idx + 1,
+        nivel: "Fundamental",
+        tema,
+        oracion: {
+          espanol: item.espanol,
+          palabras
+        },
+        grammar: `<h3>Explicación gramatical</h3><p>La frase “${item.ingles}” significa “${item.espanol}”.</p>`,
+        imagenes: tokens.slice(0, 2).map(t => t.replace(/[.,?!]/g, "").toLowerCase()),
+        anterior_probable: prev ? prev.ingles : "",
+        traduccion_anterior_probable: prev ? prev.espanol : "",
+        palabras_similares_por_palabra: palabras.map(p => [
+          p.ingles,
+          p.ingles + "X",
+          p.ingles + "Y",
+          p.ingles + "Z"
+        ])
+      };
+    });
+
+    // Crear botón IA al inicio
+    const btn = document.createElement("button");
+    btn.textContent = `Generado: ${tema}`;
+    Object.assign(btn.style, {
+      backgroundColor: "#f0ad4e",
+      color: "#fff",
+      border: "none",
+      padding: "0.5em 1em",
+      marginRight: "0.5em",
+      cursor: "pointer"
+    });
+
+    btn.addEventListener("click", () => {
+      audioDrop.currentTime = 0;
+      audioDrop.play();
+      mainTitle.style.display       = "none";
+      levelBar.style.display        = "none";
+      topicsContainer.style.display = "none";
+      topicsContainer.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      sentencesOfCurrentTopic = arrFull;
+      currentSentenceIndex    = 0;
+      sentenceView.classList.add("active");
+      renderCurrentSentence();
+      updatePhraseCount();
+    });
+
+    topicsContainer.insertBefore(btn, topicsContainer.firstChild);
+    sentenceView.classList.remove("active");
+  } catch (err) {
+    console.error("IA Generator error:", err);
+    alert(err.message);
+  } finally {
+    iaGenerateBtn.disabled    = false;
+    iaGenerateBtn.textContent = "Generar con IA";
+  }
+});
+
+
+
+
+
+
+  })();
+
+
+
+
+
+
+  
+</script>
+
+</body>
+</html>

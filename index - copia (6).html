@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inglés práctico por frases</title>
+  <!-- Font Awesome para íconos -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    /* ================= Reset básico ================= */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 16px;
+    }
+    body {
+      background-color: #2f2f2f;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    /* ================= Contenedor principal ================= */
+    .container {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ================= Estilos globales de botón ================= */
+    button {
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.1s ease, box-shadow 0.2s ease;
+    }
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+    }
+
+    /* ========== Barra de niveles ========== */
+    .level-bar {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .level-bar button {
+      flex: 1 1 auto;
+      font-size: 0.95rem;
+      padding: 0.6rem 1rem;
+      background: linear-gradient(135deg, #17a2b8 0%, #117a8b 100%);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    .level-bar button.active {
+      background: linear-gradient(135deg, #138496 0%, #0f6674 100%);
+    }
+
+    /* ================ Lista de temas ================ */
+    .topics-container {
+      display: grid;
+      gap: 0.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    .topics-container button {
+      font-size: 0.95rem;
+      padding: 0.7rem 1rem;
+      background: linear-gradient(135deg, #fd7e14 0%, #e8590c 100%);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    .topics-container button:hover {
+      background: linear-gradient(135deg, #e8590c 0%, #c8470a 100%);
+    }
+
+    /* ================ Vista de frase ================= */
+    .sentence-view {
+      display: none; /* oculta por defecto */
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      position: relative;
+      padding-top: 4rem; /* espacio para top-controls */
+    }
+    .sentence-view.active {
+      display: flex;
+    }
+
+    /* ================= Controles superiores ================= */
+    .top-controls {
+      display: flex;
+      gap: 0.5rem;
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+      z-index: 10;
+    }
+    .top-controls button {
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+      background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    .top-controls button:hover {
+      background: linear-gradient(135deg, #5a6268 0%, #4e555b 100%);
+    }
+
+    /* ================= Div de instrucciones ================= */
+    .instruction {
+      width: 100%;
+      background-color: #343a40;
+      border: 2px solid #495057;
+      border-radius: 6px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .instruction h1 {
+      font-size: 1.4rem;
+      color: #ffc107;
+    }
+
+    /* ================= Texto Anterior Probable ================= */
+    .previous-container {
+      width: 100%;
+      background-color: #3b3b3b;
+      border: 2px solid #4a4a4a;
+      border-radius: 6px;
+      text-align: center;
+      padding: 0.5rem;
+    }
+    .previous-text {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+    .previous-translation {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    /* ================ Contenedor de imágenes ================= */
+    .sentence-image {
+      width: 100%;
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 0.1rem;
+    }
+    .sentence-image .img-item {
+      flex: 1 1 calc(33.333% - 0.5rem);
+      max-width: calc(33.333% - 0.5rem);
+      background-color: #4a4a4a;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+    }
+    .sentence-image .img-item .inner {
+      position: relative;
+      width: 100%;
+      padding-top: 75%; /* 4:3 ratio */
+    }
+    .sentence-image .img-item .spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.5rem;
+      color: #888;
+      animation: spin 1s linear infinite;
+      z-index: 1;
+    }
+    @keyframes spin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    .sentence-image .no-images {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #aaa;
+      font-size: 0.9rem;
+      padding: 1rem;
+      text-align: center;
+    }
+    .sentence-image .img-item img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    /* ================ Frase y palabras ================= */
+    .sentence-phrase {
+      width: 100%;
+      background-color: #3b3b3b;
+      border: 2px solid #4a4a4a;
+      border-radius: 6px;
+      padding: 0.5rem;
+    }
+    .sentence-phrase h2 {
+      text-align: center;
+      margin-bottom: 0.6rem;
+      font-size: 1.4rem;
+      letter-spacing: 0.4px;
+    }
+    .words-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      justify-content: center;
+    }
+    .word-box {
+      background-color: #2e2e2e;
+      border: 2px solid #4a4a4a;
+      border-radius: 6px;
+      padding: 0.4rem;
+      text-align: center;
+      word-wrap: break-word;
+      flex: 0 1 auto;
+      min-width: 80px;
+      position: relative;
+    }
+    .word-box.blank {
+      background-color: #495057;
+      border-color: #6c757d;
+      color: #adb5bd;
+    }
+    .word-box.correct {
+      background-color: #28a745;
+      border-color: #1e7e34;
+    }
+    .word-box.incorrect {
+      background-color: #dc3545;
+      border-color: #bd2130;
+    }
+    .word-box .english {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      line-height: 1.1;
+      word-wrap: break-word;
+    }
+    .word-box .pronunciation {
+      font-size: 1.2rem;
+      color: #a0a0a0;
+      margin-bottom: 0.1rem;
+    }
+    .word-box .espanol {
+      font-size: 0.9rem;
+      color: #a0a0a0;
+      margin-bottom: 0.1rem;
+    }
+    .word-box .part-of-speech {
+      font-size: 0.8rem;
+      color: #ccc;
+    }
+    /* Span para mostrar blanks or letters */
+    .blank-text {
+      display: inline-block;
+      min-width: 40px;
+      border-bottom: 2px dotted #adb5bd;
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    /* ================ Botones de navegación ================= */
+    .actions-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.4rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .actions-row button {
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    .actions-row button:hover {
+      background: linear-gradient(135deg, #0056b3 0%, #00408d 100%);
+    }
+
+    /* ================ Botones de actividades ================= */
+    .activity-buttons {
+      width: 100%;
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 0.4rem;
+    }
+    .activity-buttons button {
+      flex: 1 1 30%;
+      min-width: 100px;
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+      background: linear-gradient(135deg, #6f42c1 0%, #551a8b 100%);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+    .activity-buttons button.completed {
+      background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+    }
+    .activity-buttons button:hover {
+      background: linear-gradient(135deg, #551a8b 0%, #3f0d6f 100%);
+    }
+
+    /* ================ Contenedor de alternativas ================= */
+    .alternatives {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .alternative-group {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .alternative-group button {
+      flex: 1 1 auto;
+      background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    .alternative-group button:hover {
+      background: linear-gradient(135deg, #e0a800 0%, #c69500 100%);
+    }
+
+    /* ================ Drag & Drop estilos ================= */
+    .draggable {
+      cursor: grab;
+    }
+    .drag-over {
+      border: 2px dashed #ffc107;
+    }
+
+    /* ================= Modal de Gramática ================= */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 1rem;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-content {
+      background-color: #3b3b3b;
+      padding: 1rem;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 500px;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    .modal-content h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .modal-close {
+      position: absolute;
+      top: 0.4rem;
+      right: 0.4rem;
+      background: none;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    /* ================= Pie de página ================= */
+    footer.footer {
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #888;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #444;
+    }
+
+    /* ================= Media Queries ================= */
+    @media (max-width: 480px) {
+      .sentence-image .img-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+      .activity-buttons button {
+        flex: 1 1 calc(40% - 0.5rem);
+      }
+      .alternative-group button {
+        flex: 1 1 45%;
+      }
+    }
+    @media (min-width: 480px) {
+      .sentence-phrase h2 {
+        font-size: 1.4rem;
+      }
+      .word-box {
+        min-width: 100px;
+      }
+      .actions-row button {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
+    @media (min-width: 640px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .level-bar button {
+        font-size: 1.05rem;
+        padding: 0.6rem 1.2rem;
+      }
+      .topics-container {
+        gap: 0.75rem;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      }
+      .sentence-phrase h2 {
+        font-size: 1.6rem;
+      }
+      .actions-row button {
+        font-size: 1.1rem;
+        padding: 0.7rem 1.4rem;
+      }
+      footer.footer {
+        font-size: 0.8rem;
+        margin-top: 2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="main-title">Inglés práctico por frases</h1>
+
+    <div class="level-bar" id="level-bar">
+      <button data-level="fundamental" class="active">Fundamental</button>
+      <button data-level="basic">Básico</button>
+      <button data-level="intermediate">Intermedio</button>
+      <button data-level="advanced">Avanzado</button>
+    </div>
+
+    <div class="topics-container" id="topics-container"></div>
+
+    <div class="sentence-view" id="sentence-view">
+      <!-- Controles superiores: "Volver a Temas" y "Ver Gramática" -->
+      <div class="top-controls">
+        <button class="btn-back-topics" id="btn-back-topics">
+          ← Volver a Temas
+        </button>
+        <button id="btn-view-grammar">
+          <i class="fa-solid fa-book"></i> Ver Gramática
+        </button>
+      </div>
+
+      <!-- Div para mostrar instrucciones dinámicas -->
+      <div id="instruction-container"></div>
+
+      <!-- Texto anterior probable y su traducción -->
+      <div class="previous-container">
+        <div id="previous-text" class="previous-text"></div>
+        <div id="previous-translation" class="previous-translation"></div>
+      </div>
+
+      <!-- Contenedor de 3 imágenes (responsive) -->
+      <div class="sentence-image" id="sentence-image">
+        <!-- Aquí JavaScript inyectará .img-item -->
+      </div>
+
+      <!-- Frase y palabras -->
+      <div class="sentence-phrase">
+        <h2 id="sentence-title">Título de la frase</h2>
+        <div class="words-grid" id="words-grid"></div>
+      </div>
+
+      <!-- Contenedor de alternativas dinámicas -->
+      <div class="alternatives" id="alternatives"></div>
+
+      <!-- Botones de navegación -->
+      <div class="actions-row">
+        <button id="btn-prev">
+          <i class="fa-solid fa-arrow-left"></i> Previous
+        </button>
+        <button id="btn-play">
+          <i class="fa-solid fa-play"></i> Play
+        </button>
+        <button id="btn-next">
+          Next <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+      <!-- Botones de actividades -->
+      <div class="activity-buttons">
+        <button id="actividad-1">
+          <i class="fa-solid fa-pencil"></i> Actividad 1
+        </button>
+        <button id="actividad-2">
+          <i class="fa-solid fa-edit"></i> Actividad 2
+        </button>
+        <button id="actividad-3">
+          <i class="fa-solid fa-arrows-up-down-left-right"></i> Actividad 3
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Gramática -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="footer">Diseñado profesionalmente – © 2025</footer>
+
+  <script>
+    (function () {
+      const WORKER_BASE = "https://sentences.saturninocok.workers.dev";
+      const PEXELS_API_KEY = "aV5EuNmfMhHpLQYMjCOQp6YWmU6RAF5M6at5jDTRpe0pLwxk1SZzPhSC";
+
+      let currentLevel = "fundamental";
+      let allData = [];
+      let temasUnicos = [];
+      let sentencesOfCurrentTopic = [];
+      let currentSentenceIndex = 0;
+
+      // Guardar estado original de palabras para poder restaurar
+      let originalWords = []; // Array de strings
+      let wordObjects = [];   // Array de objetos palabra (para referencia)
+
+      // Para Activity 1
+      let blanksInfo = []; // { index, correctWord }
+
+      // Para Activity 2
+      let letterBlanksInfo = []; // { index, maskedWord, missingIndices, originalWord }
+
+      // Para Activity 3
+      let dragSrcEl = null;
+
+      // Elementos DOM
+      const mainTitle = document.getElementById("main-title");
+      const levelBar = document.getElementById("level-bar");
+      const levelButtons = document.querySelectorAll(".level-bar button");
+      const topicsContainer = document.getElementById("topics-container");
+      const sentenceView = document.getElementById("sentence-view");
+      const sentenceImage = document.getElementById("sentence-image");
+      const previousText = document.getElementById("previous-text");
+      const previousTranslation = document.getElementById("previous-translation");
+      const sentenceTitle = document.getElementById("sentence-title");
+      const wordsGrid = document.getElementById("words-grid");
+      const btnViewGrammar = document.getElementById("btn-view-grammar");
+      const btnPrev = document.getElementById("btn-prev");
+      const btnNext = document.getElementById("btn-next");
+      const btnPlay = document.getElementById("btn-play");
+      const btnBackTopics = document.getElementById("btn-back-topics");
+      const actividad1 = document.getElementById("actividad-1");
+      const actividad2 = document.getElementById("actividad-2");
+      const actividad3 = document.getElementById("actividad-3");
+      const modalOverlay = document.getElementById("modal-overlay");
+      const modalBody = document.getElementById("modal-body");
+      const modalClose = document.getElementById("modal-close");
+      const instructionContainer = document.getElementById("instruction-container");
+      const alternativesContainer = document.getElementById("alternatives");
+
+      document.addEventListener("DOMContentLoaded", () => {
+        fetchDataForLevel("fundamental");
+      });
+
+      // -----------------------
+      // 1) Cambiar nivel
+      // -----------------------
+      function switchLevel(level) {
+        cleanupActivities();
+        currentLevel = level;
+        levelButtons.forEach((btn) => {
+          if (btn.dataset.level === level) btn.classList.add("active");
+          else btn.classList.remove("active");
+        });
+        hideSentenceView();
+        fetchDataForLevel(level);
+      }
+
+      // -----------------------
+      // 2) Obtener data desde Worker
+      // -----------------------
+      async function fetchDataForLevel(level) {
+        try {
+          const resp = await fetch(`${WORKER_BASE}/${level}`, {
+            method: "GET",
+            mode: "cors",
+          });
+          if (!resp.ok) throw new Error("No se obtuvo data");
+          const text = await resp.text();
+          allData = JSON.parse(text);
+          const temasSet = new Set(allData.map((item) => item.tema));
+          temasUnicos = Array.from(temasSet);
+          renderTopicsList();
+        } catch (err) {
+          console.error("Error cargando data:", err);
+          topicsContainer.innerHTML =
+            '<p style="color:#faa">No se pudo cargar los temas.</p>';
+        }
+      }
+
+      // -----------------------
+      // 3) Renderizar lista de temas
+      // -----------------------
+      function renderTopicsList() {
+        topicsContainer.innerHTML = "";
+        if (temasUnicos.length === 0) {
+          topicsContainer.innerHTML =
+            '<p style="color:#ccc">No hay temas disponibles.</p>';
+          return;
+        }
+        temasUnicos.forEach((tema) => {
+          const btn = document.createElement("button");
+          btn.textContent = tema;
+          btn.addEventListener("click", () => selectTopic(tema));
+          topicsContainer.appendChild(btn);
+        });
+      }
+
+      // -----------------------
+      // 4) Seleccionar tema
+      // -----------------------
+      function selectTopic(tema) {
+        cleanupActivities();
+        mainTitle.style.display = "none";
+        levelBar.style.display = "none";
+        topicsContainer.style.display = "none";
+        sentencesOfCurrentTopic = allData.filter(
+          (item) => item.tema === tema
+        );
+        currentSentenceIndex = 0;
+        sentenceView.classList.add("active");
+        renderCurrentSentence();
+      }
+
+      // -----------------------
+      // 5) Renderizar frase actual
+      // -----------------------
+      async function renderCurrentSentence() {
+        cleanupActivities();
+        const data = sentencesOfCurrentTopic[currentSentenceIndex];
+        if (!data) return;
+
+        // Guardar palabras originales
+        originalWords = data.oracion.palabras.map((w) => w.ingles);
+        wordObjects = data.oracion.palabras.slice(); // copia de objetos
+
+        // Texto anterior probable y traducción
+        previousText.textContent = data.anterior_probable || "";
+        previousTranslation.textContent =
+          data.traduccion_anterior_probable || "";
+
+        // Título de la frase en español
+        sentenceTitle.textContent = data.oracion.espanol;
+
+        // Renderizar palabras
+        wordsGrid.innerHTML = "";
+        data.oracion.palabras.forEach((wordObj, idx) => {
+          const box = document.createElement("div");
+          box.className = "word-box";
+          box.dataset.index = idx;
+          box.innerHTML = `
+            <div class="english">${wordObj.ingles}</div>
+            <div class="pronunciation">${wordObj.pronunciacion}</div>
+            <div class="espanol">${wordObj.espanol}</div>
+            <div class="part-of-speech">${wordObj.tipo}</div>
+          `;
+          wordsGrid.appendChild(box);
+        });
+
+        // Renderizar imágenes
+        const tags = data.imagenes || [];
+        await fetchAndDisplayImages(tags);
+      }
+
+      // -----------------------
+      // 6) Obtener y mostrar imágenes
+      // -----------------------
+      async function fetchAndDisplayImages(tags) {
+        sentenceImage.innerHTML = "";
+        if (!tags.length) {
+          const noImg = document.createElement("div");
+          noImg.className = "no-images";
+          noImg.textContent = "No se proporcionaron etiquetas de imagen.";
+          sentenceImage.appendChild(noImg);
+          return;
+        }
+        const maxCount = Math.min(tags.length, 3);
+        for (let i = 0; i < maxCount; i++) {
+          const tag = tags[i];
+          const div = document.createElement("div");
+          div.className = "img-item";
+          const inner = document.createElement("div");
+          inner.className = "inner";
+          const spinner = document.createElement("i");
+          spinner.className = "fa-solid fa-spinner spinner";
+          inner.appendChild(spinner);
+          div.appendChild(inner);
+          sentenceImage.appendChild(div);
+
+          const tempImg = new Image();
+          tempImg.alt = tag;
+          tempImg.onload = () => {
+            const img = document.createElement("img");
+            img.src = tempImg.src;
+            img.alt = tempImg.alt;
+            inner.appendChild(img);
+            spinner.remove();
+            img.style.display = "block";
+          };
+          tempImg.onerror = () => {
+            spinner.remove();
+            inner.innerHTML = `<div class="no-images">Sin imagen para "${tag}"</div>`;
+          };
+
+          try {
+            const resp = await fetch(
+              `https://api.pexels.com/v1/search?query=${encodeURIComponent(tag)}&per_page=1`,
+              {
+                headers: {
+                  Authorization: PEXELS_API_KEY,
+                },
+              }
+            );
+            if (!resp.ok) throw new Error("No se obtuvieron imágenes");
+            const json = await resp.json();
+            const photo = json.photos[0];
+            if (photo && photo.src) {
+              tempImg.src = photo.src.medium;
+            } else {
+              spinner.remove();
+              inner.innerHTML = `<div class="no-images">Sin imagen para "${tag}"</div>`;
+            }
+          } catch (err) {
+            console.error(`Error cargando imagen para "${tag}":`, err);
+            spinner.remove();
+            inner.innerHTML = `<div class="no-images">Error al cargar imagen de "${tag}"</div>`;
+          }
+        }
+        for (let j = maxCount; j < 3; j++) {
+          const emptyDiv = document.createElement("div");
+          emptyDiv.className = "img-item";
+          const innerEmpty = document.createElement("div");
+          innerEmpty.className = "inner";
+          innerEmpty.innerHTML = `<div class="no-images">Sin etiqueta</div>`;
+          emptyDiv.appendChild(innerEmpty);
+          sentenceImage.appendChild(emptyDiv);
+        }
+      }
+
+      // -----------------------
+      // 7) Ocultar vista de frase y volver a temas
+      // -----------------------
+      function hideSentenceView() {
+        cleanupActivities();
+        sentenceView.classList.remove("active");
+        mainTitle.style.display = "block";
+        levelBar.style.display = "flex";
+        topicsContainer.style.display = "grid";
+      }
+
+      // -----------------------
+      // 8) Navegar a frase anterior
+      // -----------------------
+      function goToPreviousSentence() {
+        if (currentSentenceIndex > 0) {
+          currentSentenceIndex--;
+          renderCurrentSentence();
+        }
+      }
+
+      // -----------------------
+      // 9) Navegar a frase siguiente
+      // -----------------------
+      function goToNextSentence() {
+        if (currentSentenceIndex < sentencesOfCurrentTopic.length - 1) {
+          currentSentenceIndex++;
+          renderCurrentSentence();
+        }
+      }
+
+      // -----------------------
+      // 10) Play: resetear todo
+      // -----------------------
+      function handlePlay() {
+        cleanupActivities();
+        renderCurrentSentence();
+      }
+
+      // -----------------------
+      // 11) Mostrar modal de gramática
+      // -----------------------
+      function openGrammarModal() {
+        const data = sentencesOfCurrentTopic[currentSentenceIndex];
+        if (!data) return;
+        modalBody.innerHTML = data.grammar;
+        modalOverlay.classList.add("active");
+      }
+      function closeGrammarModal() {
+        modalOverlay.classList.remove("active");
+      }
+
+      // -----------------------
+      // 12) Activity 1: completar palabras faltantes
+      // -----------------------
+      function startActivity1() {
+        cleanupActivities();
+        // Instrucción
+        instructionContainer.innerHTML = `
+          <div class="instruction">
+            <h1>Actividad 1: completa las palabras faltantes</h1>
+          </div>`;
+        // Decidir índices a ocultar (por ejemplo 30% de palabras, mínimo 1)
+        const numWords = originalWords.length;
+        const countBlanks = Math.max(1, Math.floor(numWords * 0.3));
+        const indices = [];
+        while (indices.length < countBlanks) {
+          const rand = Math.floor(Math.random() * numWords);
+          if (!indices.includes(rand)) indices.push(rand);
+        }
+        blanksInfo = [];
+
+        // Renderizar blanks en word-boxes
+        const boxes = Array.from(wordsGrid.children);
+        indices.forEach((idx) => {
+          const box = boxes[idx];
+          const correctWord = originalWords[idx];
+          blanksInfo.push({ index: idx, correctWord });
+          box.classList.add("blank");
+          box.innerHTML = `<span class="blank-text" data-index="${idx}">____</span>`;
+        });
+
+        // Generar alternativas para cada blank
+        alternativesContainer.innerHTML = "";
+        blanksInfo.forEach((info) => {
+          const groupDiv = document.createElement("div");
+          groupDiv.className = "alternative-group";
+          // Crear lista de 4 alternativas: la correcta + 3 aleatorias
+          const options = [info.correctWord];
+          const samplePool = [
+            "apple", "dog", "run", "book", "house", "tree", "car", "sun",
+            "water", "music", "friend", "cat", "eat", "city", "school", "happy"
+          ];
+          while (options.length < 4) {
+            const candidate = samplePool[Math.floor(Math.random() * samplePool.length)];
+            if (!options.includes(candidate)) options.push(candidate);
+          }
+          // Mezclar
+          options.sort(() => Math.random() - 0.5);
+
+          // Crear botones
+          options.forEach((opt) => {
+            const btn = document.createElement("button");
+            btn.textContent = opt;
+            btn.dataset.targetIndex = info.index;
+            btn.addEventListener("click", () => {
+              handleActivity1Click(info.index, opt, btn);
+            });
+            groupDiv.appendChild(btn);
+          });
+          alternativesContainer.appendChild(groupDiv);
+        });
+      }
+
+      function handleActivity1Click(idx, chosen, btn) {
+        const info = blanksInfo.find((b) => b.index === idx);
+        const box = wordsGrid.children[idx];
+        if (info.correctWord === chosen) {
+          // Correcto
+          box.classList.remove("blank");
+          box.classList.add("correct");
+          box.innerHTML = `<div class="english">${chosen}</div>`;
+          // Deshabilitar grupo
+          const group = btn.parentElement;
+          Array.from(group.children).forEach((b) => b.disabled = true);
+          checkActivity1Completion();
+        } else {
+          // Incorrecto
+          box.classList.add("incorrect");
+          setTimeout(() => box.classList.remove("incorrect"), 800);
+        }
+      }
+
+      function checkActivity1Completion() {
+        const remaining = blanksInfo.filter((b) => {
+          const box = wordsGrid.children[b.index];
+          return !box.classList.contains("correct");
+        });
+        if (remaining.length === 0) {
+          // Todas completadas
+          showTemporaryMessage("¡Felicidades, completaste la Actividad 1!");
+          markActivityCompleted(actividad1);
+        }
+      }
+
+      // -----------------------
+      // 13) Activity 2: completar letras faltantes
+      // -----------------------
+      function startActivity2() {
+        cleanupActivities();
+        instructionContainer.innerHTML = `
+          <div class="instruction">
+            <h1>Actividad 2: completa las letras faltantes</h1>
+          </div>`;
+        letterBlanksInfo = [];
+
+        // Decidir índices de palabras a enmascarar
+        const numWords = originalWords.length;
+        const countMask = Math.max(1, Math.floor(numWords * 0.3));
+        const indices = [];
+        while (indices.length < countMask) {
+          const rand = Math.floor(Math.random() * numWords);
+          if (!indices.includes(rand)) indices.push(rand);
+        }
+
+        // Renderizar mask en palabras
+        const boxes = Array.from(wordsGrid.children);
+        indices.forEach((idx) => {
+          const word = originalWords[idx];
+          // Elegir dos posiciones aleatorias en la palabra (sin repetir)
+          const len = word.length;
+          const posSet = new Set();
+          while (posSet.size < Math.min(2, len - 1)) {
+            posSet.add(Math.floor(Math.random() * len));
+          }
+          const missingIndices = Array.from(posSet).sort();
+          let masked = "";
+          for (let i = 0; i < len; i++) {
+            masked += missingIndices.includes(i) ? "_" : word[i];
+          }
+          letterBlanksInfo.push({ index: idx, originalWord: word, maskedWord: masked, missingIndices });
+
+          const box = boxes[idx];
+          box.classList.add("blank");
+          box.innerHTML = `<span class="blank-text" data-index="${idx}">${masked}</span>`;
+        });
+
+        // Generar alternativas de letras por cada palabra enmascarada
+        alternativesContainer.innerHTML = "";
+        letterBlanksInfo.forEach((info) => {
+          const groupDiv = document.createElement("div");
+          groupDiv.className = "alternative-group";
+          // Para cada letra faltante, crear botones con la letra correcta + 2 distractores
+          info.missingIndices.forEach((pos) => {
+            const correctLetter = info.originalWord[pos];
+            const options = [correctLetter];
+            const lettersPool = "abcdefghijklmnopqrstuvwxyz".split("");
+            while (options.length < 3) {
+              const cand = lettersPool[Math.floor(Math.random() * lettersPool.length)];
+              if (!options.includes(cand)) options.push(cand);
+            }
+            options.sort(() => Math.random() - 0.5);
+            options.forEach((opt) => {
+              const btn = document.createElement("button");
+              btn.textContent = opt.toUpperCase();
+              btn.dataset.targetWord = info.index;
+              btn.dataset.targetPos = pos;
+              btn.addEventListener("click", () => {
+                handleActivity2Click(info.index, pos, opt, btn);
+              });
+              groupDiv.appendChild(btn);
+            });
+          });
+          alternativesContainer.appendChild(groupDiv);
+        });
+      }
+
+      function handleActivity2Click(idx, pos, chosen, btn) {
+        const info = letterBlanksInfo.find((b) => b.index === idx);
+        const box = wordsGrid.children[idx];
+        const blankSpan = box.querySelector(".blank-text");
+        let currentMask = blankSpan.textContent.split("");
+        if (info.originalWord[pos].toLowerCase() === chosen.toLowerCase()) {
+          // Correcto
+          currentMask[pos] = info.originalWord[pos];
+          blankSpan.textContent = currentMask.join("");
+          btn.disabled = true;
+          btn.style.opacity = "0.6";
+          // Verificar si ya completó todas las letras
+          const stillMissing = currentMask.includes("_");
+          if (!stillMissing) {
+            box.classList.remove("blank");
+            box.classList.add("correct");
+            // Deshabilitar todos botones del grupo para esa palabra
+            const groupBtns = Array.from(btn.parentElement.children).filter(
+              (b) => b.dataset.targetWord == idx
+            );
+            groupBtns.forEach((b) => (b.disabled = true));
+            checkActivity2Completion();
+          }
+        } else {
+          // Incorrecto
+          blankSpan.parentElement.classList.add("incorrect");
+          setTimeout(() => box.classList.remove("incorrect"), 800);
+        }
+      }
+
+      function checkActivity2Completion() {
+        const remaining = letterBlanksInfo.filter((b) => {
+          const box = wordsGrid.children[b.index];
+          return box.classList.contains("blank");
+        });
+        if (remaining.length === 0) {
+          showTemporaryMessage("¡Felicidades, completaste la Actividad 2!");
+          markActivityCompleted(actividad2);
+        }
+      }
+
+      // -----------------------
+      // 14) Activity 3: ordenar la frase
+      // -----------------------
+      function startActivity3() {
+        cleanupActivities();
+        instructionContainer.innerHTML = `
+          <div class="instruction">
+            <h1>Actividad 3: ordenar la frase</h1>
+          </div>`;
+        // Desordenar word-boxes aleatoriamente
+        const boxes = Array.from(wordsGrid.children);
+        const shuffled = boxes.slice().sort(() => Math.random() - 0.5);
+        wordsGrid.innerHTML = "";
+        shuffled.forEach((box) => {
+          box.classList.add("draggable");
+          box.setAttribute("draggable", "true");
+          wordsGrid.appendChild(box);
+        });
+        // Añadir eventos Drag & Drop
+        Array.from(wordsGrid.children).forEach((box) => {
+          box.addEventListener("dragstart", handleDragStart);
+          box.addEventListener("dragover", handleDragOver);
+          box.addEventListener("drop", handleDrop);
+          box.addEventListener("dragend", handleDragEnd);
+        });
+      }
+
+      function handleDragStart(e) {
+        dragSrcEl = this;
+        e.dataTransfer.effectAllowed = "move";
+        e.dataTransfer.setData("text/html", this.outerHTML);
+        this.style.opacity = "0.4";
+      }
+      function handleDragOver(e) {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = "move";
+        this.classList.add("drag-over");
+      }
+      function handleDrop(e) {
+        e.stopPropagation();
+        if (dragSrcEl !== this) {
+          const sourceHTML = e.dataTransfer.getData("text/html");
+          this.insertAdjacentHTML("beforebegin", sourceHTML);
+          dragSrcEl.remove();
+          // Reasignar draggables
+          Array.from(wordsGrid.children).forEach((box) => {
+            box.classList.add("draggable");
+            box.setAttribute("draggable", "true");
+            box.removeEventListener("dragstart", handleDragStart);
+            box.removeEventListener("dragover", handleDragOver);
+            box.removeEventListener("drop", handleDrop);
+            box.removeEventListener("dragend", handleDragEnd);
+            box.addEventListener("dragstart", handleDragStart);
+            box.addEventListener("dragover", handleDragOver);
+            box.addEventListener("drop", handleDrop);
+            box.addEventListener("dragend", handleDragEnd);
+          });
+        }
+        this.classList.remove("drag-over");
+        checkActivity3Completion();
+        return false;
+      }
+      function handleDragEnd(e) {
+        this.style.opacity = "1";
+        Array.from(wordsGrid.children).forEach((box) => {
+          box.classList.remove("drag-over");
+        });
+      }
+      function checkActivity3Completion() {
+        // Verificar si el orden de wordsGrid coincide con originalWords
+        const boxes = Array.from(wordsGrid.children);
+        const currentOrder = boxes.map((box) => {
+          const idx = box.dataset.index;
+          return originalWords[idx];
+        });
+        const isCorrect = currentOrder.every((w, i) => w === originalWords[i]);
+        if (isCorrect) {
+          showTemporaryMessage("¡Felicidades, completaste la Actividad 3!");
+          markActivityCompleted(actividad3);
+        }
+      }
+
+      // -----------------------
+      // 15) Cleanup / Reset Activities
+      // -----------------------
+      function cleanupActivities() {
+        // Quitar instrucciones
+        instructionContainer.innerHTML = "";
+        // Quitar alternativas
+        alternativesContainer.innerHTML = "";
+        // Restaurar palabra original en word-boxes
+        if (originalWords.length) {
+          wordsGrid.innerHTML = "";
+          wordObjects.forEach((wordObj, idx) => {
+            const box = document.createElement("div");
+            box.className = "word-box";
+            box.dataset.index = idx;
+            box.innerHTML = `
+              <div class="english">${wordObj.ingles}</div>
+              <div class="pronunciation">${wordObj.pronunciacion}</div>
+              <div class="espanol">${wordObj.espanol}</div>
+              <div class="part-of-speech">${wordObj.tipo}</div>
+            `;
+            wordsGrid.appendChild(box);
+          });
+        }
+        // Volver a imágenes originales en caso de ser necesario
+        const data = sentencesOfCurrentTopic[currentSentenceIndex];
+        if (data) {
+          fetchAndDisplayImages(data.imagenes || []);
+        }
+        // Desmarcar actividad completada temporalmente si se reinicia
+      }
+
+      // -----------------------
+      // 16) Señalización de botón completado
+      // -----------------------
+      function markActivityCompleted(btn) {
+        if (!btn.classList.contains("completed")) {
+          btn.classList.add("completed");
+          const checkIcon = document.createElement("i");
+          checkIcon.className = "fa-solid fa-check";
+          btn.prepend(checkIcon);
+        }
+      }
+
+      // -----------------------
+      // 17) Mensaje temporal
+      // -----------------------
+      function showTemporaryMessage(text) {
+        const msgDiv = document.createElement("div");
+        msgDiv.className = "instruction";
+        msgDiv.innerHTML = `<h1>${text}</h1>`;
+        sentenceView.prepend(msgDiv);
+        setTimeout(() => {
+          if (msgDiv.parentElement) msgDiv.remove();
+        }, 2000);
+      }
+
+      // -----------------------
+      // Eventos Principales
+      // -----------------------
+      levelButtons.forEach((btn) => {
+        btn.addEventListener("click", () =>
+          switchLevel(btn.dataset.level)
+        );
+      });
+
+      btnPrev.addEventListener("click", goToPreviousSentence);
+      btnNext.addEventListener("click", goToNextSentence);
+      btnPlay.addEventListener("click", handlePlay);
+      btnViewGrammar.addEventListener("click", openGrammarModal);
+      btnBackTopics.addEventListener("click", hideSentenceView);
+
+      actividad1.addEventListener("click", startActivity1);
+      actividad2.addEventListener("click", startActivity2);
+      actividad3.addEventListener("click", startActivity3);
+
+      modalClose.addEventListener("click", closeGrammarModal);
+      modalOverlay.addEventListener("click", (ev) => {
+        if (ev.target === modalOverlay) closeGrammarModal();
+      });
+    })();
+  </script>
+</body>
+</html>
