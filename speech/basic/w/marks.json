@@ -1,0 +1,6207 @@
+[
+  {
+    "word": "I",
+    "start": 0,
+    "end": 0.081
+  },
+  {
+    "word": "have",
+    "start": 0.163,
+    "end": 0.29
+  },
+  {
+    "word": "two",
+    "start": 0.325,
+    "end": 0.464
+  },
+  {
+    "word": "brothers",
+    "start": 0.522,
+    "end": 0.987
+  },
+  {
+    "word": "and",
+    "start": 1.045,
+    "end": 1.184
+  },
+  {
+    "word": "one",
+    "start": 1.265,
+    "end": 1.416
+  },
+  {
+    "word": "sister",
+    "start": 1.463,
+    "end": 1.869
+  },
+  {
+    "word": "She",
+    "start": 2.531,
+    "end": 2.659
+  },
+  {
+    "word": "doesn",
+    "start": 2.705,
+    "end": 2.891
+  },
+  {
+    "word": "t",
+    "start": 2.926,
+    "end": 2.961
+  },
+  {
+    "word": "live",
+    "start": 2.995,
+    "end": 3.158
+  },
+  {
+    "word": "in",
+    "start": 3.181,
+    "end": 3.228
+  },
+  {
+    "word": "the",
+    "start": 3.262,
+    "end": 3.332
+  },
+  {
+    "word": "same",
+    "start": 3.367,
+    "end": 3.599
+  },
+  {
+    "word": "city",
+    "start": 3.634,
+    "end": 3.982
+  },
+  {
+    "word": "Do",
+    "start": 4.667,
+    "end": 4.783
+  },
+  {
+    "word": "you",
+    "start": 4.841,
+    "end": 4.911
+  },
+  {
+    "word": "get",
+    "start": 4.969,
+    "end": 5.085
+  },
+  {
+    "word": "along",
+    "start": 5.132,
+    "end": 5.364
+  },
+  {
+    "word": "with",
+    "start": 5.399,
+    "end": 5.515
+  },
+  {
+    "word": "your",
+    "start": 5.55,
+    "end": 5.642
+  },
+  {
+    "word": "parents",
+    "start": 5.689,
+    "end": 6.142
+  },
+  {
+    "word": "My",
+    "start": 6.989,
+    "end": 7.105
+  },
+  {
+    "word": "cousin",
+    "start": 7.175,
+    "end": 7.454
+  },
+  {
+    "word": "is",
+    "start": 7.5,
+    "end": 7.581
+  },
+  {
+    "word": "coming",
+    "start": 7.639,
+    "end": 7.895
+  },
+  {
+    "word": "to",
+    "start": 7.941,
+    "end": 7.988
+  },
+  {
+    "word": "visit",
+    "start": 8.046,
+    "end": 8.278
+  },
+  {
+    "word": "next",
+    "start": 8.324,
+    "end": 8.51
+  },
+  {
+    "word": "week",
+    "start": 8.557,
+    "end": 8.777
+  },
+  {
+    "word": "We",
+    "start": 9.137,
+    "end": 9.253
+  },
+  {
+    "word": "don",
+    "start": 9.3,
+    "end": 9.416
+  },
+  {
+    "word": "t",
+    "start": 9.451,
+    "end": 9.485
+  },
+  {
+    "word": "see",
+    "start": 9.532,
+    "end": 9.683
+  },
+  {
+    "word": "our",
+    "start": 9.718,
+    "end": 9.81
+  },
+  {
+    "word": "grandparents",
+    "start": 9.857,
+    "end": 10.391
+  },
+  {
+    "word": "very",
+    "start": 10.426,
+    "end": 10.623
+  },
+  {
+    "word": "often",
+    "start": 10.681,
+    "end": 11.006
+  },
+  {
+    "word": "Is",
+    "start": 11.668,
+    "end": 11.831
+  },
+  {
+    "word": "your",
+    "start": 11.877,
+    "end": 11.993
+  },
+  {
+    "word": "sister",
+    "start": 12.051,
+    "end": 12.33
+  },
+  {
+    "word": "married",
+    "start": 12.388,
+    "end": 12.759
+  },
+  {
+    "word": "He",
+    "start": 13.351,
+    "end": 13.468
+  },
+  {
+    "word": "helps",
+    "start": 13.537,
+    "end": 13.781
+  },
+  {
+    "word": "me",
+    "start": 13.839,
+    "end": 13.909
+  },
+  {
+    "word": "with",
+    "start": 13.955,
+    "end": 14.083
+  },
+  {
+    "word": "my",
+    "start": 14.129,
+    "end": 14.211
+  },
+  {
+    "word": "homework",
+    "start": 14.28,
+    "end": 14.71
+  },
+  {
+    "word": "They",
+    "start": 15.244,
+    "end": 15.395
+  },
+  {
+    "word": "aren",
+    "start": 15.43,
+    "end": 15.546
+  },
+  {
+    "word": "t",
+    "start": 15.581,
+    "end": 15.604
+  },
+  {
+    "word": "married",
+    "start": 15.639,
+    "end": 15.929
+  },
+  {
+    "word": "yet",
+    "start": 15.964,
+    "end": 16.254
+  },
+  {
+    "word": "Who",
+    "start": 16.811,
+    "end": 16.974
+  },
+  {
+    "word": "takes",
+    "start": 17.032,
+    "end": 17.276
+  },
+  {
+    "word": "care",
+    "start": 17.334,
+    "end": 17.508
+  },
+  {
+    "word": "of",
+    "start": 17.531,
+    "end": 17.578
+  },
+  {
+    "word": "your",
+    "start": 17.624,
+    "end": 17.729
+  },
+  {
+    "word": "baby",
+    "start": 17.775,
+    "end": 18.03
+  },
+  {
+    "word": "when",
+    "start": 18.088,
+    "end": 18.205
+  },
+  {
+    "word": "you",
+    "start": 18.239,
+    "end": 18.309
+  },
+  {
+    "word": "work",
+    "start": 18.367,
+    "end": 18.669
+  },
+  {
+    "word": "I",
+    "start": 19.284,
+    "end": 19.342
+  },
+  {
+    "word": "love",
+    "start": 19.458,
+    "end": 19.667
+  },
+  {
+    "word": "spending",
+    "start": 19.702,
+    "end": 20.016
+  },
+  {
+    "word": "time",
+    "start": 20.062,
+    "end": 20.259
+  },
+  {
+    "word": "with",
+    "start": 20.283,
+    "end": 20.41
+  },
+  {
+    "word": "my",
+    "start": 20.457,
+    "end": 20.538
+  },
+  {
+    "word": "family",
+    "start": 20.608,
+    "end": 21.037
+  },
+  {
+    "word": "This",
+    "start": 21.653,
+    "end": 21.85
+  },
+  {
+    "word": "book",
+    "start": 21.92,
+    "end": 22.082
+  },
+  {
+    "word": "is",
+    "start": 22.129,
+    "end": 22.21
+  },
+  {
+    "word": "very",
+    "start": 22.291,
+    "end": 22.558
+  },
+  {
+    "word": "interesting",
+    "start": 22.628,
+    "end": 23.15
+  },
+  {
+    "word": "She",
+    "start": 23.452,
+    "end": 23.592
+  },
+  {
+    "word": "isn",
+    "start": 23.65,
+    "end": 23.789
+  },
+  {
+    "word": "t",
+    "start": 23.824,
+    "end": 23.859
+  },
+  {
+    "word": "tall",
+    "start": 23.893,
+    "end": 24.253
+  },
+  {
+    "word": "but",
+    "start": 24.497,
+    "end": 24.648
+  },
+  {
+    "word": "she",
+    "start": 24.683,
+    "end": 24.776
+  },
+  {
+    "word": "is",
+    "start": 24.834,
+    "end": 24.903
+  },
+  {
+    "word": "strong",
+    "start": 24.95,
+    "end": 25.403
+  },
+  {
+    "word": "Are",
+    "start": 26.018,
+    "end": 26.169
+  },
+  {
+    "word": "those",
+    "start": 26.204,
+    "end": 26.378
+  },
+  {
+    "word": "shoes",
+    "start": 26.401,
+    "end": 26.657
+  },
+  {
+    "word": "comfortable",
+    "start": 26.726,
+    "end": 27.33
+  },
+  {
+    "word": "He",
+    "start": 27.887,
+    "end": 27.992
+  },
+  {
+    "word": "has",
+    "start": 28.038,
+    "end": 28.143
+  },
+  {
+    "word": "blue",
+    "start": 28.213,
+    "end": 28.456
+  },
+  {
+    "word": "eyes",
+    "start": 28.503,
+    "end": 28.735
+  },
+  {
+    "word": "and",
+    "start": 28.77,
+    "end": 28.851
+  },
+  {
+    "word": "curly",
+    "start": 28.909,
+    "end": 29.2
+  },
+  {
+    "word": "hair",
+    "start": 29.269,
+    "end": 29.559
+  },
+  {
+    "word": "My",
+    "start": 30.21,
+    "end": 30.337
+  },
+  {
+    "word": "phone",
+    "start": 30.395,
+    "end": 30.639
+  },
+  {
+    "word": "doesn",
+    "start": 30.662,
+    "end": 30.848
+  },
+  {
+    "word": "t",
+    "start": 30.871,
+    "end": 30.906
+  },
+  {
+    "word": "work",
+    "start": 30.929,
+    "end": 31.104
+  },
+  {
+    "word": "properly",
+    "start": 31.162,
+    "end": 31.661
+  },
+  {
+    "word": "These",
+    "start": 32.16,
+    "end": 32.381
+  },
+  {
+    "word": "chairs",
+    "start": 32.427,
+    "end": 32.741
+  },
+  {
+    "word": "are",
+    "start": 32.775,
+    "end": 32.88
+  },
+  {
+    "word": "too",
+    "start": 32.926,
+    "end": 33.077
+  },
+  {
+    "word": "old",
+    "start": 33.159,
+    "end": 33.495
+  },
+  {
+    "word": "What",
+    "start": 34.064,
+    "end": 34.25
+  },
+  {
+    "word": "color",
+    "start": 34.296,
+    "end": 34.552
+  },
+  {
+    "word": "is",
+    "start": 34.61,
+    "end": 34.679
+  },
+  {
+    "word": "your",
+    "start": 34.714,
+    "end": 34.819
+  },
+  {
+    "word": "bag",
+    "start": 34.854,
+    "end": 35.225
+  },
+  {
+    "word": "The",
+    "start": 35.817,
+    "end": 35.945
+  },
+  {
+    "word": "movie",
+    "start": 35.991,
+    "end": 36.27
+  },
+  {
+    "word": "isn",
+    "start": 36.316,
+    "end": 36.456
+  },
+  {
+    "word": "t",
+    "start": 36.491,
+    "end": 36.514
+  },
+  {
+    "word": "boring",
+    "start": 36.549,
+    "end": 36.955
+  },
+  {
+    "word": "That",
+    "start": 37.373,
+    "end": 37.559
+  },
+  {
+    "word": "dress",
+    "start": 37.605,
+    "end": 37.837
+  },
+  {
+    "word": "looks",
+    "start": 37.872,
+    "end": 38.07
+  },
+  {
+    "word": "beautiful",
+    "start": 38.128,
+    "end": 38.511
+  },
+  {
+    "word": "on",
+    "start": 38.58,
+    "end": 38.65
+  },
+  {
+    "word": "you",
+    "start": 38.708,
+    "end": 38.859
+  },
+  {
+    "word": "I",
+    "start": 39.509,
+    "end": 39.567
+  },
+  {
+    "word": "don",
+    "start": 39.637,
+    "end": 39.73
+  },
+  {
+    "word": "t",
+    "start": 39.765,
+    "end": 39.788
+  },
+  {
+    "word": "like",
+    "start": 39.823,
+    "end": 39.997
+  },
+  {
+    "word": "heavy",
+    "start": 40.055,
+    "end": 40.275
+  },
+  {
+    "word": "objects",
+    "start": 40.345,
+    "end": 40.856
+  },
+  {
+    "word": "Our",
+    "start": 41.204,
+    "end": 41.344
+  },
+  {
+    "word": "living",
+    "start": 41.402,
+    "end": 41.634
+  },
+  {
+    "word": "room",
+    "start": 41.68,
+    "end": 41.831
+  },
+  {
+    "word": "is",
+    "start": 41.878,
+    "end": 41.959
+  },
+  {
+    "word": "very",
+    "start": 42.029,
+    "end": 42.261
+  },
+  {
+    "word": "spacious",
+    "start": 42.319,
+    "end": 42.888
+  },
+  {
+    "word": "There",
+    "start": 43.271,
+    "end": 43.468
+  },
+  {
+    "word": "isn",
+    "start": 43.503,
+    "end": 43.631
+  },
+  {
+    "word": "t",
+    "start": 43.666,
+    "end": 43.701
+  },
+  {
+    "word": "enough",
+    "start": 43.747,
+    "end": 43.979
+  },
+  {
+    "word": "light",
+    "start": 44.037,
+    "end": 44.246
+  },
+  {
+    "word": "in",
+    "start": 44.281,
+    "end": 44.351
+  },
+  {
+    "word": "this",
+    "start": 44.386,
+    "end": 44.525
+  },
+  {
+    "word": "room",
+    "start": 44.595,
+    "end": 44.85
+  },
+  {
+    "word": "Do",
+    "start": 45.407,
+    "end": 45.512
+  },
+  {
+    "word": "you",
+    "start": 45.547,
+    "end": 45.616
+  },
+  {
+    "word": "have",
+    "start": 45.651,
+    "end": 45.756
+  },
+  {
+    "word": "a",
+    "start": 45.779,
+    "end": 45.802
+  },
+  {
+    "word": "coffee",
+    "start": 45.849,
+    "end": 46.139
+  },
+  {
+    "word": "table",
+    "start": 46.174,
+    "end": 46.592
+  },
+  {
+    "word": "The",
+    "start": 47.149,
+    "end": 47.265
+  },
+  {
+    "word": "bed",
+    "start": 47.311,
+    "end": 47.462
+  },
+  {
+    "word": "is",
+    "start": 47.509,
+    "end": 47.602
+  },
+  {
+    "word": "too",
+    "start": 47.66,
+    "end": 47.811
+  },
+  {
+    "word": "soft",
+    "start": 47.88,
+    "end": 48.171
+  },
+  {
+    "word": "for",
+    "start": 48.217,
+    "end": 48.333
+  },
+  {
+    "word": "me",
+    "start": 48.368,
+    "end": 48.612
+  },
+  {
+    "word": "We",
+    "start": 49.169,
+    "end": 49.285
+  },
+  {
+    "word": "don",
+    "start": 49.332,
+    "end": 49.448
+  },
+  {
+    "word": "t",
+    "start": 49.471,
+    "end": 49.506
+  },
+  {
+    "word": "use",
+    "start": 49.552,
+    "end": 49.703
+  },
+  {
+    "word": "the",
+    "start": 49.738,
+    "end": 49.808
+  },
+  {
+    "word": "attic",
+    "start": 49.866,
+    "end": 50.214
+  },
+  {
+    "word": "Is",
+    "start": 50.365,
+    "end": 50.527
+  },
+  {
+    "word": "the",
+    "start": 50.574,
+    "end": 50.643
+  },
+  {
+    "word": "kitchen",
+    "start": 50.678,
+    "end": 50.934
+  },
+  {
+    "word": "clean",
+    "start": 50.992,
+    "end": 51.282
+  },
+  {
+    "word": "My",
+    "start": 51.874,
+    "end": 52.002
+  },
+  {
+    "word": "sofa",
+    "start": 52.083,
+    "end": 52.431
+  },
+  {
+    "word": "doesn",
+    "start": 52.478,
+    "end": 52.687
+  },
+  {
+    "word": "t",
+    "start": 52.722,
+    "end": 52.745
+  },
+  {
+    "word": "match",
+    "start": 52.791,
+    "end": 53.024
+  },
+  {
+    "word": "the",
+    "start": 53.082,
+    "end": 53.151
+  },
+  {
+    "word": "curtains",
+    "start": 53.186,
+    "end": 53.662
+  },
+  {
+    "word": "She",
+    "start": 54.347,
+    "end": 54.486
+  },
+  {
+    "word": "painted",
+    "start": 54.556,
+    "end": 54.881
+  },
+  {
+    "word": "her",
+    "start": 54.928,
+    "end": 54.997
+  },
+  {
+    "word": "bedroom",
+    "start": 55.055,
+    "end": 55.38
+  },
+  {
+    "word": "pink",
+    "start": 55.438,
+    "end": 55.717
+  },
+  {
+    "word": "Where",
+    "start": 56.274,
+    "end": 56.483
+  },
+  {
+    "word": "do",
+    "start": 56.506,
+    "end": 56.553
+  },
+  {
+    "word": "keep",
+    "start": 56.599,
+    "end": 56.762
+  },
+  {
+    "word": "your",
+    "start": 56.797,
+    "end": 56.913
+  },
+  {
+    "word": "shoes",
+    "start": 56.959,
+    "end": 57.435
+  },
+  {
+    "word": "I",
+    "start": 58.155,
+    "end": 58.202
+  },
+  {
+    "word": "need",
+    "start": 58.283,
+    "end": 58.445
+  },
+  {
+    "word": "a",
+    "start": 58.48,
+    "end": 58.503
+  },
+  {
+    "word": "new",
+    "start": 58.55,
+    "end": 58.666
+  },
+  {
+    "word": "lamp",
+    "start": 58.724,
+    "end": 59.026
+  },
+  {
+    "word": "It",
+    "start": 59.386,
+    "end": 59.513
+  },
+  {
+    "word": "s",
+    "start": 59.548,
+    "end": 59.583
+  },
+  {
+    "word": "very",
+    "start": 59.653,
+    "end": 59.885
+  },
+  {
+    "word": "hot",
+    "start": 59.955,
+    "end": 60.152
+  },
+  {
+    "word": "today",
+    "start": 60.198,
+    "end": 60.582
+  },
+  {
+    "word": "It",
+    "start": 60.965,
+    "end": 61.081
+  },
+  {
+    "word": "doesn",
+    "start": 61.116,
+    "end": 61.313
+  },
+  {
+    "word": "t",
+    "start": 61.348,
+    "end": 61.383
+  },
+  {
+    "word": "rain",
+    "start": 61.429,
+    "end": 61.615
+  },
+  {
+    "word": "much",
+    "start": 61.673,
+    "end": 61.847
+  },
+  {
+    "word": "in",
+    "start": 61.894,
+    "end": 61.963
+  },
+  {
+    "word": "summer",
+    "start": 62.033,
+    "end": 62.358
+  },
+  {
+    "word": "Is",
+    "start": 63.02,
+    "end": 63.182
+  },
+  {
+    "word": "it",
+    "start": 63.229,
+    "end": 63.287
+  },
+  {
+    "word": "going",
+    "start": 63.322,
+    "end": 63.519
+  },
+  {
+    "word": "to",
+    "start": 63.554,
+    "end": 63.6
+  },
+  {
+    "word": "snow",
+    "start": 63.658,
+    "end": 63.89
+  },
+  {
+    "word": "tomorrow",
+    "start": 63.96,
+    "end": 64.378
+  },
+  {
+    "word": "We",
+    "start": 64.97,
+    "end": 65.098
+  },
+  {
+    "word": "love",
+    "start": 65.179,
+    "end": 65.4
+  },
+  {
+    "word": "autumn",
+    "start": 65.446,
+    "end": 65.794
+  },
+  {
+    "word": "because",
+    "start": 65.841,
+    "end": 66.131
+  },
+  {
+    "word": "of",
+    "start": 66.166,
+    "end": 66.212
+  },
+  {
+    "word": "the",
+    "start": 66.247,
+    "end": 66.317
+  },
+  {
+    "word": "colors",
+    "start": 66.363,
+    "end": 66.839
+  },
+  {
+    "word": "The",
+    "start": 67.397,
+    "end": 67.524
+  },
+  {
+    "word": "weather",
+    "start": 67.582,
+    "end": 67.849
+  },
+  {
+    "word": "isn",
+    "start": 67.931,
+    "end": 68.082
+  },
+  {
+    "word": "t",
+    "start": 68.116,
+    "end": 68.14
+  },
+  {
+    "word": "cold",
+    "start": 68.186,
+    "end": 68.442
+  },
+  {
+    "word": "yet",
+    "start": 68.5,
+    "end": 68.755
+  },
+  {
+    "word": "Do",
+    "start": 69.312,
+    "end": 69.417
+  },
+  {
+    "word": "you",
+    "start": 69.475,
+    "end": 69.556
+  },
+  {
+    "word": "prefer",
+    "start": 69.626,
+    "end": 69.928
+  },
+  {
+    "word": "winter",
+    "start": 70.009,
+    "end": 70.299
+  },
+  {
+    "word": "or",
+    "start": 70.369,
+    "end": 70.462
+  },
+  {
+    "word": "spring",
+    "start": 70.52,
+    "end": 70.903
+  },
+  {
+    "word": "My",
+    "start": 71.286,
+    "end": 71.414
+  },
+  {
+    "word": "umbrella",
+    "start": 71.472,
+    "end": 71.832
+  },
+  {
+    "word": "is",
+    "start": 71.89,
+    "end": 71.971
+  },
+  {
+    "word": "broken",
+    "start": 72.017,
+    "end": 72.4
+  },
+  {
+    "word": "It",
+    "start": 72.76,
+    "end": 72.876
+  },
+  {
+    "word": "doesn",
+    "start": 72.911,
+    "end": 73.085
+  },
+  {
+    "word": "t",
+    "start": 73.12,
+    "end": 73.143
+  },
+  {
+    "word": "get",
+    "start": 73.178,
+    "end": 73.294
+  },
+  {
+    "word": "dark",
+    "start": 73.341,
+    "end": 73.585
+  },
+  {
+    "word": "so",
+    "start": 73.643,
+    "end": 73.759
+  },
+  {
+    "word": "early",
+    "start": 73.84,
+    "end": 74.177
+  },
+  {
+    "word": "What",
+    "start": 74.56,
+    "end": 74.746
+  },
+  {
+    "word": "s",
+    "start": 74.78,
+    "end": 74.815
+  },
+  {
+    "word": "the",
+    "start": 74.838,
+    "end": 74.908
+  },
+  {
+    "word": "temperature",
+    "start": 74.943,
+    "end": 75.315
+  },
+  {
+    "word": "right",
+    "start": 75.338,
+    "end": 75.489
+  },
+  {
+    "word": "now",
+    "start": 75.523,
+    "end": 75.744
+  },
+  {
+    "word": "I",
+    "start": 76.069,
+    "end": 76.127
+  },
+  {
+    "word": "enjoy",
+    "start": 76.243,
+    "end": 76.51
+  },
+  {
+    "word": "sunny",
+    "start": 76.58,
+    "end": 76.801
+  },
+  {
+    "word": "days",
+    "start": 76.847,
+    "end": 77.184
+  },
+  {
+    "word": "What",
+    "start": 77.683,
+    "end": 77.869
+  },
+  {
+    "word": "time",
+    "start": 77.904,
+    "end": 78.101
+  },
+  {
+    "word": "is",
+    "start": 78.136,
+    "end": 78.217
+  },
+  {
+    "word": "it",
+    "start": 78.275,
+    "end": 78.438
+  },
+  {
+    "word": "It",
+    "start": 78.995,
+    "end": 79.111
+  },
+  {
+    "word": "s",
+    "start": 79.157,
+    "end": 79.181
+  },
+  {
+    "word": "half",
+    "start": 79.215,
+    "end": 79.378
+  },
+  {
+    "word": "past",
+    "start": 79.436,
+    "end": 79.668
+  },
+  {
+    "word": "three",
+    "start": 79.715,
+    "end": 80.109
+  },
+  {
+    "word": "The",
+    "start": 80.527,
+    "end": 80.643
+  },
+  {
+    "word": "meeting",
+    "start": 80.69,
+    "end": 80.922
+  },
+  {
+    "word": "doesn",
+    "start": 80.957,
+    "end": 81.143
+  },
+  {
+    "word": "t",
+    "start": 81.166,
+    "end": 81.201
+  },
+  {
+    "word": "start",
+    "start": 81.236,
+    "end": 81.456
+  },
+  {
+    "word": "at",
+    "start": 81.491,
+    "end": 81.549
+  },
+  {
+    "word": "nine",
+    "start": 81.607,
+    "end": 82.002
+  },
+  {
+    "word": "Is",
+    "start": 82.698,
+    "end": 82.861
+  },
+  {
+    "word": "today",
+    "start": 82.919,
+    "end": 83.151
+  },
+  {
+    "word": "Monday",
+    "start": 83.221,
+    "end": 83.627
+  },
+  {
+    "word": "My",
+    "start": 84.185,
+    "end": 84.312
+  },
+  {
+    "word": "appointment",
+    "start": 84.359,
+    "end": 84.765
+  },
+  {
+    "word": "is",
+    "start": 84.823,
+    "end": 84.904
+  },
+  {
+    "word": "on",
+    "start": 84.962,
+    "end": 85.044
+  },
+  {
+    "word": "July",
+    "start": 85.09,
+    "end": 85.369
+  },
+  {
+    "word": "10th",
+    "start": 85.45,
+    "end": 85.81
+  },
+  {
+    "word": "We",
+    "start": 86.367,
+    "end": 86.483
+  },
+  {
+    "word": "don",
+    "start": 86.518,
+    "end": 86.623
+  },
+  {
+    "word": "t",
+    "start": 86.657,
+    "end": 86.692
+  },
+  {
+    "word": "finish",
+    "start": 86.727,
+    "end": 86.994
+  },
+  {
+    "word": "work",
+    "start": 87.052,
+    "end": 87.272
+  },
+  {
+    "word": "before",
+    "start": 87.342,
+    "end": 87.621
+  },
+  {
+    "word": "five",
+    "start": 87.667,
+    "end": 88.143
+  },
+  {
+    "word": "When",
+    "start": 88.642,
+    "end": 88.816
+  },
+  {
+    "word": "does",
+    "start": 88.851,
+    "end": 88.967
+  },
+  {
+    "word": "the",
+    "start": 88.991,
+    "end": 89.06
+  },
+  {
+    "word": "store",
+    "start": 89.095,
+    "end": 89.351
+  },
+  {
+    "word": "open",
+    "start": 89.385,
+    "end": 89.722
+  },
+  {
+    "word": "It",
+    "start": 90.337,
+    "end": 90.465
+  },
+  {
+    "word": "s",
+    "start": 90.5,
+    "end": 90.535
+  },
+  {
+    "word": "quarter",
+    "start": 90.593,
+    "end": 90.883
+  },
+  {
+    "word": "to",
+    "start": 90.929,
+    "end": 90.976
+  },
+  {
+    "word": "six",
+    "start": 91.057,
+    "end": 91.452
+  },
+  {
+    "word": "Do",
+    "start": 92.079,
+    "end": 92.195
+  },
+  {
+    "word": "you",
+    "start": 92.218,
+    "end": 92.288
+  },
+  {
+    "word": "know",
+    "start": 92.323,
+    "end": 92.45
+  },
+  {
+    "word": "the",
+    "start": 92.508,
+    "end": 92.578
+  },
+  {
+    "word": "date",
+    "start": 92.613,
+    "end": 92.799
+  },
+  {
+    "word": "of",
+    "start": 92.822,
+    "end": 92.868
+  },
+  {
+    "word": "her",
+    "start": 92.903,
+    "end": 92.984
+  },
+  {
+    "word": "birthday",
+    "start": 93.031,
+    "end": 93.553
+  },
+  {
+    "word": "I",
+    "start": 94.169,
+    "end": 94.215
+  },
+  {
+    "word": "wake",
+    "start": 94.331,
+    "end": 94.529
+  },
+  {
+    "word": "up",
+    "start": 94.563,
+    "end": 94.668
+  },
+  {
+    "word": "at",
+    "start": 94.714,
+    "end": 94.772
+  },
+  {
+    "word": "7",
+    "start": 94.865,
+    "end": 95.109
+  },
+  {
+    "word": "00",
+    "start": 95.144,
+    "end": 95.341
+  },
+  {
+    "word": "every",
+    "start": 95.399,
+    "end": 95.585
+  },
+  {
+    "word": "day",
+    "start": 95.632,
+    "end": 95.899
+  },
+  {
+    "word": "I",
+    "start": 96.189,
+    "end": 96.247
+  },
+  {
+    "word": "usually",
+    "start": 96.363,
+    "end": 96.653
+  },
+  {
+    "word": "read",
+    "start": 96.723,
+    "end": 96.897
+  },
+  {
+    "word": "before",
+    "start": 96.955,
+    "end": 97.234
+  },
+  {
+    "word": "bed",
+    "start": 97.28,
+    "end": 97.559
+  },
+  {
+    "word": "She",
+    "start": 97.977,
+    "end": 98.093
+  },
+  {
+    "word": "doesn",
+    "start": 98.139,
+    "end": 98.313
+  },
+  {
+    "word": "t",
+    "start": 98.348,
+    "end": 98.371
+  },
+  {
+    "word": "play",
+    "start": 98.406,
+    "end": 98.58
+  },
+  {
+    "word": "sports",
+    "start": 98.627,
+    "end": 99.126
+  },
+  {
+    "word": "Do",
+    "start": 99.625,
+    "end": 99.73
+  },
+  {
+    "word": "you",
+    "start": 99.753,
+    "end": 99.823
+  },
+  {
+    "word": "cook",
+    "start": 99.869,
+    "end": 100.043
+  },
+  {
+    "word": "every",
+    "start": 100.101,
+    "end": 100.275
+  },
+  {
+    "word": "day",
+    "start": 100.31,
+    "end": 100.554
+  },
+  {
+    "word": "We",
+    "start": 100.972,
+    "end": 101.088
+  },
+  {
+    "word": "go",
+    "start": 101.146,
+    "end": 101.251
+  },
+  {
+    "word": "for",
+    "start": 101.32,
+    "end": 101.425
+  },
+  {
+    "word": "a",
+    "start": 101.471,
+    "end": 101.494
+  },
+  {
+    "word": "walk",
+    "start": 101.541,
+    "end": 101.761
+  },
+  {
+    "word": "in",
+    "start": 101.819,
+    "end": 101.877
+  },
+  {
+    "word": "the",
+    "start": 101.912,
+    "end": 101.982
+  },
+  {
+    "word": "evening",
+    "start": 102.04,
+    "end": 102.4
+  },
+  {
+    "word": "He",
+    "start": 102.783,
+    "end": 102.887
+  },
+  {
+    "word": "doesn",
+    "start": 102.934,
+    "end": 103.12
+  },
+  {
+    "word": "t",
+    "start": 103.154,
+    "end": 103.178
+  },
+  {
+    "word": "watch",
+    "start": 103.212,
+    "end": 103.433
+  },
+  {
+    "word": "TV",
+    "start": 103.48,
+    "end": 103.677
+  },
+  {
+    "word": "in",
+    "start": 103.758,
+    "end": 103.805
+  },
+  {
+    "word": "the",
+    "start": 103.839,
+    "end": 103.909
+  },
+  {
+    "word": "morning",
+    "start": 103.944,
+    "end": 104.269
+  },
+  {
+    "word": "What",
+    "start": 104.687,
+    "end": 104.85
+  },
+  {
+    "word": "do",
+    "start": 104.873,
+    "end": 104.919
+  },
+  {
+    "word": "you",
+    "start": 104.954,
+    "end": 105.024
+  },
+  {
+    "word": "do",
+    "start": 105.07,
+    "end": 105.151
+  },
+  {
+    "word": "on",
+    "start": 105.221,
+    "end": 105.291
+  },
+  {
+    "word": "weekends",
+    "start": 105.349,
+    "end": 105.871
+  },
+  {
+    "word": "I",
+    "start": 106.289,
+    "end": 106.359
+  },
+  {
+    "word": "m",
+    "start": 106.417,
+    "end": 106.452
+  },
+  {
+    "word": "learning",
+    "start": 106.498,
+    "end": 106.742
+  },
+  {
+    "word": "to",
+    "start": 106.788,
+    "end": 106.835
+  },
+  {
+    "word": "play",
+    "start": 106.881,
+    "end": 107.032
+  },
+  {
+    "word": "guitar",
+    "start": 107.079,
+    "end": 107.543
+  },
+  {
+    "word": "They",
+    "start": 108.321,
+    "end": 108.472
+  },
+  {
+    "word": "don",
+    "start": 108.495,
+    "end": 108.6
+  },
+  {
+    "word": "t",
+    "start": 108.623,
+    "end": 108.658
+  },
+  {
+    "word": "practice",
+    "start": 108.704,
+    "end": 109.11
+  },
+  {
+    "word": "yoga",
+    "start": 109.157,
+    "end": 109.552
+  },
+  {
+    "word": "When",
+    "start": 109.911,
+    "end": 110.086
+  },
+  {
+    "word": "do",
+    "start": 110.12,
+    "end": 110.167
+  },
+  {
+    "word": "you",
+    "start": 110.213,
+    "end": 110.283
+  },
+  {
+    "word": "study",
+    "start": 110.329,
+    "end": 110.608
+  },
+  {
+    "word": "English",
+    "start": 110.689,
+    "end": 111.107
+  },
+  {
+    "word": "I",
+    "start": 111.723,
+    "end": 111.769
+  },
+  {
+    "word": "like",
+    "start": 111.885,
+    "end": 112.071
+  },
+  {
+    "word": "listening",
+    "start": 112.117,
+    "end": 112.442
+  },
+  {
+    "word": "to",
+    "start": 112.489,
+    "end": 112.547
+  },
+  {
+    "word": "music",
+    "start": 112.605,
+    "end": 112.976
+  },
+  {
+    "word": "I",
+    "start": 113.325,
+    "end": 113.383
+  },
+  {
+    "word": "visited",
+    "start": 113.476,
+    "end": 113.812
+  },
+  {
+    "word": "my",
+    "start": 113.859,
+    "end": 113.963
+  },
+  {
+    "word": "aunt",
+    "start": 114.033,
+    "end": 114.23
+  },
+  {
+    "word": "last",
+    "start": 114.277,
+    "end": 114.474
+  },
+  {
+    "word": "weekend",
+    "start": 114.532,
+    "end": 114.927
+  },
+  {
+    "word": "She",
+    "start": 115.403,
+    "end": 115.542
+  },
+  {
+    "word": "didn",
+    "start": 115.589,
+    "end": 115.728
+  },
+  {
+    "word": "t",
+    "start": 115.751,
+    "end": 115.786
+  },
+  {
+    "word": "go",
+    "start": 115.821,
+    "end": 115.902
+  },
+  {
+    "word": "to",
+    "start": 115.96,
+    "end": 116.007
+  },
+  {
+    "word": "school",
+    "start": 116.053,
+    "end": 116.297
+  },
+  {
+    "word": "yesterday",
+    "start": 116.355,
+    "end": 116.889
+  },
+  {
+    "word": "Did",
+    "start": 117.446,
+    "end": 117.597
+  },
+  {
+    "word": "you",
+    "start": 117.632,
+    "end": 117.702
+  },
+  {
+    "word": "watch",
+    "start": 117.76,
+    "end": 118.004
+  },
+  {
+    "word": "that",
+    "start": 118.05,
+    "end": 118.189
+  },
+  {
+    "word": "movie",
+    "start": 118.248,
+    "end": 118.677
+  },
+  {
+    "word": "We",
+    "start": 119.269,
+    "end": 119.397
+  },
+  {
+    "word": "played",
+    "start": 119.455,
+    "end": 119.687
+  },
+  {
+    "word": "football",
+    "start": 119.722,
+    "end": 120.082
+  },
+  {
+    "word": "on",
+    "start": 120.14,
+    "end": 120.198
+  },
+  {
+    "word": "Saturday",
+    "start": 120.256,
+    "end": 120.802
+  },
+  {
+    "word": "He",
+    "start": 121.231,
+    "end": 121.336
+  },
+  {
+    "word": "didn",
+    "start": 121.382,
+    "end": 121.522
+  },
+  {
+    "word": "t",
+    "start": 121.556,
+    "end": 121.58
+  },
+  {
+    "word": "call",
+    "start": 121.626,
+    "end": 121.812
+  },
+  {
+    "word": "me",
+    "start": 121.858,
+    "end": 121.939
+  },
+  {
+    "word": "last",
+    "start": 121.998,
+    "end": 122.404
+  },
+  {
+    "word": "What",
+    "start": 122.845,
+    "end": 123.031
+  },
+  {
+    "word": "did",
+    "start": 123.054,
+    "end": 123.147
+  },
+  {
+    "word": "you",
+    "start": 123.193,
+    "end": 123.263
+  },
+  {
+    "word": "eat",
+    "start": 123.309,
+    "end": 123.437
+  },
+  {
+    "word": "for",
+    "start": 123.484,
+    "end": 123.588
+  },
+  {
+    "word": "breakfast",
+    "start": 123.635,
+    "end": 124.203
+  },
+  {
+    "word": "I",
+    "start": 124.819,
+    "end": 124.865
+  },
+  {
+    "word": "saw",
+    "start": 124.981,
+    "end": 125.155
+  },
+  {
+    "word": "her",
+    "start": 125.214,
+    "end": 125.295
+  },
+  {
+    "word": "at",
+    "start": 125.341,
+    "end": 125.399
+  },
+  {
+    "word": "the",
+    "start": 125.434,
+    "end": 125.504
+  },
+  {
+    "word": "park",
+    "start": 125.539,
+    "end": 125.875
+  },
+  {
+    "word": "They",
+    "start": 126.293,
+    "end": 126.444
+  },
+  {
+    "word": "didn",
+    "start": 126.479,
+    "end": 126.595
+  },
+  {
+    "word": "t",
+    "start": 126.63,
+    "end": 126.665
+  },
+  {
+    "word": "arrive",
+    "start": 126.688,
+    "end": 126.99
+  },
+  {
+    "word": "on",
+    "start": 127.025,
+    "end": 127.118
+  },
+  {
+    "word": "time",
+    "start": 127.176,
+    "end": 127.605
+  },
+  {
+    "word": "Where",
+    "start": 128.162,
+    "end": 128.36
+  },
+  {
+    "word": "did",
+    "start": 128.395,
+    "end": 128.488
+  },
+  {
+    "word": "you",
+    "start": 128.534,
+    "end": 128.604
+  },
+  {
+    "word": "buy",
+    "start": 128.65,
+    "end": 128.789
+  },
+  {
+    "word": "that",
+    "start": 128.847,
+    "end": 128.987
+  },
+  {
+    "word": "shirt",
+    "start": 129.045,
+    "end": 129.393
+  },
+  {
+    "word": "I",
+    "start": 130.008,
+    "end": 130.078
+  },
+  {
+    "word": "enjoyed",
+    "start": 130.194,
+    "end": 130.519
+  },
+  {
+    "word": "the",
+    "start": 130.542,
+    "end": 130.612
+  },
+  {
+    "word": "concert",
+    "start": 130.647,
+    "end": 131.158
+  },
+  {
+    "word": "I",
+    "start": 131.785,
+    "end": 131.843
+  },
+  {
+    "word": "m",
+    "start": 131.901,
+    "end": 131.935
+  },
+  {
+    "word": "going",
+    "start": 131.982,
+    "end": 132.168
+  },
+  {
+    "word": "to",
+    "start": 132.202,
+    "end": 132.249
+  },
+  {
+    "word": "travel",
+    "start": 132.295,
+    "end": 132.609
+  },
+  {
+    "word": "next",
+    "start": 132.678,
+    "end": 132.876
+  },
+  {
+    "word": "month",
+    "start": 132.934,
+    "end": 133.201
+  },
+  {
+    "word": "She",
+    "start": 133.561,
+    "end": 133.689
+  },
+  {
+    "word": "won",
+    "start": 133.735,
+    "end": 133.851
+  },
+  {
+    "word": "t",
+    "start": 133.886,
+    "end": 133.921
+  },
+  {
+    "word": "come",
+    "start": 133.967,
+    "end": 134.153
+  },
+  {
+    "word": "to",
+    "start": 134.176,
+    "end": 134.223
+  },
+  {
+    "word": "party",
+    "start": 134.281,
+    "end": 134.664
+  },
+  {
+    "word": "Are",
+    "start": 135.291,
+    "end": 135.442
+  },
+  {
+    "word": "you",
+    "start": 135.465,
+    "end": 135.535
+  },
+  {
+    "word": "going",
+    "start": 135.581,
+    "end": 135.755
+  },
+  {
+    "word": "to",
+    "start": 135.802,
+    "end": 135.848
+  },
+  {
+    "word": "study",
+    "start": 135.894,
+    "end": 136.161
+  },
+  {
+    "word": "tonight",
+    "start": 136.22,
+    "end": 136.579
+  },
+  {
+    "word": "We",
+    "start": 137.113,
+    "end": 137.23
+  },
+  {
+    "word": "will",
+    "start": 137.264,
+    "end": 137.392
+  },
+  {
+    "word": "meet",
+    "start": 137.427,
+    "end": 137.566
+  },
+  {
+    "word": "at",
+    "start": 137.601,
+    "end": 137.659
+  },
+  {
+    "word": "the",
+    "start": 137.694,
+    "end": 137.764
+  },
+  {
+    "word": "caf",
+    "start": 137.798,
+    "end": 138.066
+  },
+  {
+    "word": "He",
+    "start": 138.867,
+    "end": 138.994
+  },
+  {
+    "word": "isn",
+    "start": 139.064,
+    "end": 139.215
+  },
+  {
+    "word": "t",
+    "start": 139.25,
+    "end": 139.273
+  },
+  {
+    "word": "going",
+    "start": 139.319,
+    "end": 139.517
+  },
+  {
+    "word": "to",
+    "start": 139.563,
+    "end": 139.61
+  },
+  {
+    "word": "work",
+    "start": 139.668,
+    "end": 139.842
+  },
+  {
+    "word": "tomorrow",
+    "start": 139.9,
+    "end": 140.306
+  },
+  {
+    "word": "What",
+    "start": 140.898,
+    "end": 141.072
+  },
+  {
+    "word": "will",
+    "start": 141.107,
+    "end": 141.235
+  },
+  {
+    "word": "you",
+    "start": 141.281,
+    "end": 141.351
+  },
+  {
+    "word": "do",
+    "start": 141.398,
+    "end": 141.514
+  },
+  {
+    "word": "this",
+    "start": 141.583,
+    "end": 141.723
+  },
+  {
+    "word": "summer",
+    "start": 141.757,
+    "end": 142.059
+  },
+  {
+    "word": "I",
+    "start": 142.721,
+    "end": 142.779
+  },
+  {
+    "word": "m",
+    "start": 142.826,
+    "end": 142.872
+  },
+  {
+    "word": "going",
+    "start": 142.918,
+    "end": 143.081
+  },
+  {
+    "word": "to",
+    "start": 143.116,
+    "end": 143.162
+  },
+  {
+    "word": "call",
+    "start": 143.209,
+    "end": 143.383
+  },
+  {
+    "word": "you",
+    "start": 143.441,
+    "end": 143.51
+  },
+  {
+    "word": "later",
+    "start": 143.58,
+    "end": 143.893
+  },
+  {
+    "word": "They",
+    "start": 144.485,
+    "end": 144.648
+  },
+  {
+    "word": "won",
+    "start": 144.683,
+    "end": 144.811
+  },
+  {
+    "word": "t",
+    "start": 144.845,
+    "end": 144.892
+  },
+  {
+    "word": "arrive",
+    "start": 144.927,
+    "end": 145.298
+  },
+  {
+    "word": "before",
+    "start": 145.345,
+    "end": 145.623
+  },
+  {
+    "word": "noon",
+    "start": 145.67,
+    "end": 145.972
+  },
+  {
+    "word": "Will",
+    "start": 146.529,
+    "end": 146.715
+  },
+  {
+    "word": "you",
+    "start": 146.749,
+    "end": 146.819
+  },
+  {
+    "word": "help",
+    "start": 146.889,
+    "end": 147.063
+  },
+  {
+    "word": "me",
+    "start": 147.109,
+    "end": 147.179
+  },
+  {
+    "word": "with",
+    "start": 147.225,
+    "end": 147.365
+  },
+  {
+    "word": "this",
+    "start": 147.4,
+    "end": 147.725
+  },
+  {
+    "word": "I",
+    "start": 148.375,
+    "end": 148.421
+  },
+  {
+    "word": "will",
+    "start": 148.503,
+    "end": 148.653
+  },
+  {
+    "word": "finish",
+    "start": 148.711,
+    "end": 149.002
+  },
+  {
+    "word": "my",
+    "start": 149.06,
+    "end": 149.153
+  },
+  {
+    "word": "homework",
+    "start": 149.222,
+    "end": 149.547
+  },
+  {
+    "word": "soon",
+    "start": 149.605,
+    "end": 149.919
+  },
+  {
+    "word": "This",
+    "start": 150.418,
+    "end": 150.616
+  },
+  {
+    "word": "car",
+    "start": 150.685,
+    "end": 150.836
+  },
+  {
+    "word": "is",
+    "start": 150.894,
+    "end": 150.964
+  },
+  {
+    "word": "faster",
+    "start": 151.022,
+    "end": 151.382
+  },
+  {
+    "word": "than",
+    "start": 151.428,
+    "end": 151.533
+  },
+  {
+    "word": "that",
+    "start": 151.568,
+    "end": 151.707
+  },
+  {
+    "word": "one",
+    "start": 151.777,
+    "end": 152.044
+  },
+  {
+    "word": "She",
+    "start": 152.612,
+    "end": 152.752
+  },
+  {
+    "word": "isn",
+    "start": 152.81,
+    "end": 152.949
+  },
+  {
+    "word": "t",
+    "start": 152.984,
+    "end": 153.019
+  },
+  {
+    "word": "as",
+    "start": 153.054,
+    "end": 153.123
+  },
+  {
+    "word": "tall",
+    "start": 153.193,
+    "end": 153.437
+  },
+  {
+    "word": "as",
+    "start": 153.495,
+    "end": 153.553
+  },
+  {
+    "word": "her",
+    "start": 153.599,
+    "end": 153.669
+  },
+  {
+    "word": "brother",
+    "start": 153.715,
+    "end": 154.052
+  },
+  {
+    "word": "Is",
+    "start": 154.551,
+    "end": 154.714
+  },
+  {
+    "word": "your",
+    "start": 154.749,
+    "end": 154.865
+  },
+  {
+    "word": "house",
+    "start": 154.911,
+    "end": 155.143
+  },
+  {
+    "word": "bigger",
+    "start": 155.19,
+    "end": 155.399
+  },
+  {
+    "word": "than",
+    "start": 155.445,
+    "end": 155.55
+  },
+  {
+    "word": "mine",
+    "start": 155.596,
+    "end": 155.991
+  },
+  {
+    "word": "My",
+    "start": 156.49,
+    "end": 156.629
+  },
+  {
+    "word": "bag",
+    "start": 156.699,
+    "end": 156.955
+  },
+  {
+    "word": "is",
+    "start": 157.001,
+    "end": 157.082
+  },
+  {
+    "word": "lighter",
+    "start": 157.164,
+    "end": 157.431
+  },
+  {
+    "word": "than",
+    "start": 157.477,
+    "end": 157.593
+  },
+  {
+    "word": "yours",
+    "start": 157.64,
+    "end": 158.046
+  },
+  {
+    "word": "He",
+    "start": 158.638,
+    "end": 158.754
+  },
+  {
+    "word": "doesn",
+    "start": 158.812,
+    "end": 158.998
+  },
+  {
+    "word": "t",
+    "start": 159.033,
+    "end": 159.068
+  },
+  {
+    "word": "run",
+    "start": 159.114,
+    "end": 159.288
+  },
+  {
+    "word": "as",
+    "start": 159.335,
+    "end": 159.404
+  },
+  {
+    "word": "quickly",
+    "start": 159.474,
+    "end": 159.787
+  },
+  {
+    "word": "as",
+    "start": 159.846,
+    "end": 159.915
+  },
+  {
+    "word": "before",
+    "start": 159.973,
+    "end": 160.507
+  },
+  {
+    "word": "Who",
+    "start": 161.227,
+    "end": 161.39
+  },
+  {
+    "word": "is",
+    "start": 161.448,
+    "end": 161.529
+  },
+  {
+    "word": "older",
+    "start": 161.61,
+    "end": 161.982
+  },
+  {
+    "word": "you",
+    "start": 162.272,
+    "end": 162.469
+  },
+  {
+    "word": "or",
+    "start": 162.644,
+    "end": 162.76
+  },
+  {
+    "word": "your",
+    "start": 162.818,
+    "end": 162.934
+  },
+  {
+    "word": "sister",
+    "start": 162.98,
+    "end": 163.387
+  },
+  {
+    "word": "Winter",
+    "start": 163.979,
+    "end": 164.339
+  },
+  {
+    "word": "is",
+    "start": 164.397,
+    "end": 164.478
+  },
+  {
+    "word": "colder",
+    "start": 164.548,
+    "end": 164.849
+  },
+  {
+    "word": "than",
+    "start": 164.896,
+    "end": 165.012
+  },
+  {
+    "word": "autumn",
+    "start": 165.07,
+    "end": 165.43
+  },
+  {
+    "word": "That",
+    "start": 166.022,
+    "end": 166.231
+  },
+  {
+    "word": "restaurant",
+    "start": 166.301,
+    "end": 166.777
+  },
+  {
+    "word": "isn",
+    "start": 166.835,
+    "end": 167.009
+  },
+  {
+    "word": "t",
+    "start": 167.044,
+    "end": 167.079
+  },
+  {
+    "word": "as",
+    "start": 167.125,
+    "end": 167.206
+  },
+  {
+    "word": "expensive",
+    "start": 167.264,
+    "end": 167.775
+  },
+  {
+    "word": "as",
+    "start": 167.798,
+    "end": 167.868
+  },
+  {
+    "word": "this",
+    "start": 167.914,
+    "end": 168.065
+  },
+  {
+    "word": "one",
+    "start": 168.135,
+    "end": 168.425
+  },
+  {
+    "word": "Are",
+    "start": 168.983,
+    "end": 169.145
+  },
+  {
+    "word": "these",
+    "start": 169.18,
+    "end": 169.354
+  },
+  {
+    "word": "shoes",
+    "start": 169.389,
+    "end": 169.668
+  },
+  {
+    "word": "more",
+    "start": 169.726,
+    "end": 169.877
+  },
+  {
+    "word": "comfortable",
+    "start": 169.923,
+    "end": 170.48
+  },
+  {
+    "word": "I",
+    "start": 171.038,
+    "end": 171.119
+  },
+  {
+    "word": "m",
+    "start": 171.177,
+    "end": 171.223
+  },
+  {
+    "word": "happier",
+    "start": 171.281,
+    "end": 171.641
+  },
+  {
+    "word": "now",
+    "start": 171.711,
+    "end": 171.862
+  },
+  {
+    "word": "than",
+    "start": 171.943,
+    "end": 172.071
+  },
+  {
+    "word": "last",
+    "start": 172.141,
+    "end": 172.384
+  },
+  {
+    "word": "year",
+    "start": 172.431,
+    "end": 172.675
+  },
+  {
+    "word": "My",
+    "start": 173.29,
+    "end": 173.429
+  },
+  {
+    "word": "city",
+    "start": 173.499,
+    "end": 173.766
+  },
+  {
+    "word": "is",
+    "start": 173.812,
+    "end": 173.894
+  },
+  {
+    "word": "very",
+    "start": 173.963,
+    "end": 174.207
+  },
+  {
+    "word": "busy",
+    "start": 174.265,
+    "end": 174.637
+  },
+  {
+    "word": "The",
+    "start": 175.252,
+    "end": 175.368
+  },
+  {
+    "word": "countryside",
+    "start": 175.426,
+    "end": 176.018
+  },
+  {
+    "word": "isn",
+    "start": 176.065,
+    "end": 176.216
+  },
+  {
+    "word": "t",
+    "start": 176.251,
+    "end": 176.285
+  },
+  {
+    "word": "noisy",
+    "start": 176.332,
+    "end": 176.773
+  },
+  {
+    "word": "Do",
+    "start": 177.458,
+    "end": 177.574
+  },
+  {
+    "word": "you",
+    "start": 177.621,
+    "end": 177.69
+  },
+  {
+    "word": "live",
+    "start": 177.748,
+    "end": 177.899
+  },
+  {
+    "word": "in",
+    "start": 177.922,
+    "end": 177.981
+  },
+  {
+    "word": "a",
+    "start": 178.015,
+    "end": 178.039
+  },
+  {
+    "word": "big",
+    "start": 178.097,
+    "end": 178.271
+  },
+  {
+    "word": "city",
+    "start": 178.34,
+    "end": 178.677
+  },
+  {
+    "word": "I",
+    "start": 179.095,
+    "end": 179.142
+  },
+  {
+    "word": "love",
+    "start": 179.258,
+    "end": 179.455
+  },
+  {
+    "word": "the",
+    "start": 179.49,
+    "end": 179.559
+  },
+  {
+    "word": "beaches",
+    "start": 179.594,
+    "end": 179.931
+  },
+  {
+    "word": "here",
+    "start": 179.977,
+    "end": 180.279
+  },
+  {
+    "word": "We",
+    "start": 180.755,
+    "end": 180.871
+  },
+  {
+    "word": "don",
+    "start": 180.918,
+    "end": 181.022
+  },
+  {
+    "word": "t",
+    "start": 181.057,
+    "end": 181.092
+  },
+  {
+    "word": "have",
+    "start": 181.138,
+    "end": 181.313
+  },
+  {
+    "word": "mountains",
+    "start": 181.359,
+    "end": 181.696
+  },
+  {
+    "word": "nearby",
+    "start": 181.742,
+    "end": 182.253
+  },
+  {
+    "word": "Is",
+    "start": 182.868,
+    "end": 183.031
+  },
+  {
+    "word": "the",
+    "start": 183.077,
+    "end": 183.147
+  },
+  {
+    "word": "park",
+    "start": 183.193,
+    "end": 183.437
+  },
+  {
+    "word": "far",
+    "start": 183.507,
+    "end": 183.693
+  },
+  {
+    "word": "from",
+    "start": 183.762,
+    "end": 183.89
+  },
+  {
+    "word": "your",
+    "start": 183.936,
+    "end": 184.041
+  },
+  {
+    "word": "house",
+    "start": 184.087,
+    "end": 184.563
+  },
+  {
+    "word": "The",
+    "start": 185.005,
+    "end": 185.121
+  },
+  {
+    "word": "town",
+    "start": 185.179,
+    "end": 185.411
+  },
+  {
+    "word": "is",
+    "start": 185.469,
+    "end": 185.539
+  },
+  {
+    "word": "small",
+    "start": 185.597,
+    "end": 185.991
+  },
+  {
+    "word": "but",
+    "start": 186.061,
+    "end": 186.189
+  },
+  {
+    "word": "charming",
+    "start": 186.224,
+    "end": 186.642
+  },
+  {
+    "word": "They",
+    "start": 187.141,
+    "end": 187.303
+  },
+  {
+    "word": "aren",
+    "start": 187.338,
+    "end": 187.454
+  },
+  {
+    "word": "t",
+    "start": 187.477,
+    "end": 187.512
+  },
+  {
+    "word": "from",
+    "start": 187.547,
+    "end": 187.686
+  },
+  {
+    "word": "this",
+    "start": 187.733,
+    "end": 187.861
+  },
+  {
+    "word": "region",
+    "start": 187.93,
+    "end": 188.325
+  },
+  {
+    "word": "Where",
+    "start": 188.94,
+    "end": 189.149
+  },
+  {
+    "word": "is",
+    "start": 189.184,
+    "end": 189.254
+  },
+  {
+    "word": "the",
+    "start": 189.3,
+    "end": 189.37
+  },
+  {
+    "word": "nearest",
+    "start": 189.416,
+    "end": 189.741
+  },
+  {
+    "word": "supermarket",
+    "start": 189.799,
+    "end": 190.519
+  },
+  {
+    "word": "I",
+    "start": 191.367,
+    "end": 191.425
+  },
+  {
+    "word": "enjoy",
+    "start": 191.518,
+    "end": 191.866
+  },
+  {
+    "word": "walking",
+    "start": 191.947,
+    "end": 192.307
+  },
+  {
+    "word": "in",
+    "start": 192.354,
+    "end": 192.4
+  },
+  {
+    "word": "the",
+    "start": 192.435,
+    "end": 192.505
+  },
+  {
+    "word": "city",
+    "start": 192.539,
+    "end": 192.76
+  },
+  {
+    "word": "center",
+    "start": 192.818,
+    "end": 193.178
+  },
+  {
+    "word": "I",
+    "start": 193.526,
+    "end": 193.584
+  },
+  {
+    "word": "don",
+    "start": 193.654,
+    "end": 193.759
+  },
+  {
+    "word": "t",
+    "start": 193.793,
+    "end": 193.828
+  },
+  {
+    "word": "feel",
+    "start": 193.875,
+    "end": 194.06
+  },
+  {
+    "word": "well",
+    "start": 194.107,
+    "end": 194.258
+  },
+  {
+    "word": "today",
+    "start": 194.316,
+    "end": 194.699
+  },
+  {
+    "word": "She",
+    "start": 195.314,
+    "end": 195.442
+  },
+  {
+    "word": "has",
+    "start": 195.488,
+    "end": 195.593
+  },
+  {
+    "word": "a",
+    "start": 195.639,
+    "end": 195.663
+  },
+  {
+    "word": "headache",
+    "start": 195.721,
+    "end": 196.162
+  },
+  {
+    "word": "Do",
+    "start": 196.661,
+    "end": 196.765
+  },
+  {
+    "word": "you",
+    "start": 196.824,
+    "end": 196.905
+  },
+  {
+    "word": "exercise",
+    "start": 196.974,
+    "end": 197.497
+  },
+  {
+    "word": "regularly",
+    "start": 197.543,
+    "end": 198.077
+  },
+  {
+    "word": "My",
+    "start": 198.635,
+    "end": 198.762
+  },
+  {
+    "word": "stomach",
+    "start": 198.832,
+    "end": 199.192
+  },
+  {
+    "word": "doesn",
+    "start": 199.238,
+    "end": 199.436
+  },
+  {
+    "word": "t",
+    "start": 199.471,
+    "end": 199.505
+  },
+  {
+    "word": "hurt",
+    "start": 199.54,
+    "end": 199.726
+  },
+  {
+    "word": "anymore",
+    "start": 199.761,
+    "end": 200.33
+  },
+  {
+    "word": "He",
+    "start": 200.574,
+    "end": 200.69
+  },
+  {
+    "word": "isn",
+    "start": 200.748,
+    "end": 200.887
+  },
+  {
+    "word": "t",
+    "start": 200.922,
+    "end": 200.957
+  },
+  {
+    "word": "feeling",
+    "start": 200.992,
+    "end": 201.27
+  },
+  {
+    "word": "hungry",
+    "start": 201.328,
+    "end": 201.746
+  },
+  {
+    "word": "What",
+    "start": 202.303,
+    "end": 202.478
+  },
+  {
+    "word": "s",
+    "start": 202.512,
+    "end": 202.547
+  },
+  {
+    "word": "wrong",
+    "start": 202.582,
+    "end": 202.791
+  },
+  {
+    "word": "with",
+    "start": 202.826,
+    "end": 202.942
+  },
+  {
+    "word": "you",
+    "start": 203,
+    "end": 203.186
+  },
+  {
+    "word": "I",
+    "start": 203.813,
+    "end": 203.871
+  },
+  {
+    "word": "brush",
+    "start": 203.987,
+    "end": 204.231
+  },
+  {
+    "word": "my",
+    "start": 204.3,
+    "end": 204.393
+  },
+  {
+    "word": "teeth",
+    "start": 204.451,
+    "end": 204.684
+  },
+  {
+    "word": "twice",
+    "start": 204.73,
+    "end": 205.032
+  },
+  {
+    "word": "a",
+    "start": 205.067,
+    "end": 205.09
+  },
+  {
+    "word": "day",
+    "start": 205.148,
+    "end": 205.438
+  },
+  {
+    "word": "They",
+    "start": 205.856,
+    "end": 206.007
+  },
+  {
+    "word": "don",
+    "start": 206.042,
+    "end": 206.135
+  },
+  {
+    "word": "t",
+    "start": 206.17,
+    "end": 206.205
+  },
+  {
+    "word": "smoke",
+    "start": 206.263,
+    "end": 206.692
+  },
+  {
+    "word": "Are",
+    "start": 207.319,
+    "end": 207.47
+  },
+  {
+    "word": "you",
+    "start": 207.505,
+    "end": 207.586
+  },
+  {
+    "word": "allergic",
+    "start": 207.644,
+    "end": 208.027
+  },
+  {
+    "word": "to",
+    "start": 208.074,
+    "end": 208.12
+  },
+  {
+    "word": "anything",
+    "start": 208.19,
+    "end": 208.573
+  },
+  {
+    "word": "I",
+    "start": 208.933,
+    "end": 208.991
+  },
+  {
+    "word": "need",
+    "start": 209.072,
+    "end": 209.223
+  },
+  {
+    "word": "to",
+    "start": 209.246,
+    "end": 209.293
+  },
+  {
+    "word": "rest",
+    "start": 209.363,
+    "end": 209.722
+  },
+  {
+    "word": "I",
+    "start": 210.28,
+    "end": 210.338
+  },
+  {
+    "word": "take",
+    "start": 210.431,
+    "end": 210.605
+  },
+  {
+    "word": "the",
+    "start": 210.628,
+    "end": 210.698
+  },
+  {
+    "word": "bus",
+    "start": 210.732,
+    "end": 210.907
+  },
+  {
+    "word": "to",
+    "start": 210.965,
+    "end": 211.011
+  },
+  {
+    "word": "work",
+    "start": 211.069,
+    "end": 211.336
+  },
+  {
+    "word": "He",
+    "start": 211.766,
+    "end": 211.87
+  },
+  {
+    "word": "doesn",
+    "start": 211.928,
+    "end": 212.102
+  },
+  {
+    "word": "t",
+    "start": 212.137,
+    "end": 212.161
+  },
+  {
+    "word": "drive",
+    "start": 212.195,
+    "end": 212.428
+  },
+  {
+    "word": "a",
+    "start": 212.462,
+    "end": 212.486
+  },
+  {
+    "word": "car",
+    "start": 212.532,
+    "end": 212.846
+  },
+  {
+    "word": "Do",
+    "start": 213.461,
+    "end": 213.554
+  },
+  {
+    "word": "you",
+    "start": 213.577,
+    "end": 213.647
+  },
+  {
+    "word": "have",
+    "start": 213.681,
+    "end": 213.798
+  },
+  {
+    "word": "a",
+    "start": 213.832,
+    "end": 213.856
+  },
+  {
+    "word": "bicycle",
+    "start": 213.902,
+    "end": 214.529
+  },
+  {
+    "word": "The",
+    "start": 214.889,
+    "end": 215.017
+  },
+  {
+    "word": "train",
+    "start": 215.063,
+    "end": 215.284
+  },
+  {
+    "word": "is",
+    "start": 215.33,
+    "end": 215.411
+  },
+  {
+    "word": "late",
+    "start": 215.481,
+    "end": 215.667
+  },
+  {
+    "word": "today",
+    "start": 215.69,
+    "end": 216.027
+  },
+  {
+    "word": "We",
+    "start": 216.189,
+    "end": 216.317
+  },
+  {
+    "word": "don",
+    "start": 216.352,
+    "end": 216.456
+  },
+  {
+    "word": "t",
+    "start": 216.491,
+    "end": 216.526
+  },
+  {
+    "word": "walk",
+    "start": 216.561,
+    "end": 216.758
+  },
+  {
+    "word": "to",
+    "start": 216.816,
+    "end": 216.874
+  },
+  {
+    "word": "school",
+    "start": 216.921,
+    "end": 217.281
+  },
+  {
+    "word": "Is",
+    "start": 217.768,
+    "end": 217.942
+  },
+  {
+    "word": "the",
+    "start": 217.977,
+    "end": 218.047
+  },
+  {
+    "word": "station",
+    "start": 218.082,
+    "end": 218.453
+  },
+  {
+    "word": "far",
+    "start": 218.511,
+    "end": 218.662
+  },
+  {
+    "word": "from",
+    "start": 218.732,
+    "end": 218.848
+  },
+  {
+    "word": "here",
+    "start": 218.894,
+    "end": 219.173
+  },
+  {
+    "word": "My",
+    "start": 219.742,
+    "end": 219.87
+  },
+  {
+    "word": "ticket",
+    "start": 219.939,
+    "end": 220.218
+  },
+  {
+    "word": "isn",
+    "start": 220.264,
+    "end": 220.392
+  },
+  {
+    "word": "t",
+    "start": 220.427,
+    "end": 220.45
+  },
+  {
+    "word": "valid",
+    "start": 220.485,
+    "end": 220.88
+  },
+  {
+    "word": "She",
+    "start": 221.181,
+    "end": 221.321
+  },
+  {
+    "word": "travels",
+    "start": 221.379,
+    "end": 221.75
+  },
+  {
+    "word": "by",
+    "start": 221.797,
+    "end": 221.89
+  },
+  {
+    "word": "metro",
+    "start": 221.959,
+    "end": 222.261
+  },
+  {
+    "word": "every",
+    "start": 222.331,
+    "end": 222.505
+  },
+  {
+    "word": "day",
+    "start": 222.54,
+    "end": 222.795
+  },
+  {
+    "word": "Where",
+    "start": 223.19,
+    "end": 223.387
+  },
+  {
+    "word": "can",
+    "start": 223.422,
+    "end": 223.515
+  },
+  {
+    "word": "I",
+    "start": 223.561,
+    "end": 223.585
+  },
+  {
+    "word": "catch",
+    "start": 223.643,
+    "end": 223.852
+  },
+  {
+    "word": "a",
+    "start": 223.887,
+    "end": 223.91
+  },
+  {
+    "word": "taxi",
+    "start": 223.956,
+    "end": 224.467
+  },
+  {
+    "word": "I",
+    "start": 224.792,
+    "end": 224.862
+  },
+  {
+    "word": "enjoy",
+    "start": 224.978,
+    "end": 225.268
+  },
+  {
+    "word": "riding",
+    "start": 225.361,
+    "end": 225.651
+  },
+  {
+    "word": "my",
+    "start": 225.698,
+    "end": 225.756
+  },
+  {
+    "word": "motorcycle",
+    "start": 225.825,
+    "end": 226.557
+  },
+  {
+    "word": "I",
+    "start": 226.824,
+    "end": 226.882
+  },
+  {
+    "word": "work",
+    "start": 226.975,
+    "end": 227.149
+  },
+  {
+    "word": "in",
+    "start": 227.195,
+    "end": 227.253
+  },
+  {
+    "word": "an",
+    "start": 227.288,
+    "end": 227.358
+  },
+  {
+    "word": "office",
+    "start": 227.416,
+    "end": 227.892
+  },
+  {
+    "word": "She",
+    "start": 228.182,
+    "end": 228.31
+  },
+  {
+    "word": "doesn",
+    "start": 228.356,
+    "end": 228.531
+  },
+  {
+    "word": "t",
+    "start": 228.565,
+    "end": 228.589
+  },
+  {
+    "word": "like",
+    "start": 228.623,
+    "end": 228.798
+  },
+  {
+    "word": "her",
+    "start": 228.832,
+    "end": 228.914
+  },
+  {
+    "word": "job",
+    "start": 228.972,
+    "end": 229.343
+  },
+  {
+    "word": "Do",
+    "start": 229.901,
+    "end": 230.005
+  },
+  {
+    "word": "you",
+    "start": 230.028,
+    "end": 230.098
+  },
+  {
+    "word": "have",
+    "start": 230.133,
+    "end": 230.249
+  },
+  {
+    "word": "a",
+    "start": 230.272,
+    "end": 230.295
+  },
+  {
+    "word": "meeting",
+    "start": 230.342,
+    "end": 230.574
+  },
+  {
+    "word": "today",
+    "start": 230.62,
+    "end": 230.992
+  },
+  {
+    "word": "He",
+    "start": 231.491,
+    "end": 231.607
+  },
+  {
+    "word": "is",
+    "start": 231.654,
+    "end": 231.735
+  },
+  {
+    "word": "a",
+    "start": 231.77,
+    "end": 231.805
+  },
+  {
+    "word": "teacher",
+    "start": 231.851,
+    "end": 232.281
+  },
+  {
+    "word": "We",
+    "start": 232.513,
+    "end": 232.629
+  },
+  {
+    "word": "don",
+    "start": 232.664,
+    "end": 232.757
+  },
+  {
+    "word": "t",
+    "start": 232.791,
+    "end": 232.815
+  },
+  {
+    "word": "finish",
+    "start": 232.849,
+    "end": 233.116
+  },
+  {
+    "word": "until",
+    "start": 233.163,
+    "end": 233.372
+  },
+  {
+    "word": "six",
+    "start": 233.453,
+    "end": 233.836
+  },
+  {
+    "word": "Is",
+    "start": 234.428,
+    "end": 234.591
+  },
+  {
+    "word": "your",
+    "start": 234.626,
+    "end": 234.73
+  },
+  {
+    "word": "boss",
+    "start": 234.765,
+    "end": 235.009
+  },
+  {
+    "word": "friendly",
+    "start": 235.067,
+    "end": 235.496
+  },
+  {
+    "word": "My",
+    "start": 236.181,
+    "end": 236.298
+  },
+  {
+    "word": "company",
+    "start": 236.367,
+    "end": 236.727
+  },
+  {
+    "word": "is",
+    "start": 236.774,
+    "end": 236.855
+  },
+  {
+    "word": "growing",
+    "start": 236.913,
+    "end": 237.18
+  },
+  {
+    "word": "fast",
+    "start": 237.25,
+    "end": 237.691
+  },
+  {
+    "word": "They",
+    "start": 237.993,
+    "end": 238.144
+  },
+  {
+    "word": "aren",
+    "start": 238.178,
+    "end": 238.283
+  },
+  {
+    "word": "t",
+    "start": 238.306,
+    "end": 238.341
+  },
+  {
+    "word": "hiring",
+    "start": 238.376,
+    "end": 238.724
+  },
+  {
+    "word": "right",
+    "start": 238.77,
+    "end": 238.945
+  },
+  {
+    "word": "now",
+    "start": 238.991,
+    "end": 239.212
+  },
+  {
+    "word": "What",
+    "start": 239.862,
+    "end": 240.059
+  },
+  {
+    "word": "time",
+    "start": 240.094,
+    "end": 240.303
+  },
+  {
+    "word": "do",
+    "start": 240.326,
+    "end": 240.384
+  },
+  {
+    "word": "you",
+    "start": 240.419,
+    "end": 240.489
+  },
+  {
+    "word": "start",
+    "start": 240.535,
+    "end": 240.779
+  },
+  {
+    "word": "work",
+    "start": 240.825,
+    "end": 241.116
+  },
+  {
+    "word": "I",
+    "start": 241.986,
+    "end": 242.045
+  },
+  {
+    "word": "need",
+    "start": 242.126,
+    "end": 242.277
+  },
+  {
+    "word": "a",
+    "start": 242.312,
+    "end": 242.335
+  },
+  {
+    "word": "vacation",
+    "start": 242.37,
+    "end": 242.973
+  },
+  {
+    "word": "I",
+    "start": 243.217,
+    "end": 243.275
+  },
+  {
+    "word": "can",
+    "start": 243.345,
+    "end": 243.473
+  },
+  {
+    "word": "swim",
+    "start": 243.531,
+    "end": 243.786
+  },
+  {
+    "word": "very",
+    "start": 243.856,
+    "end": 244.065
+  },
+  {
+    "word": "well",
+    "start": 244.123,
+    "end": 244.401
+  },
+  {
+    "word": "She",
+    "start": 244.993,
+    "end": 245.121
+  },
+  {
+    "word": "can",
+    "start": 245.179,
+    "end": 245.33
+  },
+  {
+    "word": "t",
+    "start": 245.365,
+    "end": 245.4
+  },
+  {
+    "word": "speak",
+    "start": 245.435,
+    "end": 245.655
+  },
+  {
+    "word": "Japanese",
+    "start": 245.713,
+    "end": 246.387
+  },
+  {
+    "word": "Can",
+    "start": 247.106,
+    "end": 247.246
+  },
+  {
+    "word": "you",
+    "start": 247.304,
+    "end": 247.373
+  },
+  {
+    "word": "play",
+    "start": 247.42,
+    "end": 247.571
+  },
+  {
+    "word": "the",
+    "start": 247.617,
+    "end": 247.687
+  },
+  {
+    "word": "piano",
+    "start": 247.722,
+    "end": 248.151
+  },
+  {
+    "word": "We",
+    "start": 248.36,
+    "end": 248.476
+  },
+  {
+    "word": "can",
+    "start": 248.511,
+    "end": 248.627
+  },
+  {
+    "word": "run",
+    "start": 248.674,
+    "end": 248.836
+  },
+  {
+    "word": "fast",
+    "start": 248.906,
+    "end": 249.359
+  },
+  {
+    "word": "He",
+    "start": 249.916,
+    "end": 250.021
+  },
+  {
+    "word": "can",
+    "start": 250.079,
+    "end": 250.23
+  },
+  {
+    "word": "t",
+    "start": 250.265,
+    "end": 250.299
+  },
+  {
+    "word": "drive",
+    "start": 250.334,
+    "end": 250.624
+  },
+  {
+    "word": "yet",
+    "start": 250.659,
+    "end": 250.915
+  },
+  {
+    "word": "Can",
+    "start": 251.426,
+    "end": 251.565
+  },
+  {
+    "word": "they",
+    "start": 251.6,
+    "end": 251.693
+  },
+  {
+    "word": "come",
+    "start": 251.739,
+    "end": 251.925
+  },
+  {
+    "word": "tomorrow",
+    "start": 251.96,
+    "end": 252.378
+  },
+  {
+    "word": "I",
+    "start": 252.761,
+    "end": 252.819
+  },
+  {
+    "word": "can",
+    "start": 252.912,
+    "end": 253.063
+  },
+  {
+    "word": "t",
+    "start": 253.097,
+    "end": 253.132
+  },
+  {
+    "word": "lift",
+    "start": 253.179,
+    "end": 253.376
+  },
+  {
+    "word": "heavy",
+    "start": 253.434,
+    "end": 253.655
+  },
+  {
+    "word": "boxes",
+    "start": 253.713,
+    "end": 254.293
+  },
+  {
+    "word": "She",
+    "start": 254.711,
+    "end": 254.839
+  },
+  {
+    "word": "can",
+    "start": 254.885,
+    "end": 255.001
+  },
+  {
+    "word": "dance",
+    "start": 255.048,
+    "end": 255.292
+  },
+  {
+    "word": "salsa",
+    "start": 255.327,
+    "end": 255.803
+  },
+  {
+    "word": "Can",
+    "start": 256.22,
+    "end": 256.371
+  },
+  {
+    "word": "I",
+    "start": 256.429,
+    "end": 256.453
+  },
+  {
+    "word": "borrow",
+    "start": 256.522,
+    "end": 256.731
+  },
+  {
+    "word": "your",
+    "start": 256.778,
+    "end": 256.882
+  },
+  {
+    "word": "pen",
+    "start": 256.917,
+    "end": 257.242
+  },
+  {
+    "word": "We",
+    "start": 257.637,
+    "end": 257.753
+  },
+  {
+    "word": "can",
+    "start": 257.811,
+    "end": 257.974
+  },
+  {
+    "word": "t",
+    "start": 258.008,
+    "end": 258.043
+  },
+  {
+    "word": "finish",
+    "start": 258.09,
+    "end": 258.357
+  },
+  {
+    "word": "this",
+    "start": 258.392,
+    "end": 258.531
+  },
+  {
+    "word": "today",
+    "start": 258.589,
+    "end": 258.96
+  },
+  {
+    "word": "Can",
+    "start": 259.39,
+    "end": 259.553
+  },
+  {
+    "word": "you",
+    "start": 259.599,
+    "end": 259.669
+  },
+  {
+    "word": "help",
+    "start": 259.727,
+    "end": 259.878
+  },
+  {
+    "word": "me",
+    "start": 259.936,
+    "end": 260.04
+  },
+  {
+    "word": "please",
+    "start": 260.087,
+    "end": 260.528
+  },
+  {
+    "word": "Let",
+    "start": 261.039,
+    "end": 261.19
+  },
+  {
+    "word": "s",
+    "start": 261.224,
+    "end": 261.259
+  },
+  {
+    "word": "go",
+    "start": 261.294,
+    "end": 261.375
+  },
+  {
+    "word": "to",
+    "start": 261.422,
+    "end": 261.468
+  },
+  {
+    "word": "the",
+    "start": 261.515,
+    "end": 261.584
+  },
+  {
+    "word": "park",
+    "start": 261.619,
+    "end": 261.933
+  },
+  {
+    "word": "You",
+    "start": 262.118,
+    "end": 262.234
+  },
+  {
+    "word": "shouldn",
+    "start": 262.281,
+    "end": 262.501
+  },
+  {
+    "word": "t",
+    "start": 262.536,
+    "end": 262.571
+  },
+  {
+    "word": "eat",
+    "start": 262.606,
+    "end": 262.734
+  },
+  {
+    "word": "so",
+    "start": 262.78,
+    "end": 262.861
+  },
+  {
+    "word": "much",
+    "start": 262.931,
+    "end": 263.094
+  },
+  {
+    "word": "sugar",
+    "start": 263.14,
+    "end": 263.488
+  },
+  {
+    "word": "Could",
+    "start": 263.988,
+    "end": 264.15
+  },
+  {
+    "word": "you",
+    "start": 264.185,
+    "end": 264.254
+  },
+  {
+    "word": "open",
+    "start": 264.324,
+    "end": 264.522
+  },
+  {
+    "word": "the",
+    "start": 264.568,
+    "end": 264.638
+  },
+  {
+    "word": "window",
+    "start": 264.672,
+    "end": 265.021
+  },
+  {
+    "word": "Let",
+    "start": 265.439,
+    "end": 265.59
+  },
+  {
+    "word": "s",
+    "start": 265.624,
+    "end": 265.659
+  },
+  {
+    "word": "not",
+    "start": 265.706,
+    "end": 265.845
+  },
+  {
+    "word": "talk",
+    "start": 265.88,
+    "end": 266.077
+  },
+  {
+    "word": "about",
+    "start": 266.124,
+    "end": 266.309
+  },
+  {
+    "word": "that",
+    "start": 266.344,
+    "end": 266.6
+  },
+  {
+    "word": "Please",
+    "start": 266.994,
+    "end": 267.366
+  },
+  {
+    "word": "don",
+    "start": 267.412,
+    "end": 267.529
+  },
+  {
+    "word": "t",
+    "start": 267.552,
+    "end": 267.587
+  },
+  {
+    "word": "be",
+    "start": 267.621,
+    "end": 267.691
+  },
+  {
+    "word": "late",
+    "start": 267.737,
+    "end": 268.039
+  },
+  {
+    "word": "Shall",
+    "start": 268.306,
+    "end": 268.492
+  },
+  {
+    "word": "we",
+    "start": 268.527,
+    "end": 268.585
+  },
+  {
+    "word": "order",
+    "start": 268.62,
+    "end": 268.806
+  },
+  {
+    "word": "pizza",
+    "start": 268.852,
+    "end": 269.316
+  },
+  {
+    "word": "Can",
+    "start": 269.665,
+    "end": 269.839
+  },
+  {
+    "word": "t",
+    "start": 269.862,
+    "end": 269.897
+  },
+  {
+    "word": "we",
+    "start": 269.932,
+    "end": 269.99
+  },
+  {
+    "word": "watch",
+    "start": 270.048,
+    "end": 270.245
+  },
+  {
+    "word": "a",
+    "start": 270.28,
+    "end": 270.303
+  },
+  {
+    "word": "movie",
+    "start": 270.35,
+    "end": 270.779
+  },
+  {
+    "word": "How",
+    "start": 271.07,
+    "end": 271.197
+  },
+  {
+    "word": "about",
+    "start": 271.232,
+    "end": 271.406
+  },
+  {
+    "word": "going",
+    "start": 271.453,
+    "end": 271.65
+  },
+  {
+    "word": "for",
+    "start": 271.696,
+    "end": 271.789
+  },
+  {
+    "word": "coffee",
+    "start": 271.847,
+    "end": 272.393
+  },
+  {
+    "word": "Would",
+    "start": 272.753,
+    "end": 272.939
+  },
+  {
+    "word": "you",
+    "start": 272.962,
+    "end": 273.032
+  },
+  {
+    "word": "mind",
+    "start": 273.078,
+    "end": 273.252
+  },
+  {
+    "word": "closing",
+    "start": 273.322,
+    "end": 273.635
+  },
+  {
+    "word": "the",
+    "start": 273.682,
+    "end": 273.751
+  },
+  {
+    "word": "door",
+    "start": 273.786,
+    "end": 274.053
+  },
+  {
+    "word": "I",
+    "start": 274.669,
+    "end": 274.727
+  },
+  {
+    "word": "work",
+    "start": 274.843,
+    "end": 275.04
+  },
+  {
+    "word": "in",
+    "start": 275.098,
+    "end": 275.168
+  },
+  {
+    "word": "an",
+    "start": 275.214,
+    "end": 275.284
+  },
+  {
+    "word": "office",
+    "start": 275.342,
+    "end": 275.957
+  },
+  {
+    "word": "She",
+    "start": 276.155,
+    "end": 276.282
+  },
+  {
+    "word": "doesn",
+    "start": 276.329,
+    "end": 276.515
+  },
+  {
+    "word": "t",
+    "start": 276.549,
+    "end": 276.584
+  },
+  {
+    "word": "like",
+    "start": 276.619,
+    "end": 276.782
+  },
+  {
+    "word": "her",
+    "start": 276.816,
+    "end": 276.898
+  },
+  {
+    "word": "job",
+    "start": 276.956,
+    "end": 277.316
+  },
+  {
+    "word": "Do",
+    "start": 277.908,
+    "end": 278.012
+  },
+  {
+    "word": "you",
+    "start": 278.047,
+    "end": 278.117
+  },
+  {
+    "word": "have",
+    "start": 278.152,
+    "end": 278.279
+  },
+  {
+    "word": "a",
+    "start": 278.303,
+    "end": 278.326
+  },
+  {
+    "word": "meeting",
+    "start": 278.384,
+    "end": 278.639
+  },
+  {
+    "word": "today",
+    "start": 278.686,
+    "end": 279.057
+  },
+  {
+    "word": "He",
+    "start": 279.382,
+    "end": 279.487
+  },
+  {
+    "word": "is",
+    "start": 279.533,
+    "end": 279.603
+  },
+  {
+    "word": "a",
+    "start": 279.649,
+    "end": 279.673
+  },
+  {
+    "word": "teacher",
+    "start": 279.719,
+    "end": 280.149
+  },
+  {
+    "word": "We",
+    "start": 280.59,
+    "end": 280.718
+  },
+  {
+    "word": "don",
+    "start": 280.752,
+    "end": 280.857
+  },
+  {
+    "word": "t",
+    "start": 280.88,
+    "end": 280.915
+  },
+  {
+    "word": "finish",
+    "start": 280.961,
+    "end": 281.24
+  },
+  {
+    "word": "until",
+    "start": 281.286,
+    "end": 281.519
+  },
+  {
+    "word": "six",
+    "start": 281.6,
+    "end": 281.937
+  },
+  {
+    "word": "Is",
+    "start": 282.413,
+    "end": 282.575
+  },
+  {
+    "word": "your",
+    "start": 282.61,
+    "end": 282.714
+  },
+  {
+    "word": "boss",
+    "start": 282.749,
+    "end": 282.947
+  },
+  {
+    "word": "friendly",
+    "start": 283.005,
+    "end": 283.434
+  },
+  {
+    "word": "My",
+    "start": 283.968,
+    "end": 284.084
+  },
+  {
+    "word": "company",
+    "start": 284.154,
+    "end": 284.491
+  },
+  {
+    "word": "is",
+    "start": 284.537,
+    "end": 284.607
+  },
+  {
+    "word": "growing",
+    "start": 284.665,
+    "end": 284.909
+  },
+  {
+    "word": "fast",
+    "start": 284.978,
+    "end": 285.42
+  },
+  {
+    "word": "They",
+    "start": 285.861,
+    "end": 286.023
+  },
+  {
+    "word": "aren",
+    "start": 286.058,
+    "end": 286.174
+  },
+  {
+    "word": "t",
+    "start": 286.209,
+    "end": 286.232
+  },
+  {
+    "word": "hiring",
+    "start": 286.279,
+    "end": 286.662
+  },
+  {
+    "word": "right",
+    "start": 286.708,
+    "end": 286.871
+  },
+  {
+    "word": "now",
+    "start": 286.906,
+    "end": 287.115
+  },
+  {
+    "word": "What",
+    "start": 287.649,
+    "end": 287.834
+  },
+  {
+    "word": "time",
+    "start": 287.869,
+    "end": 288.055
+  },
+  {
+    "word": "do",
+    "start": 288.078,
+    "end": 288.136
+  },
+  {
+    "word": "you",
+    "start": 288.171,
+    "end": 288.241
+  },
+  {
+    "word": "start",
+    "start": 288.287,
+    "end": 288.508
+  },
+  {
+    "word": "work",
+    "start": 288.554,
+    "end": 288.833
+  },
+  {
+    "word": "I",
+    "start": 289.228,
+    "end": 289.286
+  },
+  {
+    "word": "need",
+    "start": 289.367,
+    "end": 289.518
+  },
+  {
+    "word": "a",
+    "start": 289.553,
+    "end": 289.576
+  },
+  {
+    "word": "vacation",
+    "start": 289.622,
+    "end": 290.226
+  },
+  {
+    "word": "I",
+    "start": 290.551,
+    "end": 290.598
+  },
+  {
+    "word": "can",
+    "start": 290.667,
+    "end": 290.783
+  },
+  {
+    "word": "swim",
+    "start": 290.83,
+    "end": 291.039
+  },
+  {
+    "word": "very",
+    "start": 291.108,
+    "end": 291.294
+  },
+  {
+    "word": "well",
+    "start": 291.352,
+    "end": 291.596
+  },
+  {
+    "word": "She",
+    "start": 291.979,
+    "end": 292.107
+  },
+  {
+    "word": "can",
+    "start": 292.165,
+    "end": 292.316
+  },
+  {
+    "word": "t",
+    "start": 292.351,
+    "end": 292.374
+  },
+  {
+    "word": "speak",
+    "start": 292.42,
+    "end": 292.653
+  },
+  {
+    "word": "Japanese",
+    "start": 292.711,
+    "end": 293.384
+  },
+  {
+    "word": "Can",
+    "start": 293.709,
+    "end": 293.848
+  },
+  {
+    "word": "you",
+    "start": 293.895,
+    "end": 293.965
+  },
+  {
+    "word": "play",
+    "start": 293.999,
+    "end": 294.162
+  },
+  {
+    "word": "the",
+    "start": 294.208,
+    "end": 294.278
+  },
+  {
+    "word": "piano",
+    "start": 294.301,
+    "end": 294.708
+  },
+  {
+    "word": "We",
+    "start": 294.998,
+    "end": 295.114
+  },
+  {
+    "word": "can",
+    "start": 295.149,
+    "end": 295.253
+  },
+  {
+    "word": "run",
+    "start": 295.288,
+    "end": 295.451
+  },
+  {
+    "word": "fast",
+    "start": 295.52,
+    "end": 295.973
+  },
+  {
+    "word": "He",
+    "start": 296.31,
+    "end": 296.414
+  },
+  {
+    "word": "can",
+    "start": 296.461,
+    "end": 296.612
+  },
+  {
+    "word": "t",
+    "start": 296.635,
+    "end": 296.67
+  },
+  {
+    "word": "drive",
+    "start": 296.693,
+    "end": 296.937
+  },
+  {
+    "word": "yet",
+    "start": 296.972,
+    "end": 297.215
+  },
+  {
+    "word": "Can",
+    "start": 297.773,
+    "end": 297.912
+  },
+  {
+    "word": "they",
+    "start": 297.947,
+    "end": 298.051
+  },
+  {
+    "word": "come",
+    "start": 298.086,
+    "end": 298.272
+  },
+  {
+    "word": "tomorrow",
+    "start": 298.307,
+    "end": 298.748
+  },
+  {
+    "word": "I",
+    "start": 299.096,
+    "end": 299.154
+  },
+  {
+    "word": "can",
+    "start": 299.236,
+    "end": 299.41
+  },
+  {
+    "word": "t",
+    "start": 299.445,
+    "end": 299.479
+  },
+  {
+    "word": "lift",
+    "start": 299.526,
+    "end": 299.723
+  },
+  {
+    "word": "heavy",
+    "start": 299.793,
+    "end": 300.013
+  },
+  {
+    "word": "boxes",
+    "start": 300.071,
+    "end": 300.629
+  },
+  {
+    "word": "She",
+    "start": 301.058,
+    "end": 301.186
+  },
+  {
+    "word": "can",
+    "start": 301.232,
+    "end": 301.337
+  },
+  {
+    "word": "dance",
+    "start": 301.383,
+    "end": 301.627
+  },
+  {
+    "word": "salsa",
+    "start": 301.662,
+    "end": 302.15
+  },
+  {
+    "word": "Can",
+    "start": 302.568,
+    "end": 302.707
+  },
+  {
+    "word": "I",
+    "start": 302.765,
+    "end": 302.788
+  },
+  {
+    "word": "borrow",
+    "start": 302.858,
+    "end": 303.078
+  },
+  {
+    "word": "your",
+    "start": 303.125,
+    "end": 303.229
+  },
+  {
+    "word": "pen",
+    "start": 303.264,
+    "end": 303.554
+  },
+  {
+    "word": "We",
+    "start": 303.914,
+    "end": 304.042
+  },
+  {
+    "word": "can",
+    "start": 304.1,
+    "end": 304.263
+  },
+  {
+    "word": "t",
+    "start": 304.297,
+    "end": 304.332
+  },
+  {
+    "word": "finish",
+    "start": 304.379,
+    "end": 304.634
+  },
+  {
+    "word": "this",
+    "start": 304.669,
+    "end": 304.797
+  },
+  {
+    "word": "today",
+    "start": 304.855,
+    "end": 305.249
+  },
+  {
+    "word": "Can",
+    "start": 305.749,
+    "end": 305.888
+  },
+  {
+    "word": "you",
+    "start": 305.934,
+    "end": 306.004
+  },
+  {
+    "word": "help",
+    "start": 306.051,
+    "end": 306.202
+  },
+  {
+    "word": "me",
+    "start": 306.248,
+    "end": 306.341
+  },
+  {
+    "word": "please",
+    "start": 306.387,
+    "end": 306.794
+  },
+  {
+    "word": "Let",
+    "start": 307.119,
+    "end": 307.27
+  },
+  {
+    "word": "s",
+    "start": 307.304,
+    "end": 307.328
+  },
+  {
+    "word": "go",
+    "start": 307.362,
+    "end": 307.444
+  },
+  {
+    "word": "to",
+    "start": 307.49,
+    "end": 307.537
+  },
+  {
+    "word": "the",
+    "start": 307.583,
+    "end": 307.653
+  },
+  {
+    "word": "park",
+    "start": 307.688,
+    "end": 308.013
+  },
+  {
+    "word": "You",
+    "start": 308.28,
+    "end": 308.396
+  },
+  {
+    "word": "shouldn",
+    "start": 308.442,
+    "end": 308.64
+  },
+  {
+    "word": "t",
+    "start": 308.674,
+    "end": 308.698
+  },
+  {
+    "word": "eat",
+    "start": 308.732,
+    "end": 308.86
+  },
+  {
+    "word": "so",
+    "start": 308.907,
+    "end": 308.999
+  },
+  {
+    "word": "much",
+    "start": 309.058,
+    "end": 309.22
+  },
+  {
+    "word": "sugar",
+    "start": 309.266,
+    "end": 309.615
+  },
+  {
+    "word": "Could",
+    "start": 309.975,
+    "end": 310.137
+  },
+  {
+    "word": "you",
+    "start": 310.172,
+    "end": 310.242
+  },
+  {
+    "word": "open",
+    "start": 310.311,
+    "end": 310.52
+  },
+  {
+    "word": "the",
+    "start": 310.555,
+    "end": 310.625
+  },
+  {
+    "word": "window",
+    "start": 310.66,
+    "end": 311.02
+  },
+  {
+    "word": "Let",
+    "start": 311.739,
+    "end": 311.879
+  },
+  {
+    "word": "s",
+    "start": 311.914,
+    "end": 311.948
+  },
+  {
+    "word": "not",
+    "start": 311.983,
+    "end": 312.111
+  },
+  {
+    "word": "talk",
+    "start": 312.157,
+    "end": 312.355
+  },
+  {
+    "word": "about",
+    "start": 312.401,
+    "end": 312.587
+  },
+  {
+    "word": "that",
+    "start": 312.622,
+    "end": 312.866
+  },
+  {
+    "word": "Please",
+    "start": 313.318,
+    "end": 313.655
+  },
+  {
+    "word": "don",
+    "start": 313.702,
+    "end": 313.818
+  },
+  {
+    "word": "t",
+    "start": 313.852,
+    "end": 313.887
+  },
+  {
+    "word": "be",
+    "start": 313.922,
+    "end": 314.003
+  },
+  {
+    "word": "late",
+    "start": 314.061,
+    "end": 314.363
+  },
+  {
+    "word": "Shall",
+    "start": 314.665,
+    "end": 314.863
+  },
+  {
+    "word": "we",
+    "start": 314.897,
+    "end": 314.955
+  },
+  {
+    "word": "order",
+    "start": 315.002,
+    "end": 315.199
+  },
+  {
+    "word": "pizza",
+    "start": 315.246,
+    "end": 315.675
+  },
+  {
+    "word": "Can",
+    "start": 315.884,
+    "end": 316.035
+  },
+  {
+    "word": "t",
+    "start": 316.058,
+    "end": 316.082
+  },
+  {
+    "word": "we",
+    "start": 316.105,
+    "end": 316.174
+  },
+  {
+    "word": "watch",
+    "start": 316.221,
+    "end": 316.383
+  },
+  {
+    "word": "a",
+    "start": 316.418,
+    "end": 316.441
+  },
+  {
+    "word": "movie",
+    "start": 316.488,
+    "end": 316.906
+  },
+  {
+    "word": "How",
+    "start": 317.243,
+    "end": 317.37
+  },
+  {
+    "word": "about",
+    "start": 317.393,
+    "end": 317.568
+  },
+  {
+    "word": "going",
+    "start": 317.614,
+    "end": 317.8
+  },
+  {
+    "word": "for",
+    "start": 317.846,
+    "end": 317.951
+  },
+  {
+    "word": "coffee",
+    "start": 318.009,
+    "end": 318.531
+  },
+  {
+    "word": "Would",
+    "start": 319.065,
+    "end": 319.239
+  },
+  {
+    "word": "you",
+    "start": 319.263,
+    "end": 319.332
+  },
+  {
+    "word": "mind",
+    "start": 319.39,
+    "end": 319.576
+  },
+  {
+    "word": "closing",
+    "start": 319.634,
+    "end": 319.959
+  },
+  {
+    "word": "the",
+    "start": 320.006,
+    "end": 320.075
+  },
+  {
+    "word": "door",
+    "start": 320.11,
+    "end": 320.401
+  },
+  {
+    "word": "I",
+    "start": 320.853,
+    "end": 320.911
+  },
+  {
+    "word": "always",
+    "start": 321.027,
+    "end": 321.341
+  },
+  {
+    "word": "drink",
+    "start": 321.387,
+    "end": 321.585
+  },
+  {
+    "word": "coffee",
+    "start": 321.654,
+    "end": 321.979
+  },
+  {
+    "word": "in",
+    "start": 322.003,
+    "end": 322.049
+  },
+  {
+    "word": "the",
+    "start": 322.084,
+    "end": 322.154
+  },
+  {
+    "word": "morning",
+    "start": 322.188,
+    "end": 322.502
+  },
+  {
+    "word": "She",
+    "start": 322.885,
+    "end": 323.013
+  },
+  {
+    "word": "doesn",
+    "start": 323.059,
+    "end": 323.257
+  },
+  {
+    "word": "t",
+    "start": 323.291,
+    "end": 323.326
+  },
+  {
+    "word": "often",
+    "start": 323.384,
+    "end": 323.663
+  },
+  {
+    "word": "travel",
+    "start": 323.709,
+    "end": 324.116
+  },
+  {
+    "word": "Do",
+    "start": 324.801,
+    "end": 324.917
+  },
+  {
+    "word": "you",
+    "start": 324.952,
+    "end": 325.021
+  },
+  {
+    "word": "sometimes",
+    "start": 325.079,
+    "end": 325.497
+  },
+  {
+    "word": "eat",
+    "start": 325.544,
+    "end": 325.66
+  },
+  {
+    "word": "out",
+    "start": 325.706,
+    "end": 325.938
+  },
+  {
+    "word": "We",
+    "start": 326.298,
+    "end": 326.426
+  },
+  {
+    "word": "usually",
+    "start": 326.507,
+    "end": 326.798
+  },
+  {
+    "word": "go",
+    "start": 326.832,
+    "end": 326.925
+  },
+  {
+    "word": "shopping",
+    "start": 326.995,
+    "end": 327.355
+  },
+  {
+    "word": "on",
+    "start": 327.401,
+    "end": 327.471
+  },
+  {
+    "word": "Saturdays",
+    "start": 327.529,
+    "end": 328.11
+  },
+  {
+    "word": "He",
+    "start": 328.469,
+    "end": 328.597
+  },
+  {
+    "word": "rarely",
+    "start": 328.69,
+    "end": 329.015
+  },
+  {
+    "word": "watches",
+    "start": 329.073,
+    "end": 329.398
+  },
+  {
+    "word": "TV",
+    "start": 329.456,
+    "end": 329.712
+  },
+  {
+    "word": "Are",
+    "start": 330.42,
+    "end": 330.594
+  },
+  {
+    "word": "you",
+    "start": 330.629,
+    "end": 330.71
+  },
+  {
+    "word": "never",
+    "start": 330.757,
+    "end": 330.954
+  },
+  {
+    "word": "tired",
+    "start": 331.012,
+    "end": 331.453
+  },
+  {
+    "word": "I",
+    "start": 332.115,
+    "end": 332.161
+  },
+  {
+    "word": "sometimes",
+    "start": 332.278,
+    "end": 332.707
+  },
+  {
+    "word": "work",
+    "start": 332.754,
+    "end": 332.939
+  },
+  {
+    "word": "late",
+    "start": 333.009,
+    "end": 333.346
+  },
+  {
+    "word": "They",
+    "start": 333.636,
+    "end": 333.787
+  },
+  {
+    "word": "don",
+    "start": 333.822,
+    "end": 333.915
+  },
+  {
+    "word": "t",
+    "start": 333.949,
+    "end": 333.984
+  },
+  {
+    "word": "always",
+    "start": 334.019,
+    "end": 334.286
+  },
+  {
+    "word": "agree",
+    "start": 334.321,
+    "end": 334.774
+  },
+  {
+    "word": "How",
+    "start": 335.401,
+    "end": 335.563
+  },
+  {
+    "word": "often",
+    "start": 335.633,
+    "end": 335.888
+  },
+  {
+    "word": "do",
+    "start": 335.923,
+    "end": 335.981
+  },
+  {
+    "word": "you",
+    "start": 336.016,
+    "end": 336.086
+  },
+  {
+    "word": "visit",
+    "start": 336.144,
+    "end": 336.376
+  },
+  {
+    "word": "your",
+    "start": 336.411,
+    "end": 336.527
+  },
+  {
+    "word": "family",
+    "start": 336.573,
+    "end": 337.003
+  },
+  {
+    "word": "I",
+    "start": 337.456,
+    "end": 337.525
+  },
+  {
+    "word": "hardly",
+    "start": 337.641,
+    "end": 337.92
+  },
+  {
+    "word": "ever",
+    "start": 337.99,
+    "end": 338.175
+  },
+  {
+    "word": "eat",
+    "start": 338.233,
+    "end": 338.361
+  },
+  {
+    "word": "fast",
+    "start": 338.408,
+    "end": 338.663
+  },
+  {
+    "word": "food",
+    "start": 338.733,
+    "end": 339.069
+  },
+  {
+    "word": "I",
+    "start": 339.603,
+    "end": 339.661
+  },
+  {
+    "word": "m",
+    "start": 339.708,
+    "end": 339.743
+  },
+  {
+    "word": "wearing",
+    "start": 339.778,
+    "end": 339.987
+  },
+  {
+    "word": "a",
+    "start": 340.033,
+    "end": 340.056
+  },
+  {
+    "word": "blue",
+    "start": 340.091,
+    "end": 340.3
+  },
+  {
+    "word": "shirt",
+    "start": 340.335,
+    "end": 340.672
+  },
+  {
+    "word": "She",
+    "start": 341.171,
+    "end": 341.298
+  },
+  {
+    "word": "isn",
+    "start": 341.345,
+    "end": 341.461
+  },
+  {
+    "word": "t",
+    "start": 341.496,
+    "end": 341.519
+  },
+  {
+    "word": "wearing",
+    "start": 341.542,
+    "end": 341.786
+  },
+  {
+    "word": "jeans",
+    "start": 341.833,
+    "end": 342.1
+  },
+  {
+    "word": "today",
+    "start": 342.146,
+    "end": 342.529
+  },
+  {
+    "word": "Do",
+    "start": 343.121,
+    "end": 343.226
+  },
+  {
+    "word": "you",
+    "start": 343.261,
+    "end": 343.33
+  },
+  {
+    "word": "like",
+    "start": 343.377,
+    "end": 343.551
+  },
+  {
+    "word": "my",
+    "start": 343.597,
+    "end": 343.667
+  },
+  {
+    "word": "new",
+    "start": 343.725,
+    "end": 343.829
+  },
+  {
+    "word": "dress",
+    "start": 343.864,
+    "end": 344.247
+  },
+  {
+    "word": "He",
+    "start": 344.863,
+    "end": 344.967
+  },
+  {
+    "word": "wears",
+    "start": 345.014,
+    "end": 345.223
+  },
+  {
+    "word": "a",
+    "start": 345.269,
+    "end": 345.292
+  },
+  {
+    "word": "suit",
+    "start": 345.362,
+    "end": 345.571
+  },
+  {
+    "word": "to",
+    "start": 345.617,
+    "end": 345.675
+  },
+  {
+    "word": "work",
+    "start": 345.733,
+    "end": 346.012
+  },
+  {
+    "word": "We",
+    "start": 346.43,
+    "end": 346.546
+  },
+  {
+    "word": "don",
+    "start": 346.593,
+    "end": 346.685
+  },
+  {
+    "word": "t",
+    "start": 346.709,
+    "end": 346.744
+  },
+  {
+    "word": "need",
+    "start": 346.778,
+    "end": 346.941
+  },
+  {
+    "word": "winter",
+    "start": 346.999,
+    "end": 347.231
+  },
+  {
+    "word": "coats",
+    "start": 347.278,
+    "end": 347.533
+  },
+  {
+    "word": "now",
+    "start": 347.591,
+    "end": 347.823
+  },
+  {
+    "word": "Is",
+    "start": 348.114,
+    "end": 348.253
+  },
+  {
+    "word": "she",
+    "start": 348.288,
+    "end": 348.369
+  },
+  {
+    "word": "wearing",
+    "start": 348.415,
+    "end": 348.647
+  },
+  {
+    "word": "makeup",
+    "start": 348.682,
+    "end": 349.054
+  },
+  {
+    "word": "My",
+    "start": 349.611,
+    "end": 349.739
+  },
+  {
+    "word": "shoes",
+    "start": 349.797,
+    "end": 350.052
+  },
+  {
+    "word": "don",
+    "start": 350.098,
+    "end": 350.203
+  },
+  {
+    "word": "t",
+    "start": 350.238,
+    "end": 350.261
+  },
+  {
+    "word": "match",
+    "start": 350.307,
+    "end": 350.516
+  },
+  {
+    "word": "my",
+    "start": 350.574,
+    "end": 350.656
+  },
+  {
+    "word": "bag",
+    "start": 350.725,
+    "end": 351.085
+  },
+  {
+    "word": "They",
+    "start": 351.376,
+    "end": 351.526
+  },
+  {
+    "word": "wear",
+    "start": 351.561,
+    "end": 351.701
+  },
+  {
+    "word": "uniforms",
+    "start": 351.782,
+    "end": 352.235
+  },
+  {
+    "word": "at",
+    "start": 352.27,
+    "end": 352.339
+  },
+  {
+    "word": "school",
+    "start": 352.386,
+    "end": 352.746
+  },
+  {
+    "word": "What",
+    "start": 353.164,
+    "end": 353.326
+  },
+  {
+    "word": "are",
+    "start": 353.349,
+    "end": 353.431
+  },
+  {
+    "word": "you",
+    "start": 353.465,
+    "end": 353.535
+  },
+  {
+    "word": "wearing",
+    "start": 353.581,
+    "end": 353.976
+  },
+  {
+    "word": "I",
+    "start": 354.278,
+    "end": 354.336
+  },
+  {
+    "word": "love",
+    "start": 354.464,
+    "end": 354.638
+  },
+  {
+    "word": "your",
+    "start": 354.661,
+    "end": 354.777
+  },
+  {
+    "word": "hat",
+    "start": 354.835,
+    "end": 355.16
+  },
+  {
+    "word": "I",
+    "start": 356.031,
+    "end": 356.089
+  },
+  {
+    "word": "m",
+    "start": 356.147,
+    "end": 356.194
+  },
+  {
+    "word": "happy",
+    "start": 356.263,
+    "end": 356.542
+  },
+  {
+    "word": "today",
+    "start": 356.588,
+    "end": 356.983
+  },
+  {
+    "word": "She",
+    "start": 357.517,
+    "end": 357.657
+  },
+  {
+    "word": "doesn",
+    "start": 357.715,
+    "end": 357.924
+  },
+  {
+    "word": "t",
+    "start": 357.958,
+    "end": 357.982
+  },
+  {
+    "word": "feel",
+    "start": 358.028,
+    "end": 358.214
+  },
+  {
+    "word": "sad",
+    "start": 358.272,
+    "end": 358.527
+  },
+  {
+    "word": "anymore",
+    "start": 358.574,
+    "end": 359.096
+  },
+  {
+    "word": "Are",
+    "start": 359.572,
+    "end": 359.746
+  },
+  {
+    "word": "you",
+    "start": 359.781,
+    "end": 359.862
+  },
+  {
+    "word": "excited",
+    "start": 359.932,
+    "end": 360.338
+  },
+  {
+    "word": "about",
+    "start": 360.373,
+    "end": 360.559
+  },
+  {
+    "word": "the",
+    "start": 360.582,
+    "end": 360.652
+  },
+  {
+    "word": "trip",
+    "start": 360.687,
+    "end": 360.977
+  },
+  {
+    "word": "He",
+    "start": 361.569,
+    "end": 361.685
+  },
+  {
+    "word": "feels",
+    "start": 361.743,
+    "end": 361.999
+  },
+  {
+    "word": "nervous",
+    "start": 362.068,
+    "end": 362.405
+  },
+  {
+    "word": "before",
+    "start": 362.463,
+    "end": 362.718
+  },
+  {
+    "word": "exams",
+    "start": 362.753,
+    "end": 363.264
+  },
+  {
+    "word": "We",
+    "start": 363.879,
+    "end": 364.019
+  },
+  {
+    "word": "aren",
+    "start": 364.065,
+    "end": 364.193
+  },
+  {
+    "word": "t",
+    "start": 364.228,
+    "end": 364.251
+  },
+  {
+    "word": "worried",
+    "start": 364.286,
+    "end": 364.565
+  },
+  {
+    "word": "about",
+    "start": 364.588,
+    "end": 364.808
+  },
+  {
+    "word": "it",
+    "start": 364.855,
+    "end": 365.006
+  },
+  {
+    "word": "Why",
+    "start": 365.598,
+    "end": 365.784
+  },
+  {
+    "word": "are",
+    "start": 365.83,
+    "end": 365.935
+  },
+  {
+    "word": "you",
+    "start": 365.969,
+    "end": 366.051
+  },
+  {
+    "word": "angry",
+    "start": 366.144,
+    "end": 366.596
+  },
+  {
+    "word": "I",
+    "start": 366.863,
+    "end": 366.933
+  },
+  {
+    "word": "m",
+    "start": 366.98,
+    "end": 367.014
+  },
+  {
+    "word": "not",
+    "start": 367.061,
+    "end": 367.2
+  },
+  {
+    "word": "tired",
+    "start": 367.247,
+    "end": 367.595
+  },
+  {
+    "word": "yet",
+    "start": 367.63,
+    "end": 367.885
+  },
+  {
+    "word": "They",
+    "start": 368.442,
+    "end": 368.605
+  },
+  {
+    "word": "feel",
+    "start": 368.663,
+    "end": 368.849
+  },
+  {
+    "word": "surprised",
+    "start": 368.907,
+    "end": 369.418
+  },
+  {
+    "word": "by",
+    "start": 369.464,
+    "end": 369.557
+  },
+  {
+    "word": "the",
+    "start": 369.603,
+    "end": 369.673
+  },
+  {
+    "word": "news",
+    "start": 369.731,
+    "end": 370.068
+  },
+  {
+    "word": "Do",
+    "start": 370.625,
+    "end": 370.741
+  },
+  {
+    "word": "you",
+    "start": 370.799,
+    "end": 370.881
+  },
+  {
+    "word": "feel",
+    "start": 370.939,
+    "end": 371.124
+  },
+  {
+    "word": "better",
+    "start": 371.194,
+    "end": 371.438
+  },
+  {
+    "word": "now",
+    "start": 371.496,
+    "end": 371.693
+  },
+  {
+    "word": "I",
+    "start": 372.088,
+    "end": 372.146
+  },
+  {
+    "word": "love",
+    "start": 372.274,
+    "end": 372.483
+  },
+  {
+    "word": "this",
+    "start": 372.518,
+    "end": 372.657
+  },
+  {
+    "word": "feeling",
+    "start": 372.715,
+    "end": 373.063
+  },
+  {
+    "word": "I",
+    "start": 373.481,
+    "end": 373.539
+  },
+  {
+    "word": "plan",
+    "start": 373.655,
+    "end": 373.864
+  },
+  {
+    "word": "to",
+    "start": 373.922,
+    "end": 373.969
+  },
+  {
+    "word": "study",
+    "start": 374.015,
+    "end": 374.305
+  },
+  {
+    "word": "tonight",
+    "start": 374.364,
+    "end": 374.735
+  },
+  {
+    "word": "She",
+    "start": 375.35,
+    "end": 375.478
+  },
+  {
+    "word": "doesn",
+    "start": 375.536,
+    "end": 375.745
+  },
+  {
+    "word": "t",
+    "start": 375.78,
+    "end": 375.815
+  },
+  {
+    "word": "intend",
+    "start": 375.861,
+    "end": 376.128
+  },
+  {
+    "word": "to",
+    "start": 376.175,
+    "end": 376.221
+  },
+  {
+    "word": "move",
+    "start": 376.291,
+    "end": 376.697
+  },
+  {
+    "word": "Are",
+    "start": 377.196,
+    "end": 377.347
+  },
+  {
+    "word": "you",
+    "start": 377.382,
+    "end": 377.452
+  },
+  {
+    "word": "going",
+    "start": 377.498,
+    "end": 377.684
+  },
+  {
+    "word": "to",
+    "start": 377.719,
+    "end": 377.765
+  },
+  {
+    "word": "join",
+    "start": 377.835,
+    "end": 378.055
+  },
+  {
+    "word": "us",
+    "start": 378.125,
+    "end": 378.311
+  },
+  {
+    "word": "He",
+    "start": 378.961,
+    "end": 379.089
+  },
+  {
+    "word": "intends",
+    "start": 379.158,
+    "end": 379.553
+  },
+  {
+    "word": "to",
+    "start": 379.611,
+    "end": 379.681
+  },
+  {
+    "word": "start",
+    "start": 379.739,
+    "end": 379.971
+  },
+  {
+    "word": "a",
+    "start": 380.006,
+    "end": 380.029
+  },
+  {
+    "word": "business",
+    "start": 380.087,
+    "end": 380.552
+  },
+  {
+    "word": "We",
+    "start": 380.9,
+    "end": 381.028
+  },
+  {
+    "word": "aren",
+    "start": 381.074,
+    "end": 381.202
+  },
+  {
+    "word": "t",
+    "start": 381.225,
+    "end": 381.26
+  },
+  {
+    "word": "planning",
+    "start": 381.295,
+    "end": 381.631
+  },
+  {
+    "word": "any",
+    "start": 381.666,
+    "end": 381.805
+  },
+  {
+    "word": "trips",
+    "start": 381.864,
+    "end": 382.27
+  },
+  {
+    "word": "What",
+    "start": 382.665,
+    "end": 382.839
+  },
+  {
+    "word": "are",
+    "start": 382.862,
+    "end": 382.955
+  },
+  {
+    "word": "your",
+    "start": 382.978,
+    "end": 383.083
+  },
+  {
+    "word": "intentions",
+    "start": 383.117,
+    "end": 383.744
+  },
+  {
+    "word": "I",
+    "start": 384.278,
+    "end": 384.336
+  },
+  {
+    "word": "m",
+    "start": 384.383,
+    "end": 384.429
+  },
+  {
+    "word": "not",
+    "start": 384.476,
+    "end": 384.615
+  },
+  {
+    "word": "going",
+    "start": 384.673,
+    "end": 384.859
+  },
+  {
+    "word": "to",
+    "start": 384.894,
+    "end": 384.94
+  },
+  {
+    "word": "quit",
+    "start": 385.01,
+    "end": 385.323
+  },
+  {
+    "word": "They",
+    "start": 385.834,
+    "end": 385.985
+  },
+  {
+    "word": "plan",
+    "start": 386.043,
+    "end": 386.252
+  },
+  {
+    "word": "to",
+    "start": 386.31,
+    "end": 386.357
+  },
+  {
+    "word": "visit",
+    "start": 386.403,
+    "end": 386.647
+  },
+  {
+    "word": "Europe",
+    "start": 386.705,
+    "end": 387.146
+  },
+  {
+    "word": "Will",
+    "start": 387.576,
+    "end": 387.75
+  },
+  {
+    "word": "you",
+    "start": 387.796,
+    "end": 387.866
+  },
+  {
+    "word": "join",
+    "start": 387.924,
+    "end": 388.098
+  },
+  {
+    "word": "the",
+    "start": 388.133,
+    "end": 388.203
+  },
+  {
+    "word": "meeting",
+    "start": 388.237,
+    "end": 388.551
+  },
+  {
+    "word": "I",
+    "start": 389.422,
+    "end": 389.491
+  },
+  {
+    "word": "intend",
+    "start": 389.607,
+    "end": 389.886
+  },
+  {
+    "word": "to",
+    "start": 389.932,
+    "end": 389.979
+  },
+  {
+    "word": "learn",
+    "start": 390.025,
+    "end": 390.211
+  },
+  {
+    "word": "French",
+    "start": 390.281,
+    "end": 390.629
+  },
+  {
+    "word": "We",
+    "start": 391.221,
+    "end": 391.349
+  },
+  {
+    "word": "celebrate",
+    "start": 391.407,
+    "end": 391.825
+  },
+  {
+    "word": "Christmas",
+    "start": 391.86,
+    "end": 392.231
+  },
+  {
+    "word": "together",
+    "start": 392.289,
+    "end": 392.684
+  }
+]
